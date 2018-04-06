@@ -11,6 +11,7 @@ general {
         interval = 5
 }
 
+order += "volume master"
 order += "ipv6"
 order += "disk /"
 order += "wireless _first_"
@@ -18,6 +19,13 @@ order += "ethernet _first_"
 order += "battery all"
 order += "load"
 order += "tztime local"
+
+volume master {
+        format = "%volume ♪"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
 
 ipv6 {
      # is format_up still default?
