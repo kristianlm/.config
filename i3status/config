@@ -19,6 +19,11 @@ order += "battery all"
 order += "load"
 order += "tztime local"
 
+ipv6 {
+     # is format_up still default?
+     format_down = ""
+}
+
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
         format_down = "W: down"
