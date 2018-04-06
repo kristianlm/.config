@@ -17,6 +17,7 @@
 (installed 'magit)
 (installed 'paredit)
 (installed 'web-mode)
+(installed 'js2-mode)
 (installed 'git-link)
 (installed 'paren-face)
 (installed 'railscasts-reloaded-theme)
@@ -24,6 +25,10 @@
 (installed 'window-numbering)
 (installed 'highlight-symbol)
 (installed 'idle-highlight-mode)
+(installed 'markdown-mode)
+(installed 'clojure-mode)
+(installed 'inf-clojure)
+(installed 'helm-ag)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
