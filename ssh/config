@@ -1,4 +1,24 @@
 
+# reuse existing ssh sessions
+
+Host *
+     ControlMaster auto
+     ControlPath /home/klm/.tmp/%r@%h:%p
+
+# ==================== hosts ====================
+
 Host fp2
      Port 8022
      User u0_a12
+
+Host adellica.com
+  Port 24024
+
+Host minside.adellica.com
+  Port 24024
+
+Host smartcity.adellica.com
+  User root
+
+Host friskus.com
+  User socieqqz
