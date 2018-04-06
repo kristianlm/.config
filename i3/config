@@ -218,3 +218,4 @@ bindsym XF86HomePage exec xoffice
 bindsym XF86AudioMicMute exec echo test >> /tmp/testing
 
 for_window [title=".*floating.*"] floating enable
+for_window [title="emacs@kth"] border none
