@@ -1,0 +1,2 @@
+
+set -gx EDITOR zile
