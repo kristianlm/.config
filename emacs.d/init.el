@@ -29,6 +29,7 @@
 (installed 'clojure-mode)
 (installed 'inf-clojure)
 (installed 'helm-ag)
+(installed 'fish-mode)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
