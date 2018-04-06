@@ -197,10 +197,10 @@ bindsym $mod+g exec "i3-msg border toggle"
 bindsym $mod+U exec "i3lock -e -c 101010"
 
 set $volcmd amixer sset Master Playback
-bindsym XF86AudioRaiseVolume "exec sh -c \"$volcmd -- 5%+ && killall -SIGUSR1 i3status\""
-bindsym XF86AudioLowerVolume "exec sh -c \"$volcmd -- 5%- && killall -SIGUSR1 i3status\""
-bindsym $mod+KP_Add          "exec sh -c \"$volcmd -- 5%+ && killall -SIGUSR1 i3status\""
-bindsym $mod+KP_Subtract     "exec sh -c \"$volcmd -- 5%- && killall -SIGUSR1 i3status\""
+bindsym XF86AudioRaiseVolume "exec sh -c \"$volcmd -- 5%+ && pkill -USR1 i3status\""
+bindsym XF86AudioLowerVolume "exec sh -c \"$volcmd -- 5%- && pkill -USR1 i3status\""
+bindsym $mod+KP_Add          "exec sh -c \"$volcmd -- 5%+ && pkill -USR1 i3status\""
+bindsym $mod+KP_Subtract     "exec sh -c \"$volcmd -- 5%- && pkill -USR1 i3status\""
 
 bindsym $mod+q exec i3-input -F 'rename workspace to "%s"' -P 'rename workspace: '
 
