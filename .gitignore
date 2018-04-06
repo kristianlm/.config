@@ -8,3 +8,5 @@
 /chromium/
 /dconf/
 /emacs.d/auto-save-list/
+/ssh/id_ed25519
+/emacs.d/tramp
