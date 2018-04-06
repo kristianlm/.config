@@ -2,10 +2,28 @@
 ;; I don't need the tutorial anymore
 (setq inhibit-startup-message t)
 
+
+;; ==================== packages ====================
 (require 'package)
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+
+(defun installed (p)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(installed 'paredit)
+(installed 'magit)
+(installed 'paredit)
+(installed 'web-mode)
+(installed 'git-link)
+(installed 'paren-face)
+(installed 'railscasts-reloaded-theme)
+(installed 'multiple-cursors)
+(installed 'window-numbering)
+(installed 'highlight-symbol)
+(installed 'idle-highlight-mode)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
