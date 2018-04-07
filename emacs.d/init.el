@@ -103,6 +103,10 @@
 (setq helm-ag-insert-at-point t)
 (global-set-key (kbd "M-C-.") 'helm-do-ag-project-root)
 
+;; I open gitk _a lot_
+(global-set-key (kbd "C-M-&")
+                (lambda () (interactive)
+		  (async-shell-command "gitk --all" nil nil)))
 
 ;; ==================== major modes ====================
 
