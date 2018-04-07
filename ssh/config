@@ -5,6 +5,9 @@ Host *
      ControlMaster auto
      ControlPath /home/klm/.tmp/%r@%h:%p
 
+# don't want to run ssh-add all the time
+AddKeysToAgent yes
+
 # ==================== hosts ====================
 
 Host fp2
