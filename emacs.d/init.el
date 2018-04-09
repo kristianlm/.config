@@ -30,6 +30,7 @@
 (installed 'inf-clojure)
 (installed 'helm-ag)
 (installed 'fish-mode)
+(installed 'git-gutter)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -39,6 +40,7 @@
 
 (window-numbering-mode) ;; M-1...8
 (ido-mode)
+(global-git-gutter-mode)
 
 ;; now save file visits between emacs restarts
 ;; see https://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/
