@@ -49,6 +49,7 @@
 ;; dim parenthesis so non-Lispers don't freak out
 (require 'paren-face)
 (global-paren-face-mode t)
+(set-face-attribute 'parenthesis nil :foreground "#777")
 
 (require 'dired-x) ;; jump to file with C-x C-j
 
