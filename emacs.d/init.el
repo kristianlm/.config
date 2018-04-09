@@ -66,6 +66,10 @@
 ;; ==================== looks ====================
 
 (load-theme 'base16-eighties t)
+(set-face-attribute 'default     nil
+		    :family "Source Code Pro"
+		    :foundry "ADBO"
+		    :height 98)
 
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
