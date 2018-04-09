@@ -49,7 +49,6 @@
 ;; dim parenthesis so non-Lispers don't freak out
 (require 'paren-face)
 (global-paren-face-mode t)
-(set-face-attribute 'parenthesis nil :foreground "#777")
 
 (require 'dired-x) ;; jump to file with C-x C-j
 
@@ -70,6 +69,9 @@
 		    :family "Source Code Pro"
 		    :foundry "ADBO"
 		    :height 98)
+
+(set-face-attribute 'parenthesis nil :foreground "#777")
+
 
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
