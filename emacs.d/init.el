@@ -20,7 +20,7 @@
 (installed 'js2-mode)
 (installed 'git-link)
 (installed 'paren-face)
-(installed 'railscasts-reloaded-theme)
+(installed 'base16-theme)
 (installed 'multiple-cursors)
 (installed 'window-numbering)
 (installed 'highlight-symbol)
@@ -65,12 +65,7 @@
 
 ;; ==================== looks ====================
 
-;; purple is nice because it makes it easy to find
-(set-face-attribute 'cursor             nil :background "#FF55FF")
-;; the railscasts theme is beutiful but confusing mode-line colors
-(set-face-attribute 'mode-line          nil :background "#555" :foreground "#DDD")
-(set-face-attribute 'mode-line-inactive nil :background "#353535" :foreground "#666")
-
+(load-theme 'base16-eighties t)
 
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
