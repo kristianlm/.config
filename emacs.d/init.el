@@ -69,6 +69,7 @@
 		    :family "Source Code Pro"
 		    :foundry "ADBO"
 		    :height 98)
+(set-fringe-mode '(4 . 8)) ;; pixels (right . left)
 
 (set-face-attribute 'parenthesis nil :foreground "#777")
 
