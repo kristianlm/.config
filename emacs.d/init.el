@@ -118,6 +118,8 @@
 (global-set-key (kbd "C-M->") 'mc/unmark-next-like-this)
 (global-set-key (kbd "C-M-<") 'mc/unmark-previous-like-this)
 
+(global-set-key (kbd "s-b") 'recompile)
+
 (setq helm-ag-insert-at-point t)
 (global-set-key (kbd "M-C-.") 'helm-do-ag-project-root)
 
