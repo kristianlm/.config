@@ -74,8 +74,19 @@
 		    :height 98)
 (set-fringe-mode '(4 . 8)) ;; pixels (right . left)
 
+;; dim parenthesis
 (set-face-attribute 'parenthesis nil :foreground "#777")
 
+;; highlight matching parens
+(show-paren-mode)
+(set-face-attribute 'show-paren-match nil
+		    :background (face-background 'default)
+		    :foreground "#0f0"
+		    :weight 'extra-bold)
+(set-face-attribute 'show-paren-mismatch nil
+		    :background (face-background 'default)
+		    :foreground "#f00"
+		    :weight 'extra-bold)
 
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
