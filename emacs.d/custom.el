@@ -12,7 +12,6 @@
  '(custom-safe-themes
    (quote
     ("5f2f2686307e101aeb00fe95adaa1b28b57b808f2bc8a0c1529d9118ff224c80" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" default)))
- '(ido-enable-flex-matching t)
  '(menu-bar-mode nil)
  '(nrepl-message-colors
    (quote

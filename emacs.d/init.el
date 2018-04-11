@@ -31,6 +31,7 @@
 (installed 'helm-ag)
 (installed 'fish-mode)
 (installed 'git-gutter)
+(installed 'ivy)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -39,14 +40,14 @@
 (load custom-file)
 
 (window-numbering-mode) ;; M-1...8
-(ido-mode)
-(global-git-gutter-mode)
+(ivy-mode)
+(setq ivy-use-virtual-buffers t)
 
 ;; now save file visits between emacs restarts
-;; see https://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/
+;; see https://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/ and gthis is
+;(setq ido-use-virtual-buffers t)
 (setq-default history-length 1000)
 (savehist-mode t)
-(setq ido-use-virtual-buffers t)
 
 ;; dim parenthesis so non-Lispers don't freak out
 (require 'paren-face)
