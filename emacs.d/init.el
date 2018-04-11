@@ -88,6 +88,15 @@
 		    :foreground "#f00"
 		    :weight 'extra-bold)
 
+;; color compilation buffer too
+;; http://stackoverflow.com/questions/3072648
+(require 'ansi-color)
+(defun my-colorize-compilation-buffer ()
+  (when (eq major-mode 'compilation-mode)
+    (ansi-color-apply-on-region compilation-filter-start (point-max))))
+(add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
+
+
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
