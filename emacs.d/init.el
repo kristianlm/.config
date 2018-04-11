@@ -103,7 +103,7 @@
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (scroll-up -4)))
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "C-x t") 'toggle-truncate-lines)
+(global-set-key (kbd "C-c C-o") 'toggle-truncate-lines)
 
 (require 'highlight-symbol)
 (global-set-key (kbd "M-N") 'highlight-symbol-next)
