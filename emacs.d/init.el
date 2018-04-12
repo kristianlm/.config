@@ -131,6 +131,7 @@
 
 (global-set-key (kbd "s-b") 'recompile)
 
+;; helm-ag
 (setq helm-ag-insert-at-point t)
 (global-set-key (kbd "M-C-.") 'helm-do-ag-project-root)
 
