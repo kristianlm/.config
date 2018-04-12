@@ -118,7 +118,9 @@
 (global-set-key (kbd "M-N") 'highlight-symbol-next)
 (global-set-key (kbd "M-P") 'highlight-symbol-prev)
 
+;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
+(setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 
 (require 'multiple-cursors)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
