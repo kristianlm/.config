@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# == 0 ] ; then
+    echo 'usage: <ffmpeg-options>'
+    echo '   interactively select screen rectangle and live record'
+    echo ''
+    echo 'for example: '
+    echo '     -f alsa -i pulse  -r:v 302 -c:v h264 -crf 0 -preset ultrafast /tmp/ss.mkv';
+    exit -1;
+fi
+
+read -r X Y W H G ID < <(slop -k -f "%x %y %w %h %g %i")
+ffmpeg -hide_banner -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y $@

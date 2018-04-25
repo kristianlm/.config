@@ -1,0 +1,4 @@
+#!/bin/sh
+xrandr --output VGA-1 --off
+xrandr --output LVDS-1 --auto
+xrandr --output DP-1 --off

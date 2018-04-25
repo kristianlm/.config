@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -f /sys/class/power_supply/BAT0/power_now ] ; then
+  	power=$(cat /sys/class/power_supply/BAT0/power_now)
+	echo TODO $(( power / 1000000))W
+elif [ -f /sys/class/power_supply/BAT0/current_now ] ; then
+  	current=$(cat /sys/class/power_supply/BAT0/current_now)
+	voltage=$(cat /sys/class/power_supply/BAT0/voltage_now)
+	echo $(( current / 1000000 * voltage / 1000000))W
+else 
+	echo problem
+fi
