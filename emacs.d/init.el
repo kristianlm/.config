@@ -43,6 +43,8 @@
 (ivy-mode)
 (setq ivy-use-virtual-buffers t)
 
+(setq pop-up-windows nil) ;; don't open new windows
+
 ;; now save file visits between emacs restarts
 ;; see https://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/ and gthis is
 ;(setq ido-use-virtual-buffers t)
@@ -52,6 +54,10 @@
 ;; dim parenthesis so non-Lispers don't freak out
 (require 'paren-face)
 (global-paren-face-mode t)
+
+(global-git-gutter-mode)
+;;(global-diff-hl-mode)
+;;(setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
 
 (require 'dired-x) ;; jump to file with C-x C-j
 
