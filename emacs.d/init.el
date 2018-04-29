@@ -146,7 +146,7 @@
 (global-set-key (kbd "s-b") 'recompile)
 
 ;; helm-ag
-(setq helm-ag-insert-at-point t)
+(setq helm-ag-insert-at-point 'symbol)
 (global-set-key (kbd "M-C-.") 'helm-do-ag-project-root)
 
 ;; I open gitk _a lot_
