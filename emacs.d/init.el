@@ -94,6 +94,14 @@
 		    :foreground "#f00"
 		    :weight 'extra-bold)
 
+;; show lambda as λ etc
+(global-prettify-symbols-mode 1)
+(defun my-pretty-lambda ()
+  (setq prettify-symbols-alist
+        '(("lambda" . 955)))) ;; λ
+
+(add-hook 'scheme-mode-hook 'my-pretty-lambda)
+
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
 (require 'ansi-color)
