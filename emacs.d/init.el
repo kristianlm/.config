@@ -43,6 +43,14 @@
 (ivy-mode)
 (setq ivy-use-virtual-buffers t)
 
+;; insert-char with ivy doesn't show the actual unicode symbol
+(defun my-insert-char ()
+  (interactive)
+  (let ((completing-read-function 'completing-read-default)
+	(completion-in-region-function 'completion--in-region))
+    (call-interactively 'insert-char)))
+(global-set-key (kbd "C-x 8 RET") 'my-insert-char)
+
 (setq pop-up-windows nil) ;; don't open new windows
 
 ;; now save file visits between emacs restarts
