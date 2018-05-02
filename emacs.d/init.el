@@ -89,6 +89,7 @@
 		    :height 98)
 (set-fringe-mode '(4 . 8)) ;; pixels (right . left)
 
+(set-face-attribute 'region nil :background "#910151")
 ;; dim parenthesis
 (set-face-attribute 'parenthesis nil :foreground "#777")
 
