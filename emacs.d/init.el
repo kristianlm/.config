@@ -32,6 +32,7 @@
 (installed 'fish-mode)
 (installed 'git-gutter)
 (installed 'ivy)
+(installed 'dockerfile-mode)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
