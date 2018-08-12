@@ -106,6 +106,7 @@
 		    :foreground "#f00"
 		    :weight 'extra-bold)
 
+(load (concat user-emacs-directory "./chicken.el"))
 
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
