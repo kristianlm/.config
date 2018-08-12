@@ -165,6 +165,9 @@
 
 ;; ==================== major modes ====================
 
+;; *Never* insert tabs, Emacs!
+(setq-default indent-tabs-mode nil)
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
