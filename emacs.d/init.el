@@ -33,6 +33,7 @@
 (installed 'git-gutter)
 (installed 'ivy)
 (installed 'dockerfile-mode)
+(installed 'imenu-anywhere)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -163,6 +164,8 @@
 (global-set-key (kbd "C-M-&")
                 (lambda () (interactive)
 		  (async-shell-command "gitk --all" nil nil)))
+
+(global-set-key (kbd "C-S-i") 'imenu-anywhere)
 
 ;; ==================== major modes ====================
 
