@@ -18,7 +18,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (fish-mode helm-ag web-mode railscasts-reloaded-theme paren-face multiple-cursors git-link magit zenburn-theme highlight-symbol idle-highlight-mode paredit paredit-everywhere window-numbering)))
+    (imenu-anywhere avy counsel ivy-hydra dockerfile-mode docker-mode flylisp highlight-parenthesis highlight-parent highlight-paren ivy giff-hl git-hl moe-theme base16-theme fish-mode helm-ag web-mode railscasts-reloaded-theme paren-face multiple-cursors git-link magit zenburn-theme highlight-symbol idle-highlight-mode paredit paredit-everywhere window-numbering)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(save-place t)
  '(scroll-bar-mode nil)
