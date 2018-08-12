@@ -168,3 +168,50 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+;; ==== c-mode
+(setq c-default-style "linux"
+      c-basic-offset 2)
+
+
+;; ==================== playing with numbers ====================
+(defun char->int (str)
+  (interactive
+   (let ((str (read-string "Foo: " nil 'history:char->int)))
+     (list str)))
+  (message (mapconcat (lambda (x) (format "%c:0x%0x/%d" x x x)) str "\n")))
+
+(defun int->char (str)
+  (interactive
+   (let ((str (read-string "int: " nil 'history:int->char)))
+     (list str)))
+  (message (mapconcat (lambda (x) (format "%c:0x%0x/%d" x x x)) str "\n")))
+
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
+
+(defun scheme-send-buffer ()
+  (interactive)
+  (scheme-send-region (point-min) (point-max)))
+
+(add-hook 'scheme-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "M-RET") 'scheme-send-buffer)))
+
+;; ==================== dedicated window toggle ====================
+;; useful when I want to overlay an external window over my running
+;; emacs. I create a dummy buffer and lay it out just underneath this
+;; external window, then dedicate that buffer. now nothing important
+;; will popup in my invisible region.
+(defun toggle-current-window-dedication ()
+  (interactive)
+  (let* ((window    (selected-window))
+         (dedicated (window-dedicated-p window)))
+    (set-window-dedicated-p window (not dedicated))
+    (message "Window %sdedicated to %s"
+             (if dedicated "no longer " "")
+             (buffer-name))))
+
+(global-set-key [pause] 'toggle-current-window-dedication)
