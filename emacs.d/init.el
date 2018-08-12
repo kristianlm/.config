@@ -140,6 +140,9 @@
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
 (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+;;(setq magit-display-buffer-function 'magit-display-buffer-traditional)
+;;(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; didn't work
+
 
 (require 'multiple-cursors)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
