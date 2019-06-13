@@ -132,10 +132,10 @@ bar {
            background #252525
            statusline #e0e0e0
     }
-    output LVDS-1
+    #output LVDS-1
     #output DP1
-    output VGA-1
-    output HDMI-1
+    #output VGA-1
+    #output HDMI-1
 }
 
 # screenshot
