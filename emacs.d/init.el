@@ -1,6 +1,8 @@
 
 ;; I don't need the tutorial anymore
 (setq inhibit-startup-message t)
+(setq visible-bell 1) ;; get rid of that annoying sound
+
 
 
 ;; ==================== packages ====================
@@ -9,6 +11,7 @@
 (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+;; problems installing packages? try M-x package-refresh-contents
 (defun installed (p)
   (when (not (package-installed-p p))
     (package-install p)))
