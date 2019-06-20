@@ -12,3 +12,4 @@
 /emacs.d/tramp
 /htop/
 /systemd/user/default.target.wants/ssh-agent.service
+/fish/fish_variables
