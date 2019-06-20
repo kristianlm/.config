@@ -36,5 +36,7 @@ fi
 
 xset -b
 # xsetroot -cursor_name left_ptr # change mouse cursor
+# xrandr --output HDMI-0 --mode 3840x2160 --rate 59.94
 
+setxkbmap us -variant mac -option ctrl:nocaps
 exec i3
