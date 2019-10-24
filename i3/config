@@ -158,8 +158,8 @@ bindsym $mod+Shift+Tab move workspace to output left
 bindsym $mod+i focus output left
 bindsym $mod+Shift+i move workspace to output left
 
-bindsym $mod+y bar mode invisible bar-2
-bindsym $mod+t bar mode dock bar-2
+bindsym $mod+Shift+t bar mode invisible bar-1
+bindsym $mod+t bar mode dock bar-1
 
 # multi monitor setup
 bindsym XF86Launch1 exec xlvds
