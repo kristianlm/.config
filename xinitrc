@@ -34,9 +34,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xset -b
+xset -b # no bell
+
+# keyboard
+xset r rate 150 40
+setxkbmap us -variant mac -option ctrl:nocaps
+
+# screen
+xset s off
+xset dpms 14400 14400 14400
+
 # xsetroot -cursor_name left_ptr # change mouse cursor
 # xrandr --output HDMI-0 --mode 3840x2160 --rate 59.94
 
-setxkbmap us -variant mac -option ctrl:nocaps
 exec i3
