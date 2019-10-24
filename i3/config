@@ -98,7 +98,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+g exec "i3-msg border toggle"
 
-bindsym $mod+U exec "i3lock -e -c 101010"
+bindsym $mod+y exec "i3lock -e -c 101010 -t -i '/usr/share/wallpaper/lock.png'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
