@@ -168,4 +168,4 @@ bindsym XF86AudioMicMute exec echo test >> /tmp/testing
 
 # customize special cases
 for_window [title=".*floating.*"] floating enable
-for_window [title="emacs@kth"] border none
+for_window [title="emacs@.*"] border none
