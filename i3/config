@@ -166,6 +166,9 @@ bindsym XF86Launch1 exec xlvds
 bindsym XF86HomePage exec xoffice
 bindsym XF86AudioMicMute exec echo test >> /tmp/testing
 
+bindsym XF86MonBrightnessDown exec brightnessctl set  10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+
 # customize special cases
 for_window [title=".*floating.*"] floating enable
 for_window [title="emacs@.*"] border none
