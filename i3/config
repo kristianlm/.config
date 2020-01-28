@@ -11,7 +11,8 @@ bindsym $mod+Return exec lxterminal
 bindsym $mod+Shift+Return exec gnome-terminal -e tmux
 # bindsym $mod+Return exec xterm
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu_run -i -l 35 -b'
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu_run -i -l 35 -b'
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
