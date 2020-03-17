@@ -38,6 +38,7 @@
 (installed 'dockerfile-mode)
 (installed 'avy)
 (installed 'imenu-anywhere)
+(installed 'iedit)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -225,3 +226,5 @@
              (buffer-name))))
 
 (global-set-key [pause] 'toggle-current-window-dedication)
+
+(require 'iedit)
