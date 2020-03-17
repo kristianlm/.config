@@ -42,7 +42,7 @@ setxkbmap us -variant mac -option ctrl:nocaps
 
 # screen
 xset s off
-xset dpms 14400 14400 14400
+xset dpms 5600 5600 5600
 
 # xsetroot -cursor_name left_ptr # change mouse cursor
 # xrandr --output HDMI-0 --mode 3840x2160 --rate 59.94
