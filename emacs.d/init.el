@@ -227,4 +227,10 @@
 
 (global-set-key [pause] 'toggle-current-window-dedication)
 
+;; https://github.com/bhauman/lein-figwheel/wiki/Running-figwheel-with-Emacs-Inferior-Clojure-Interaction-Mode
+(defun run-figwheel ()
+  (interactive)
+  (inf-clojure "lein figwheel"))
+
+(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 (require 'iedit)
