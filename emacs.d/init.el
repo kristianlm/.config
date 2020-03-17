@@ -234,3 +234,6 @@
 
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 (require 'iedit)
+
+;; start server unless in a terminal
+(if window-system (server-start))
