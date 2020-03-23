@@ -37,7 +37,7 @@ fi
 xset -b # no bell
 
 # keyboard
-xset r rate 150 40
+xset r rate 200 60
 setxkbmap us -variant mac -option ctrl:nocaps
 
 # screen
