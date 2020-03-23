@@ -128,7 +128,7 @@ bar {
     id bar-1
     status_command exec i3status # /home/klm/opt/i3status/contrib/net-speed.sh
     mode dock
-    position bottom
+    position top
     colors {
            background #252525
            statusline #e0e0e0
