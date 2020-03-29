@@ -38,6 +38,7 @@ xset -b # no bell
 
 # keyboard
 xset r rate 200 60
+sudo localectl --no-convert set-x11-keymap us "" mac ctrl:nocaps
 setxkbmap us -variant mac -option ctrl:nocaps
 
 # screen
