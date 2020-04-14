@@ -145,11 +145,11 @@ bindsym $mod+Shift+x exec "maim | xclip -selection clipboard -t image/png 2>>/tm
 bindsym $mod+z exec "xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
 
 # volume
-set $volcmd amixer sset Master Playback
-bindsym XF86AudioRaiseVolume "exec sh -c \"$volcmd -- 5%+ && pkill -USR1 i3status\""
-bindsym XF86AudioLowerVolume "exec sh -c \"$volcmd -- 5%- && pkill -USR1 i3status\""
-bindsym $mod+KP_Add          "exec sh -c \"$volcmd -- 5%+ && pkill -USR1 i3status\""
-bindsym $mod+KP_Subtract     "exec sh -c \"$volcmd -- 5%- && pkill -USR1 i3status\""
+set $volcmd pulsemixer --change-volume
+bindsym XF86AudioRaiseVolume exec "$volcmd +5"
+bindsym XF86AudioLowerVolume exec "$volcmd -5"
+bindsym $mod+KP_Add          exec "$volcmd +5"
+bindsym $mod+KP_Subtract     exec "$volcmd -5"
 
 bindsym $mod+q exec i3-input -F 'rename workspace to "%s"' -P 'rename workspace: '
 
