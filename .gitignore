@@ -10,6 +10,7 @@
 /dconf/
 /emacs.d/auto-save-list/
 /ssh/id_ed25519
+/ssh/id_ed25519.pub
 /emacs.d/tramp
 /htop/
 /systemd/user/default.target.wants/ssh-agent.service
