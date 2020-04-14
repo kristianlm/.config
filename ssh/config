@@ -29,3 +29,7 @@ Host smartcity.adellica.com
 
 Host friskus.com
   User socieqqz
+
+Host karl
+	User root
+	Port 21725
