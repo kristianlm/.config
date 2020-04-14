@@ -230,7 +230,7 @@
 ;; https://github.com/bhauman/lein-figwheel/wiki/Running-figwheel-with-Emacs-Inferior-Clojure-Interaction-Mode
 (defun run-figwheel ()
   (interactive)
-  (inf-clojure "lein figwheel"))
+  (inf-clojure "clojure -A:dev"))
 
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 (require 'iedit)
