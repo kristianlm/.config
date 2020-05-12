@@ -89,10 +89,15 @@
 ;; ==================== looks ====================
 
 (load-theme 'base16-eighties t)
+;; (set-face-attribute 'default     nil
+;; 		    :family "Source Code Pro"
+;; 		    :foundry "ADBO"
+;; 		    :height 98)
 (set-face-attribute 'default     nil
-		    :family "Source Code Pro"
-		    :foundry "ADBO"
-		    :height 98)
+                    :family "Noto Sans Mono"
+                    :height 98
+                    :width 'condensed
+                    :foundry "ADBO")
 (set-fringe-mode '(4 . 8)) ;; pixels (right . left)
 
 (set-face-attribute 'region nil :background "#910151")
