@@ -178,6 +178,6 @@ for_window [title="emacs@.*"] border none
 # assign [class="^Emacs$"] 1
 
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/emacs'
-exec --no-startup-id i3-msg 'workspace 2; layout tabbed; exec /usr/bin/firefox-developer-edition'
+exec --no-startup-id i3-msg 'workspace 2; layout tabbed; exec /usr/bin/chromium'
 exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/lxterminal ; layout stacked;'
 exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/lxterminal ; layout stacked'
