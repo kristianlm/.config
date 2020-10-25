@@ -100,6 +100,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+g exec "i3-msg border toggle"
 
 bindsym $mod+y exec "i3lock -e -c 101010 -t -i '/usr/share/wallpaper/lock.png'"
+bindsym $mod+Shift+y exec "sudo systemctl suspend"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
