@@ -7,3 +7,7 @@ This is just my personal stuff.
 ```
 $ ln -s ~/.config/emacs.d ~/.emacs.d
 ```
+
+## Misc
+
+[Diverse](diverse.md)
