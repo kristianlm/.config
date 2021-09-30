@@ -9,6 +9,7 @@ t=$1
 if [ "" = "$t" ] ; then
     echo "usage: amdgpu|vfio"
     echo "  give my GPU hardware to specifiec driver"
+    echo "  then run with env DRI_PRIME=1 glinfo | grep -i vendor"
     exit 0
 fi
 
