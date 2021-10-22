@@ -41,7 +41,7 @@ wireless _first_ {
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip (%speed)"
+        format_up = "%speed 🌐 %ip" # globe with meridians
         format_down = ""
 }
 
@@ -54,7 +54,7 @@ tztime local {
 }
 
 cpu_usage {
-        format = "❄ %usage"
+        format = "⏲ %usage"
 }
 
 cpu_temperature 0 {
