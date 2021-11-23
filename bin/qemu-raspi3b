@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# getting Alpine Linux for raspberry up and running with QEMU
+
+qemu-system-aarch64 -M raspi3b -dtb bcm2710-rpi-3-b.dtb \
+  -kernel boot/vmlinuz-rpi -initrd boot/initramfs-rpi \
+  -append "rw earlyprintk loglevel=8 console=ttyAMA0,115200 dwc_otg.lpm_enable=0 rootwait" \
+  -serial mon:stdio \
+  -sd rpi.cow \
+  -device usb-net,netdev=net0 -netdev user,id=net0,hostfwd=tcp::5555-:22 \
