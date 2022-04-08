@@ -1,0 +1,110 @@
+icons = "awesome5"
+
+[theme]
+name = "dracula"
+
+[theme.overrides]
+idle_bg = "#222222"
+idle_fg = "#e0e0e0"
+
+[[block]]
+block = "sound"
+# format = "{volume:5#110} {volume:3}"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{barchart} {utilization}"
+info = 20 # above this >, turns blue
+
+[[block]]
+block = "temperature"
+chip = "*-isa-*"
+format = "{average:1}"
+# collapsed = false
+good = 38
+idle = 41
+info = 55
+warning = 65
+
+[[block]]
+block = "temperature"
+chip = "amdgpu-*"
+format = "{average:1}"
+# inputs = ["junction"]
+# collapsed = false
+good = 35
+idle = 40
+info = 60
+warning = 75
+
+[[block]]
+block = "disk_space"
+path = "/"
+format = "{icon} {available}"
+unit = "GB"
+alert_absolute = true
+interval = 20
+warning = 8 # bg orange
+alert = 2 # bg red
+
+[[block]]
+block = "memory"
+display_type = "memory"
+icons = true
+format_mem = "{mem_used}"
+format_swap = "swap: {swap_used}"
+warning_mem = 60
+critical_mem = 80
+
+[[block]]
+block = "net"
+format = "{ip}{speed_up:5;M}{speed_down:5;M}"
+
+[[block]]
+block = "bluetooth"
+mac = "00:21:4F:20:E8:54" # dualshock
+format = "PS3 {percentage} (dual)"
+format_unavailable = "{label} x"
+hide_disconnected = false
+
+[[block]]
+block = "bluetooth"
+mac = "00:19:C1:46:5C:FB" # non-dualshock
+format = "PS3 {percentage} (non)"
+format_unavailable = "PS3 x"
+hide_disconnected = false
+
+[[block]]
+block = "time"
+interval = 1
+format = "%a %Y-%m-%d %H:%M:%S"
+
+[[block]]
+block = "xrandr"
+format = "{resolution}"
+
+# [[block]]
+# block = "toggle"
+# text = "4k"
+# command_state = "xrandr | grep '3840x2160     60.00\\*\\+'"
+# command_on = "4k"
+# command_off = "2k"
+# interval = 5
+
+# [[block]]
+# block = "custom"
+# command = "bash -e \"(xrandr | grep '3840x2160.*\\*') && echo 4k\"" # && echo 4k || echo 2k"
+
+# [[block]]
+# block = "custom"
+# cycle = ["echo ON", "echo OFF", "echo maybe"]
+# interval = 1
+
+# [[block]]
+# block = "toggle"
+# text = "4k"
+# command_state = "test -f /tmp/klm && echo there"
+# command_on = "touch /tmp/klm"
+# command_off = "rm /tmp/klm"
+# interval = 5
