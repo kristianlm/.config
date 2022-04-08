@@ -22,8 +22,8 @@ block = "temperature"
 chip = "*-isa-*"
 format = "{average:1}"
 # collapsed = false
-good = 38
-idle = 41
+good = 35
+idle = 40
 info = 55
 warning = 65
 
@@ -41,12 +41,18 @@ warning = 75
 [[block]]
 block = "disk_space"
 path = "/"
-format = "{icon} {available}"
+format = "{icon}{available}"
 unit = "GB"
 alert_absolute = true
-interval = 20
+interval = 3
 warning = 8 # bg orange
 alert = 2 # bg red
+
+[[block]]
+block = "custom"
+command = "printf '/paid ' ; df -BG /paid/ --output=avail | tail -n1"
+on_click = "sh -e 'sudo umount /paid ; mount.sshfs pisa:/raid/ /paid/'"
+interval = 6
 
 [[block]]
 block = "memory"
@@ -64,25 +70,25 @@ format = "{ip}{speed_up:5;M}{speed_down:5;M}"
 [[block]]
 block = "bluetooth"
 mac = "00:21:4F:20:E8:54" # dualshock
-format = "PS3 {percentage} (dual)"
-format_unavailable = "{label} x"
+format = "52"
+format_unavailable = "x" # doesn't work
 hide_disconnected = false
 
 [[block]]
 block = "bluetooth"
 mac = "00:19:C1:46:5C:FB" # non-dualshock
-format = "PS3 {percentage} (non)"
-format_unavailable = "PS3 x"
+format = "32"
+format_unavailable = "PS3 x" # doesn't work, bug?
 hide_disconnected = false
+
+[[block]]
+block = "xrandr"
+format = "{resolution}"
 
 [[block]]
 block = "time"
 interval = 1
 format = "%a %Y-%m-%d %H:%M:%S"
-
-[[block]]
-block = "xrandr"
-format = "{resolution}"
 
 # [[block]]
 # block = "toggle"
