@@ -1,4 +1,5 @@
 set -x PATH $PATH $HOME/bin
+set -x PATH $PATH $HOME/.local/bin
 
 # colored manpages
 set -xU LESS_TERMCAP_md (printf "\e[00;33m")
