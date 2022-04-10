@@ -22,21 +22,10 @@ block = "temperature"
 chip = "*-isa-*"
 format = "{average:1}"
 # collapsed = false
-good = 35
+good = 25
 idle = 40
 info = 55
 warning = 65
-
-[[block]]
-block = "temperature"
-chip = "amdgpu-*"
-format = "{average:1}"
-# inputs = ["junction"]
-# collapsed = false
-good = 35
-idle = 40
-info = 60
-warning = 75
 
 [[block]]
 block = "disk_space"
