@@ -166,6 +166,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 # customize special cases
 for_window [title=".*floating.*"] floating enable
 for_window [title=".* - GNU Emacs at.*"] border none
+for_window [title="QEMU"] floating enable
+for_window [title=".*IntelliJ IDEA"] border none
 
 # assign [class="^firefoxdeveloperedition"] 2
 # assign [class="^Emacs$"] 1
