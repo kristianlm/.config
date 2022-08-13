@@ -1,0 +1,8 @@
+
+colors:
+  primary:
+    background: '#1d1f21'
+
+  normal:
+    # dstat insists on printing in "black"
+    black: '#334252'
