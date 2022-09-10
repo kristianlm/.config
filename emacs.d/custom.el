@@ -3,30 +3,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(column-number-mode t)
- '(custom-enabled-themes (quote (railscasts-reloaded)))
+ '(custom-enabled-themes '(zerodark))
  '(custom-safe-themes
-   (quote
-    ("5f2f2686307e101aeb00fe95adaa1b28b57b808f2bc8a0c1529d9118ff224c80" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" default)))
+   '("02a651e29ca0508056b5ed1cd2075f4da1ae0832635c16a8d2e471eddb8fbcd8" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
  '(menu-bar-mode nil)
  '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(package-selected-packages
-   (quote
-    (imenu-anywhere avy counsel ivy-hydra dockerfile-mode docker-mode flylisp highlight-parenthesis highlight-parent highlight-paren ivy giff-hl git-hl moe-theme base16-theme fish-mode helm-ag web-mode railscasts-reloaded-theme paren-face multiple-cursors git-link magit zenburn-theme highlight-symbol idle-highlight-mode paredit paredit-everywhere window-numbering)))
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
+ '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(save-place t)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#BC8383")
+   '((20 . "#BC8383")
      (40 . "#CC9393")
      (60 . "#DFAF8F")
      (80 . "#D0BF8F")
@@ -43,7 +33,7 @@
      (300 . "#7CB8BB")
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
-     (360 . "#DC8CC3"))))
+     (360 . "#DC8CC3")))
  '(vc-annotate-very-old-color "#DC8CC3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

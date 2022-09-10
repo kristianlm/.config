@@ -6,15 +6,16 @@
 
 
 ;; ==================== packages ====================
-(require 'package)
+;;(require 'package)
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
+;;(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
+;;(package-initialize)
 
 ;; problems installing packages? try M-x package-refresh-contents
 (defun installed (p)
-  (when (not (package-installed-p p))
-    (package-install p)))
+  ;;(when (not (package-installed-p p))
+  ;;(package-install p))
+  t)
 
 (installed 'paredit)
 (installed 'magit)
@@ -39,25 +40,10 @@
 (installed 'avy)
 (installed 'imenu-anywhere)
 (installed 'iedit)
+(installed 'slectrum) ;; I'm guessing
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
-(window-numbering-mode) ;; M-1...8
-(ivy-mode)
-(setq ivy-use-virtual-buffers t)
-
-;; insert-char with ivy doesn't show the actual unicode symbol
-(defun my-insert-char ()
-  (interactive)
-  (let ((completing-read-function 'completing-read-default)
-	(completion-in-region-function 'completion--in-region))
-    (call-interactively 'insert-char)))
-(global-set-key (kbd "C-x 8 RET") 'my-insert-char)
-
 (setq pop-up-windows nil) ;; don't open new windows
 
 ;; now save file visits between emacs restarts
@@ -65,16 +51,6 @@
 ;(setq ido-use-virtual-buffers t)
 (setq-default history-length 1000)
 (savehist-mode t)
-
-;; dim parenthesis so non-Lispers don't freak out
-(require 'paren-face)
-(global-paren-face-mode t)
-
-(global-git-gutter-mode)
-;;(global-diff-hl-mode)
-;;(setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
-
-(require 'dired-x) ;; jump to file with C-x C-j
 
 ;; backups
 (setq
@@ -86,36 +62,67 @@
  kept-old-versions 6
  version-control t)
 
+(setq completion-styles '(flex))
+(setq completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(selectrum-mode +1)
+
+(setq custom-file "/home/klm/.emacs.d/custom.el")
+(load custom-file)
+
+;; (window-numbering-mode) ;; M-1...8
+;; (ivy-mode)
+(setq ivy-use-virtual-buffers t)
+
+;; insert-char with ivy doesn't show the actual unicode symbol
+(defun my-insert-char ()
+  (interactive)
+  (let ((completing-read-function 'completing-read-default)
+	(completion-in-region-function 'completion--in-region))
+    (call-interactively 'insert-char)))
+(global-set-key (kbd "C-x 8 RET") 'my-insert-char)
+
+
+;; dim parenthesis so non-Lispers don't freak out
+;; (global-paren-face-mode t)
+
+(global-git-gutter-mode)
+;;(global-diff-hl-mode)
+;;(setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
+
+;; (require 'dired-x) ;; jump to file with C-x C-j
+
 ;; ==================== looks ====================
 
-(load-theme 'base16-eighties t)
+;;(load-theme 'base16-eighties t)
 ;; (set-face-attribute 'default     nil
 ;; 		    :family "Source Code Pro"
 ;; 		    :foundry "ADBO"
 ;; 		    :height 98)
-(set-face-attribute 'default     nil
-                    :family "Noto Sans Mono"
-                    :height 98
-                    :width 'condensed
-                    :foundry "ADBO")
-(set-fringe-mode '(4 . 8)) ;; pixels (right . left)
+;; (set-face-attribute 'default     nil
+;;                     :family "Noto Sans Mono"
+;;                     :height 98
+;;                     :width 'condensed
+;;                     :foundry "ADBO")
+;;(set-fringe-mode '(4 . 8)) ;; pixels (right . left)
 
-(set-face-attribute 'region nil :background "#910151")
+;;(set-face-attribute 'region nil :background "#910151")
 ;; dim parenthesis
-(set-face-attribute 'parenthesis nil :foreground "#777")
+;;(set-face-attribute 'parenthesis nil :foreground "#777")
 
 ;; highlight matching parens
-(show-paren-mode)
-(set-face-attribute 'show-paren-match nil
-		    :background (face-background 'default)
-		    :foreground "#0f0"
-		    :weight 'extra-bold)
-(set-face-attribute 'show-paren-mismatch nil
-		    :background (face-background 'default)
-		    :foreground "#f00"
-		    :weight 'extra-bold)
+;;(show-paren-mode)
+;; (set-face-attribute 'show-paren-match nil
+;; 		    :background (face-background 'default)
+;; 		    :foreground "#0f0"
+;; 		    :weight 'extra-bold)
+;; (set-face-attribute 'show-paren-mismatch nil
+;; 		    :background (face-background 'default)
+;; 		    :foreground "#f00"
+;; 		    :weight 'extra-bold)
 
-(load (concat user-emacs-directory "./chicken.el"))
+;; (load (concat user-emacs-directory "./chicken.el"))
 
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
@@ -138,14 +145,19 @@
 
 ;; ==================== global keybindings ====================
 
+(global-set-key (kbd "C-s") 'phi-search)
+(global-set-key (kbd "C-s") 'phi-search-backward)
+(global-set-key (kbd "M-%") 'phi-replace-query)
+
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (scroll-up -4)))
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-x j") 'toggle-truncate-lines)
 
-(require 'highlight-symbol)
-(global-set-key (kbd "M-N") 'highlight-symbol-next)
-(global-set-key (kbd "M-P") 'highlight-symbol-prev)
+;; TODO get this back up and running
+;; (require 'highlight-symbol)
+;; (global-set-key (kbd "M-N") 'highlight-symbol-next)
+;; (global-set-key (kbd "M-P") 'highlight-symbol-prev)
 
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
@@ -154,7 +166,7 @@
 ;;(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; didn't work
 
 
-(require 'multiple-cursors)
+;; (require 'multiple-cursors)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
