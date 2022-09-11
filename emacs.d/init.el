@@ -76,8 +76,8 @@
 
 (all-the-icons-dired-mode +1)
 (all-the-icons-completion-mode +1)
-;; dim parenthesis so non-Lispers don't freak out
-;; (global-paren-face-mode t)
+
+(global-paren-face-mode t)
 
 (global-git-gutter-mode)
 
@@ -134,6 +134,7 @@
 
 (smartparens-global-mode +1)
 (smartparens-global-strict-mode +1)
+(sp-use-paredit-bindings)
 (global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
 (global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
 (global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
