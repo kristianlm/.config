@@ -3,8 +3,6 @@
 (setq inhibit-startup-message t)
 (setq visible-bell 1) ;; get rid of that annoying sound
 
-
-
 ;; ==================== packages ====================
 ;;(require 'package)
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
@@ -19,7 +17,6 @@
 
 (installed 'paredit)
 (installed 'magit)
-(installed 'paredit)
 (installed 'web-mode)
 (installed 'js2-mode)
 (installed 'git-link)
@@ -46,14 +43,16 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq pop-up-windows nil) ;; don't open new windows
 
-;; now save file visits between emacs restarts
-;; see https://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/ and gthis is
-;(setq ido-use-virtual-buffers t)
+(recentf-mode 1)
+(setq recentf-max-menu-items 64)
+(setq recentf-max-saved-items 64)
+
 (setq-default history-length 1000)
-(savehist-mode t)
+              
+(savehist-mode)
 
 ;; backups
-(setq
+(setq 
  make-backup-files t
  backup-by-copying t ;; don't clobber symlinks
  backup-directory-alist '(("." . "~/.emacs.d/backup"))
@@ -70,24 +69,19 @@
 
 (setq custom-file "/home/klm/.emacs.d/custom.el")
 (load custom-file)
-
+;; (zerodark-setup-modeline-format)
 ;; (window-numbering-mode) ;; M-1...8
 ;; (ivy-mode)
-(setq ivy-use-virtual-buffers t)
+;; (setq ivy-use-virtual-buffers t) ;; <-- switch-to-buffer with recentf entries
 
-;; insert-char with ivy doesn't show the actual unicode symbol
-(defun my-insert-char ()
-  (interactive)
-  (let ((completing-read-function 'completing-read-default)
-	(completion-in-region-function 'completion--in-region))
-    (call-interactively 'insert-char)))
-(global-set-key (kbd "C-x 8 RET") 'my-insert-char)
-
-
+(all-the-icons-dired-mode +1)
+(all-the-icons-completion-mode +1)
 ;; dim parenthesis so non-Lispers don't freak out
 ;; (global-paren-face-mode t)
 
 (global-git-gutter-mode)
+
+;; (powerline-default-theme)
 ;;(global-diff-hl-mode)
 ;;(setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
 
@@ -133,15 +127,23 @@
 (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
 
 
+
+
 ;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
+(smartparens-global-mode +1)
+(smartparens-global-strict-mode +1)
+(global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
+(global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
+(global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
+
 ;; enable paredit
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
 
@@ -215,6 +217,13 @@
      (list str)))
   (message (mapconcat (lambda (x) (format "%c:0x%0x/%d" x x x)) str "\n")))
 
+;; insert-char with ivy doesn't show the actual unicode symbol
+(defun my-insert-char ()
+  (interactive)
+  (let ((completing-read-function 'completing-read-default)))
+  (completion-in-region-function 'completion--in-region
+    (call-interactively 'insert-char)))
+(global-set-key (kbd "C-x 8 RET") 'my-insert-char)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -250,7 +259,7 @@
   (inf-clojure "clojure -A:dev"))
 
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
-(require 'iedit)
+;; (require 'iedit)
 
 ;; start server unless in a terminal
 (if window-system (server-start))

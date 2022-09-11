@@ -15,15 +15,18 @@
   (specifications->packages
    (list
     ;; basic
+    "file"
     "netcat"
     "pv"
-    "git" "tig"
+    "git-minimal" "tig"
     "bat" 
     "tmux"
     "curl"
     "zstd"
+    "the-silver-searcher"
+    "recutils"
     ;; x
-    "xrandr" "libxft" "xrdb"
+    "sx" "xrandr" "libxft" "xrdb"
     "setxkbmap" "xset"
     "i3-wm" "dmenu" "i3status" "font-awesome"
     "alacritty" ;; "lxterminal" 
@@ -40,19 +43,27 @@
     "cloc"
     "zile"
     ;; emacs
-    "emacs" "emacs-zerodark-theme" "emacs-paren-face"
-    "emacs-all-the-icons" "emacs-powerline"
+    "emacs"
+    "emacs-zerodark-theme" "emacs-spacemacs-theme"
+    "emacs-paren-face"
+    "emacs-all-the-icons"
+    "emacs-all-the-icons-completion"
+    "emacs-all-the-icons-dired"
+    "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
     "emacs-selectrum" ;; "emacs-helm" "emacs-ivy"
     "emacs-git-gutter-fringe"
-    
+    "emacs-highlight-symbol"
+    "emacs-idle-highlight"
     "emacs-magit" "emacs-git-link"
     "emacs-multiple-cursors" 
-    "emacs-parinfer-mode"
+    "emacs-paredit" "emacs-smartparens"
+    "emacs-tagedit"
     "emacs-fish-mode"
     "emacs-web-mode"
     "emacs-json-mode"
     "emacs-js2-mode"
-    "emacs-phi-search" ;; try this out
+    "emacs-phi-search" ;; testing
+    "emacs-rec-mode"
     "emacs-geiser" "emacs-geiser-guile"
     ;; files / disk
     "rclone" "restic"
