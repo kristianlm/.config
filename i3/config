@@ -173,10 +173,11 @@ for_window [title=".*IntelliJ IDEA"] border none
 # assign [class="^firefoxdeveloperedition"] 2
 # assign [class="^Emacs$"] 1
 
-exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/emacs'
-exec --no-startup-id i3-msg 'workspace 2; layout tabbed; exec /usr/bin/chromium'
-exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/lxterminal ; layout stacked;'
-exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/lxterminal ; layout stacked'
+exec --no-startup-id i3-msg 'workspace 1; exec emacs'
+exec --no-startup-id i3-msg 'workspace 2; exec chromium'
+exec --no-startup-id i3-msg 'workspace 3; exec alacritty'
+exec --no-startup-id i3-msg 'workspace 3; exec alacritty'
+exec --no-startup-id i3-msg 'workspace 3; layout stacked'
 
 bindsym $mod+Home   exec "4k"
 bindsym $mod+End    exec "3k"

@@ -115,7 +115,20 @@ root ALL=(ALL) ALL
 
    (service pulseaudio-service-type)
    (service alsa-service-type)
-   %base-services))
+
+   (service mingetty-service-type (mingetty-configuration (tty "tty1")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty2") (auto-login "klm")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty3")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty4")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty5")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty6")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty7")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty8")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty9")))
+   (service mingetty-service-type (mingetty-configuration (tty "tty0")))
+   
+   (modify-services %base-services
+     (delete mingetty-service-type))))
   
   
  (mapped-devices (list

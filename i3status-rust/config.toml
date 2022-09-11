@@ -1,7 +1,7 @@
 icons = "awesome5"
 
 [theme]
-name = "dracula"
+# name = "dracula"
 
 [theme.overrides]
 idle_bg = "#222222"
@@ -39,8 +39,8 @@ alert = 2 # bg red
 
 [[block]]
 block = "custom"
-command = "printf '/paid ' ; df -BG /paid/ --output=avail | tail -n1"
-on_click = "sh -e 'sudo umount /paid ; mount.sshfs pisa:/raid/ /paid/'"
+command = "printf '/raid ' ; df -BG /raid/ --output=avail | tail -n1"
+#on_click = "sh -e 'sudo umount /paid ; mount.sshfs pisa:/raid/ /paid/'"
 interval = 6
 
 [[block]]
@@ -57,49 +57,6 @@ block = "net"
 format = "{ip}{speed_up:5;M}{speed_down:5;M}"
 
 [[block]]
-block = "bluetooth"
-mac = "00:21:4F:20:E8:54" # dualshock
-format = "52"
-format_unavailable = "x" # doesn't work
-hide_disconnected = false
-
-[[block]]
-block = "bluetooth"
-mac = "00:19:C1:46:5C:FB" # non-dualshock
-format = "32"
-format_unavailable = "PS3 x" # doesn't work, bug?
-hide_disconnected = false
-
-[[block]]
-block = "xrandr"
-format = "{resolution}"
-
-[[block]]
 block = "time"
 interval = 1
 format = "%a %Y-%m-%d %H:%M:%S"
-
-# [[block]]
-# block = "toggle"
-# text = "4k"
-# command_state = "xrandr | grep '3840x2160     60.00\\*\\+'"
-# command_on = "4k"
-# command_off = "2k"
-# interval = 5
-
-# [[block]]
-# block = "custom"
-# command = "bash -e \"(xrandr | grep '3840x2160.*\\*') && echo 4k\"" # && echo 4k || echo 2k"
-
-# [[block]]
-# block = "custom"
-# cycle = ["echo ON", "echo OFF", "echo maybe"]
-# interval = 1
-
-# [[block]]
-# block = "toggle"
-# text = "4k"
-# command_state = "test -f /tmp/klm && echo there"
-# command_on = "touch /tmp/klm"
-# command_off = "rm /tmp/klm"
-# interval = 5
