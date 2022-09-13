@@ -3,7 +3,7 @@
 
 Host *
      ControlMaster auto
-     ControlPath /home/klm/.tmp/%r@%h:%p
+     ControlPath /run/user/1000/ssh-%r@%h:%p
 
 # don't want to run ssh-add all the time
 AddKeysToAgent yes

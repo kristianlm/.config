@@ -111,19 +111,6 @@
    ;;           (latitude 60)
    ;;           (longitude 10)))
 
-   ;;(service home-xdg-base-directories-service-type)
-   ;;(service home-xdg-user-directories-service-type)
-   ;;(service home-xdg-mime-applications-service-type)
-
-   (service home-openssh-service-type
-            (home-openssh-configuration
-             (hosts (list (openssh-host (name "karl")
-                                        (host-name "172.105.68.197")
-                                        (user "root")
-                                        (address-family AF_INET)
-                                        (port 21725))))
-             (authorized-keys
-              (list (plain-file "android_kon.pub" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIihGz367N113w20fv/zXiieSqCNvPvIxEN32S5fadiW droid@kon")))))
    (service home-bash-service-type (home-bash-configuration))
    (service home-fish-service-type (home-fish-configuration
                                     (config (list (mixed-text-file
