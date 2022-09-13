@@ -61,15 +61,19 @@
  kept-old-versions 6
  version-control t)
 
-(setq completion-styles '(flex))
+;; ============================== completion ==============================
+(setq completion-styles '(orderless basic)
+      completion-category-overrides '((file (styles basic partial-completion))))
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
+(setq selectrum-refine-candidates-function #'orderless-filter)
+(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
 (selectrum-mode +1)
 
 (setq custom-file "/home/klm/.emacs.d/custom.el")
 (load custom-file)
-;; (zerodark-setup-modeline-format)
+(zerodark-setup-modeline-format)
 ;; (window-numbering-mode) ;; M-1...8
 ;; (ivy-mode)
 ;; (setq ivy-use-virtual-buffers t) ;; <-- switch-to-buffer with recentf entries
@@ -81,43 +85,6 @@
 
 (global-git-gutter-mode)
 
-;; (powerline-default-theme)
-;;(global-diff-hl-mode)
-;;(setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
-
-;; (require 'dired-x) ;; jump to file with C-x C-j
-
-;; ==================== looks ====================
-
-;;(load-theme 'base16-eighties t)
-;; (set-face-attribute 'default     nil
-;; 		    :family "Source Code Pro"
-;; 		    :foundry "ADBO"
-;; 		    :height 98)
-;; (set-face-attribute 'default     nil
-;;                     :family "Noto Sans Mono"
-;;                     :height 98
-;;                     :width 'condensed
-;;                     :foundry "ADBO")
-;;(set-fringe-mode '(4 . 8)) ;; pixels (right . left)
-
-;;(set-face-attribute 'region nil :background "#910151")
-;; dim parenthesis
-;;(set-face-attribute 'parenthesis nil :foreground "#777")
-
-;; highlight matching parens
-;;(show-paren-mode)
-;; (set-face-attribute 'show-paren-match nil
-;; 		    :background (face-background 'default)
-;; 		    :foreground "#0f0"
-;; 		    :weight 'extra-bold)
-;; (set-face-attribute 'show-paren-mismatch nil
-;; 		    :background (face-background 'default)
-;; 		    :foreground "#f00"
-;; 		    :weight 'extra-bold)
-
-;; (load (concat user-emacs-directory "./chicken.el"))
-
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
 (require 'ansi-color)
@@ -127,30 +94,29 @@
 (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
 
 
-
-
-;; ==================== hooks ====================
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
-(smartparens-global-mode +1)
+(require 'smartparens-config) ;; smartparens-global-mode doesn't respect local pairs
 (smartparens-global-strict-mode +1)
 (sp-use-paredit-bindings)
+(global-set-key (kbd "C-M-SPC") 'sp-select-next-thing)
+(global-set-key (kbd "C-S-M-SPC") 'sp-select-previous-thing)
 (global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
 (global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
 (global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
 
 ;; enable paredit
-; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+;; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
 
-(global-set-key (kbd "C-s") 'phi-search)
-(global-set-key (kbd "C-s") 'phi-search-backward)
-(global-set-key (kbd "M-%") 'phi-replace-query)
+;; (global-set-key (kbd "C-s") 'phi-search)
+;; (global-set-key (kbd "C-s") 'phi-search-backward)
+;; (global-set-key (kbd "M-%") 'phi-replace-query)
 
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (scroll-up -4)))
@@ -159,8 +125,8 @@
 
 ;; TODO get this back up and running
 ;; (require 'highlight-symbol)
-;; (global-set-key (kbd "M-N") 'highlight-symbol-next)
-;; (global-set-key (kbd "M-P") 'highlight-symbol-prev)
+(global-set-key (kbd "M-N") 'highlight-symbol-next)
+(global-set-key (kbd "M-P") 'highlight-symbol-prev)
 
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
@@ -169,9 +135,9 @@
 ;;(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; didn't work
 
 
-;; (require 'multiple-cursors)
+;; (require 'multiple-curso-rs)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
 (global-set-key (kbd "C-M->") 'mc/unmark-next-like-this)
 (global-set-key (kbd "C-M-<") 'mc/mark-next-like-this-symbol) ;; or 'mc/unmark-previous-like-this

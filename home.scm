@@ -79,7 +79,7 @@
      "emacs-all-the-icons-completion"
      "emacs-all-the-icons-dired"
      "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
-     "emacs-selectrum" ;; "emacs-helm" "emacs-ivy"
+     "emacs-selectrum" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
      "emacs-git-gutter-fringe"
      "emacs-highlight-symbol"
      "emacs-idle-highlight"
@@ -93,10 +93,14 @@
      "emacs-js2-mode"
      "emacs-phi-search" ;; testing
      "emacs-rec-mode"
+     "emacs-aggressive-indent"
      "emacs-geiser" "emacs-geiser-guile"
      ;; files / disk
      "rclone" "restic"
      "parted" "lsof"
+     ;; media
+     "feh" "imv" "sxiv"
+     "mpv" "ffmpeg"
      ;; system
      "dstat" "htop"
      "qemu"
