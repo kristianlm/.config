@@ -92,9 +92,10 @@
      "emacs-selectrum" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
      "emacs-git-gutter-fringe"
      "emacs-highlight-symbol"
-     "emacs-idle-highlight"
+     ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
      "emacs-magit" "emacs-git-link"
      "emacs-multiple-cursors"
+     "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
      "emacs-paredit" "emacs-smartparens"
      "emacs-tagedit"
      "emacs-fish-mode"
