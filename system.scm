@@ -6,6 +6,7 @@
 	     (gnu packages linux)
 	     (gnu packages file)
 	     (gnu packages pv)
+	     (gnu packages rsync)
 	     (gnu packages fonts)
 	     (gnu packages tmux)
 	     (gnu packages version-control)
@@ -49,7 +50,7 @@
                  (home-directory "/home/klm")
 		 (shell (file-append fish "/bin/fish"))
                  (supplementary-groups
-                  '("wheel" "netdev" "audio" "video" "disk" "floppy" "cdrom" "kvm" "input")))
+                  '("wheel" "netdev" "audio" "video" "disk" "floppy" "cdrom" "kvm" "input" "dialout")))
                 %base-user-accounts))
 
   (sudoers-file (plain-file "sudoers" "\
@@ -65,6 +66,7 @@ root ALL=(ALL) ALL
 	     nss-certs
 	     curl
 	     git-minimal
+             rsync
    	     %base-packages))
 
   (services
@@ -90,6 +92,16 @@ root ALL=(ALL) ALL
 	     (openssh-configuration
 	      (openssh openssh-sans-x)
 	      (password-authentication? #false)))
+
+
+    (udev-rules-service 'avrdude
+       (udev-rule "90-avrisp2.rules"
+                  (string-append  "SUBSYSTEM==\"usb\", "
+                                  "ATTRS{product}==\"AVRISP mkII\", "
+                                  "ATTRS{idProduct}==\"2104\", "
+                                  "ATTRS{idVendor}==\"03eb\", "
+                                  "MODE=\"0660\", "
+                                  "GROUP=\"dialout\"")))
 
     ;; (service gdm-service-type
     ;;          (gdm-configuration
@@ -132,8 +144,9 @@ root ALL=(ALL) ALL
 
   (hosts-file (plain-file "hosts"
                           (string-append
-                           (local-host-aliases host-name)
-                           "172.105.68.197 karl")))
+                           (local-host-aliases host-name) "\n"
+                           "172.105.68.197 karl\n"
+                           "167.235.141.165 furt")))
 
 
   (name-service-switch %mdns-host-lookup-nss)
