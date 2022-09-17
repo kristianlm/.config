@@ -94,16 +94,21 @@
 (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
 
 
-(add-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+;;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
+ 
 
 (require 'smartparens-config) ;; smartparens-global-mode doesn't respect local pairs
 (smartparens-global-strict-mode +1)
 (sp-use-paredit-bindings)
 (global-set-key (kbd "C-M-SPC") 'sp-select-next-thing)
 (global-set-key (kbd "C-S-M-SPC") 'sp-select-previous-thing)
+(global-set-key (kbd "M-(") (lambda () (interactive) (sp-wrap-with-pair "(")))
 (global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
 (global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
 (global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
+
+(global-set-key (kbd "C-c i") 'aggressive-indent-mode)
 
 ;; enable paredit
 ;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
