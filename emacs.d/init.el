@@ -38,6 +38,7 @@
 (installed 'imenu-anywhere)
 (installed 'iedit)
 (installed 'slectrum) ;; I'm guessing
+(installed ace-window)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -93,7 +94,6 @@
     (ansi-color-apply-on-region compilation-filter-start (point-max))))
 (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
 
-
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 ;;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
  
@@ -118,6 +118,13 @@
 ;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
+(global-set-key (kbd "M-1") (lambda () (interactive) (aw-switch-to-window (nth 0 (aw-window-list)))))
+(global-set-key (kbd "M-2") (lambda () (interactive) (aw-switch-to-window (nth 1 (aw-window-list)))))
+(global-set-key (kbd "M-3") (lambda () (interactive) (aw-switch-to-window (nth 2 (aw-window-list)))))
+(global-set-key (kbd "M-4") (lambda () (interactive) (aw-switch-to-window (nth 3 (aw-window-list)))))
+(global-set-key (kbd "M-5") (lambda () (interactive) (aw-switch-to-window (nth 4 (aw-window-list)))))
+(global-set-key (kbd "M-6") (lambda () (interactive) (aw-switch-to-window (nth 5 (aw-window-list)))))
+(global-set-key (kbd "M-7") (lambda () (interactive) (aw-switch-to-window (nth 6 (aw-window-list)))))
 
 ;; (global-set-key (kbd "C-s") 'phi-search)
 ;; (global-set-key (kbd "C-s") 'phi-search-backward)
