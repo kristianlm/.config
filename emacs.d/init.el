@@ -47,6 +47,7 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 64)
 (setq recentf-max-saved-items 64)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
 (setq-default history-length 1000)
               
