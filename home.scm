@@ -46,14 +46,17 @@
      ;; basic
      "file"
      "netcat"
-     "pv"
-     "git-minimal" "tig"
+     "pv" ;;               ,-- needed by gitk
+     "git-minimal" "tig" "tk"
      "bat"
      "tmux"
      "curl"
      "zstd"
      "the-silver-searcher"
      "recutils"
+     "rlwrap"
+     "atool"
+     "watchexec"
      ;; x
      "sx" "xrandr" "libxft" "xrdb"
      "setxkbmap" "xset"
@@ -65,12 +68,19 @@
      "xdg-utils" ;; <-- xdg-open
      ;; doc
      "mupdf" "evince"
+     "at-spi2-core" ;; <-- stops annoying org.a11y.Bus warnings in GTK apps
      "graphviz"
+     ;; media
+     "feh" "imv" "sxiv"
+     "mpv" "ffmpeg"
+     "inkscape" ;; "solvespace"
      ;; code
      "libqalculate"
      "the-silver-searcher"
      "cloc"
      "zile"
+     "avr-binutils" "make"
+     "chicken"
      ;; emacs
      "emacs"
      "emacs-zerodark-theme" "emacs-spacemacs-theme"
@@ -98,9 +108,6 @@
      ;; files / disk
      "rclone" "restic"
      "parted" "lsof"
-     ;; media
-     "feh" "imv" "sxiv"
-     "mpv" "ffmpeg"
      ;; system
      "dstat" "htop"
      "qemu"
