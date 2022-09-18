@@ -10,4 +10,4 @@ if [ $# == 0 ] ; then
 fi
 
 read -r X Y W H G ID < <(slop -k -f "%x %y %w %h %g %i")
-ffmpeg -hide_banner -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y $@
+ffmpeg -hide_banner -f x11grab -s "$W"x"$H" -i "$DISPLAY".0+$X,$Y $@
