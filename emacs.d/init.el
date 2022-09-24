@@ -38,7 +38,7 @@
 (installed 'imenu-anywhere)
 (installed 'iedit)
 (installed 'slectrum) ;; I'm guessing
-(installed ace-window)
+(installed 'ace-window)
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -143,6 +143,14 @@
 
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; turn off these default magit bindings because I'm using them for
+;; something else.
+(define-key magit-mode-map (kbd "M-1") nil)
+(define-key magit-mode-map (kbd "M-2") nil)
+(define-key magit-mode-map (kbd "M-3") nil)
+(define-key magit-mode-map (kbd "M-4") nil)
+
 (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 ;;(setq magit-display-buffer-function 'magit-display-buffer-traditional)
 ;;(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; didn't work
