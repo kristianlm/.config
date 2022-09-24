@@ -37,8 +37,16 @@
 (installed 'avy)
 (installed 'imenu-anywhere)
 (installed 'iedit)
-(installed 'slectrum) ;; I'm guessing
+(installed 'orderless)
+(installed 'flycheck)
+(installed 'zerodark-theme)
+(installed 'all-the-icons-dired)
+;; (installed 'all-the-icons-completions)
+(installed 'selectrum)
 (installed 'ace-window)
+(installed 'smartparens)
+;; (package-install 'orderless)
+
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
