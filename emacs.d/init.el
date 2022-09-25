@@ -127,6 +127,7 @@
 ;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
+(require 'ace-window) ;; needed for non-Guix distros it seems
 (global-set-key (kbd "M-1") (lambda () (interactive) (aw-switch-to-window (nth 0 (aw-window-list)))))
 (global-set-key (kbd "M-2") (lambda () (interactive) (aw-switch-to-window (nth 1 (aw-window-list)))))
 (global-set-key (kbd "M-3") (lambda () (interactive) (aw-switch-to-window (nth 2 (aw-window-list)))))
