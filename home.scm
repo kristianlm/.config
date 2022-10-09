@@ -46,8 +46,8 @@
      ;; basic
      "file"
      "netcat"
-     "pv" ;;               ,-- needed by gitk
-     "git-minimal" "tig" "tk"
+     "pv" "jq"
+     "git-minimal" "tig" "tk"  ;; <-- needed by gitk
      "bat"
      "tmux"
      "curl"
@@ -55,7 +55,7 @@
      "the-silver-searcher"
      "recutils"
      "rlwrap"
-     "atool"
+     "atool" "unzip"
      "watchexec"
      "ncurses" ;; for tput
      "darkhttpd"
