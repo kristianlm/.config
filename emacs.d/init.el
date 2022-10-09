@@ -83,6 +83,7 @@
 
 (setq custom-file "/home/klm/.emacs.d/custom.el")
 (load custom-file)
+
 (zerodark-setup-modeline-format)
 ;; (window-numbering-mode) ;; M-1...8
 ;; (ivy-mode)
@@ -92,6 +93,8 @@
 (all-the-icons-completion-mode +1)
 
 (global-paren-face-mode t)
+
+(setq geiser-scheme-implementation '(guile))
 
 (global-git-gutter-mode)
 
@@ -106,6 +109,8 @@
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 ;;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
  
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
 
 (require 'smartparens-config) ;; smartparens-global-mode doesn't respect local pairs
 (smartparens-global-strict-mode +1)
@@ -128,6 +133,7 @@
 
 ;; ==================== global keybindings ====================
 (require 'ace-window) ;; needed for non-Guix distros it seems
+(ace-window-display-mode +1)
 (global-set-key (kbd "M-1") (lambda () (interactive) (aw-switch-to-window (nth 0 (aw-window-list)))))
 (global-set-key (kbd "M-2") (lambda () (interactive) (aw-switch-to-window (nth 1 (aw-window-list)))))
 (global-set-key (kbd "M-3") (lambda () (interactive) (aw-switch-to-window (nth 2 (aw-window-list)))))
@@ -136,6 +142,9 @@
 (global-set-key (kbd "M-6") (lambda () (interactive) (aw-switch-to-window (nth 5 (aw-window-list)))))
 (global-set-key (kbd "M-7") (lambda () (interactive) (aw-switch-to-window (nth 6 (aw-window-list)))))
 
+
+;; (ctrlf-mode +1)
+(global-set-key (kbd "C-s") 'swiper)
 ;; (global-set-key (kbd "C-s") 'phi-search)
 ;; (global-set-key (kbd "C-s") 'phi-search-backward)
 ;; (global-set-key (kbd "M-%") 'phi-replace-query)
