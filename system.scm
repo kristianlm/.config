@@ -166,7 +166,7 @@ root ALL=(ALL) ALL
 
 	  (file-system
 	    (mount-point "/boot/efi")
-	    (device (uuid "73F7-8562" 'fat))
+	    (device (uuid "428E-396D" 'fat))
 	    (type "vfat"))
 
           (file-system
