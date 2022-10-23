@@ -1,17 +1,19 @@
-# Kristian's .config directory
+* Kristian's .config directory
 
 This is just my personal stuff. A collection of random things that I
 find useful.
 
-## Noise Reduction
+** Noise Reduction
 
 I've fiddled around and managed to use `sox`. It's nice, and you don't
 need to make files out of the noise profile and things like that:
 
-    sox /tmp/recording.flac -n trim 00:01 =00:04 noiseprof \
-      | sox /tmp/recording.flac -t flac - noisered - 0.1 \
-      | ffmpeg -i - -ar 44800 -f flac -
-      | mpv -
+#+begin_src bash
+sox /tmp/recording.flac -n trim 00:01 =00:04 noiseprof \
+  | sox /tmp/recording.flac -t flac - noisered - 0.1 \
+  | ffmpeg -i - -ar 44800 -f flac -
+  | mpv -
+#+end_src
 
 This does the following:
 
@@ -26,7 +28,7 @@ This does the following:
 You can adjust 0.1 for more or less agressive noise cancelling. Too
 much probably makes voices sound robotic etc.
 
-## [ Norwegian ] Printing stuff
+** [ Norwegian ] Printing stuff
 
 Fra 8 sider US Letter til 2 dobbeltsider A3
 
@@ -34,9 +36,9 @@ Jeg hadde en PDF på 8 sider som jeg ville printe ut som en "booklet" i
 A3. Etter mye styr kom jeg frem til at `pdfjam` var min eneste
 hjelpsomme venn.
 
-```bash
+#+begin_src bash
 pdfjam ~/Downloads/SaleilFeeleySFPW15.pdf --a4paper --outfile /tmp/a4.pdf
 pdfjam /tmp/a4.pdf '{},1,2,{},  {},3,4,9, 8,5,6,7' --outfile /tmp/a4up.pdf
 pdfjam --nup 2x1 --landscape /tmp/a4up.pdf --a3paper --outfile /tmp/a3.pdf
 lpr -P m750-ipp -o sides=two-sided-short-edge -o media=a3 -o landscape /tmp/a3.pdf
-```
+#+end_src
