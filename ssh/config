@@ -1,4 +1,3 @@
-
 # reuse existing ssh sessions
 
 Host *
@@ -31,5 +30,21 @@ Host friskus.com
   User socieqqz
 
 Host karl
-	User root
-	Port 21725
+#  hostname 167.235.141.165
+  User root
+  Port 21725
+
+Host kee
+  Hostname 10.33.2.1
+
+Host owar
+  Hostname 192.168.1.111
+  User root
+  
+Host kar
+  Hostname kar.local
+  User root
+
+# Host kon
+#   Hostname 10.33.11.1
+#   User klm

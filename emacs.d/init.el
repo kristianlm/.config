@@ -44,7 +44,7 @@
 ;; (installed 'all-the-icons-completions)
 (installed 'selectrum)
 (installed 'ace-window)
-(installed 'smartparens)
+;; (installed 'smartparens)
 ;; (package-install 'orderless)
 
 
@@ -112,24 +112,24 @@
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 
-(require 'smartparens-config) ;; smartparens-global-mode doesn't respect local pairs
-(smartparens-global-strict-mode +1)
-(sp-use-paredit-bindings)
-(global-set-key (kbd "C-M-SPC") 'sp-select-next-thing)
-(global-set-key (kbd "C-S-M-SPC") 'sp-select-previous-thing)
-(global-set-key (kbd "M-(") (lambda () (interactive) (sp-wrap-with-pair "(")))
-(global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
-(global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
-(global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
+;; ;;(require 'smartparens-config) ;; smartparens-global-mode doesn't respect local pairs
+;; ;;(smartparens-global-strict-mode +1)
+;; ;;(sp-use-paredit-bindings)
+;; (global-set-key (kbd "C-M-SPC") 'sp-select-next-thing)
+;; (global-set-key (kbd "C-S-M-SPC") 'sp-select-previous-thing)
+;; (global-set-key (kbd "M-(") (lambda () (interactive) (sp-wrap-with-pair "(")))
+;; (global-set-key (kbd "C-c (") (lambda () (interactive) (sp-wrap-with-pair "(")))
+;; (global-set-key (kbd "C-c [") (lambda () (interactive) (sp-wrap-with-pair "[")))
+;; (global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
 
 (global-set-key (kbd "C-c i") 'aggressive-indent-mode)
 
 ;; enable paredit
-;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-;; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-;; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-;; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
 (require 'ace-window) ;; needed for non-Guix distros it seems
@@ -144,10 +144,10 @@
 
 
 ;; (ctrlf-mode +1)
-(global-set-key (kbd "C-s") 'swiper)
-;; (global-set-key (kbd "C-s") 'phi-search)
-;; (global-set-key (kbd "C-s") 'phi-search-backward)
-;; (global-set-key (kbd "M-%") 'phi-replace-query)
+;; (global-set-key (kbd "C-s") 'swiper)
+ (global-set-key (kbd "C-s") 'phi-search)
+ (global-set-key (kbd "C-r") 'phi-search-backward)
+ (global-set-key (kbd "M-%") 'phi-replace-query)
 
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (scroll-up -4)))

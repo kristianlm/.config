@@ -45,28 +45,33 @@
     (list
      ;; basic
      "file"
-     "netcat"
      "pv" "jq"
      "git-minimal" "tig" "tk"  ;; <-- needed by gitk
      "bat"
      "tmux"
-     "curl"
-     "zstd"
+     "zstd" 
      "the-silver-searcher"
      "recutils"
      "rlwrap"
-     "atool" "unzip"
+     "atool" "unzip" "p7zip"
      "watchexec"
      "ncurses" ;; for tput
+     "tree"
+     "man-db"
+     ;; network
+     "netcat"
+     "curl"
+     "iperf"
      "darkhttpd"
+     "wireguard-tools"
      ;; x
      "sx" "xrandr" "libxft" "xrdb"
      "setxkbmap" "xset"
-     "i3-wm" "dmenu" "i3status" "font-awesome"
+     "i3-wm" "dmenu" "i3status" "font-awesome" "rofi" "rofi-calc"
      "alacritty" ;; "lxterminal"
      "xclip"
      "redshift"
-     "font-inconsolata"
+     "font-inconsolata" "font-fira-mono"
      "xdg-utils" ;; <-- xdg-open
      "maim" "slop" ;; screen capture tools
      ;; doc
@@ -75,12 +80,12 @@
      "graphviz"
      ;; media
      "feh" "imv" "sxiv"
-     "mpv" "ffmpeg" "sox"
+     ;;"mpv"
+     "ffmpeg" "sox"
      "inkscape" ;; "solvespace"
      "pulseaudio"
      ;; code
      "libqalculate"
-     "the-silver-searcher"
      "cloc"
      "zile"
      "avr-binutils" "make"
@@ -89,6 +94,7 @@
      "emacs"
      "emacs-zerodark-theme" "emacs-spacemacs-theme"
      "emacs-paren-face"
+     "emacs-helm-ag"
      "emacs-all-the-icons"
      "emacs-all-the-icons-completion"
      "emacs-all-the-icons-dired"
@@ -102,7 +108,7 @@
      "emacs-magit" "emacs-git-link"
      "emacs-multiple-cursors"
      "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
-     "emacs-paredit" "emacs-smartparens" "emacs-aggressive-indent"
+     "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
      "emacs-vterm"
      "emacs-tagedit"
      "emacs-dumb-jump"
@@ -110,6 +116,7 @@
      "emacs-web-mode"
      "emacs-json-mode"
      "emacs-js2-mode"
+     "emacs-go-mode"
      "emacs-rec-mode"
      "emacs-protobuf-mode"
      ;; "emacs-geiser" "emacs-geiser-guile"
@@ -117,9 +124,10 @@
      "rclone" "restic"
      "parted" "lsof"
      "sqlite"
+     "smartmontools"
      ;; system
      "dstat" "htop"
-     "qemu" "iperf"
+     "qemu" 
      ;; evil
      "ungoogled-chromium"))))
 
