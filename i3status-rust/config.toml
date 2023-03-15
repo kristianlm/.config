@@ -1,3 +1,4 @@
+[icons]
 icons = "awesome5"
 
 [theme]
@@ -9,30 +10,26 @@ idle_fg = "#e0e0e0"
 
 [[block]]
 block = "sound"
-# format = "{volume:5#110} {volume:3}"
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization}"
-info = 20 # above this >, turns blue
+format = "$barchart $utilization"
 
 [[block]]
 block = "temperature"
 chip = "*-isa-*"
-format = "{average:1}"
-# collapsed = false
+format = "$average"
 good = 25
 idle = 40
-info = 55
 warning = 65
 
 [[block]]
 block = "disk_space"
 path = "/"
-format = "{icon}{available}"
-unit = "GB"
-alert_absolute = true
+format = "$icon $available"
+# unit = "GB"
+# alert_absolute = true
 interval = 3
 warning = 8 # bg orange
 alert = 2 # bg red
@@ -45,18 +42,21 @@ interval = 6
 
 [[block]]
 block = "memory"
-display_type = "memory"
-icons = true
-format_mem = "{mem_used}"
-format_swap = "swap: {swap_used}"
+# display_type = "memory"
+# icons = true
+#format_mem = "{mem_used}"
+#format_swap = "swap: {swap_used}"
 warning_mem = 60
 critical_mem = 80
 
 [[block]]
 block = "net"
-format = "{ip}{speed_up:5;M}{speed_down:5;M}"
+#format = "$icon $ip $speed_up {$speed_down:5;M}"
+format = "$icon $ip $speed_up {$speed_down}"
+#format = "$icon $signal_strength $ssid $frequency via $device "
 
 [[block]]
 block = "time"
 interval = 1
-format = "%a %Y-%m-%d %H:%M:%S"
+#format = " $icon $timestamp.datetime() " #%a %Y-%m-%d %H:%M:%S"
+format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R') "
