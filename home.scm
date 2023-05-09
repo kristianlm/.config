@@ -79,7 +79,7 @@
      "at-spi2-core" ;; <-- stops annoying org.a11y.Bus warnings in GTK apps
      "graphviz"
      ;; media
-     "feh" "imv" "sxiv"
+     "feh" "imv" "sxiv" "gnuplot"
      ;;"mpv"
      "ffmpeg" "sox"
      "inkscape" ;; "solvespace"
@@ -88,7 +88,7 @@
      "libqalculate"
      "cloc"
      "zile"
-     "avr-binutils" "make"
+     "make"
      "chicken"
      ;; emacs
      "emacs"
@@ -150,6 +150,13 @@ set -xU LESS_TERMCAP_me (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_se (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_so (printf \"\\e[01;44;33m\")
 set -xU LESS_TERMCAP_ue (printf \"\\e[0m\")
+
+function profile
+  set -gx GUIX_PROFILE $argv[1]
+  set --prepend fish_function_path /gnu/store/jiql3i7m69kw6mj5x4xay949l0ndzqna-fish-foreign-env-0.20190116/share/fish/functions
+  fenv source $GUIX_PROFILE/etc/profile
+  set -e fish_function_path[1]
+end
 
 # https://github.com/akermu/emacs-libvterm
 if [ \"$INSIDE_EMACS\" = 'vterm' ]
