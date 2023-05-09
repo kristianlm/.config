@@ -12,6 +12,7 @@
 	     (gnu packages tmux)
 	     (gnu packages version-control)
 	     (gnu packages curl)
+	     (gnu packages radio)
              (gnu services pm)
              (gnu services desktop)
 	     (gnu services avahi)
@@ -129,8 +130,9 @@ root ALL=(ALL) ALL
 	     (openssh openssh-sans-x)
 	     (password-authentication? #false)))
 
-
+   (udev-rules-service 'rtl-sdr rtl-sdr)
    (udev-rules-service 'avrdude
+                       ;; SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", ENV{ID_SOFTWARE_RADIO}="1", MODE="0660", GROUP="dialout"
                        (udev-rule "90-avrisp2.rules"
                                   (string-append  "SUBSYSTEM==\"usb\", "
                                                   "ATTRS{product}==\"AVRISP mkII\", "
