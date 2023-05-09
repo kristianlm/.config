@@ -157,11 +157,11 @@ root ALL=(ALL) ALL
    ;; (geoclue-service)
    (service polkit-service-type)
    ;; (elogind-service)
-   (dbus-service)
+   (service dbus-root-service-type)
 
    ;; (service ntp-service-type)
 
-   x11-socket-directory-service
+   (service x11-socket-directory-service-type)
 
    (service pulseaudio-service-type)
    (service alsa-service-type)
@@ -177,14 +177,13 @@ root ALL=(ALL) ALL
    (service mingetty-service-type (mingetty-configuration (tty "tty9")))
    (service mingetty-service-type (mingetty-configuration (tty "tty0")))
 
+   (simple-service 'add-extra-hosts
+                   hosts-service-type
+                   (list (host "172.105.68.197" "karl-den-andre")
+                         (host"167.235.141.165" "karl")))
+
    (modify-services %base-services
                     (delete mingetty-service-type))))
-
- (hosts-file (plain-file "hosts"
-                         (string-append
-                          (local-host-aliases host-name) "\n"
-                          "172.105.68.197 karl-den-andre\n"
-                          "167.235.141.165 karl")))
 
 
  (name-service-switch %mdns-host-lookup-nss)
