@@ -125,6 +125,10 @@
 (global-set-key (kbd "C-c i") 'aggressive-indent-mode)
 
 ;; enable paredit
+
+(eval-after-load 'paredit
+  '(progn (define-key paredit-mode-map (kbd "\\") 'self-insert-command)))
+
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
