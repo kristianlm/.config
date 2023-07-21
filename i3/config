@@ -136,8 +136,7 @@ bar {
 }
 
 # screenshot
-bindsym $mod+x       exec "maim -u -s | xclip -selection clipboard -t image/png 2>>/tmp/err ; xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
-bindsym $mod+Shift+x exec "maim | xclip -selection clipboard -t image/png 2>>/tmp/err ; xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
+bindsym $mod+Shift+s exec "maim -u -s | xclip -selection clipboard -t image/png 2>>/tmp/err ; xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
 bindsym $mod+z exec "xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
 
 # volume
