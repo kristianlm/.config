@@ -44,12 +44,10 @@
    (specifications->packages
     (list
      ;; basic
-     "file"
-     "pv" "jq"
+     "file" "pv" "jq" "zstd"
      "git-minimal" "tig" "tk"  ;; <-- needed by gitk
      "bat"
      "tmux"
-     "zstd" 
      "the-silver-searcher"
      "recutils"
      "rlwrap"
@@ -67,23 +65,24 @@
      ;; x
      "sx" "xrandr" "libxft" "xrdb"
      "setxkbmap" "xset"
-     "i3-wm" "dmenu" "i3status" "font-awesome" "rofi" "rofi-calc"
+     "i3-wm" "dmenu" "i3status" "rofi" "rofi-calc"
      "alacritty" ;; "lxterminal"
      "xclip"
      "redshift"
-     "font-inconsolata" "font-fira-mono"
+     ;; fonts
+     "font-inconsolata" "font-fira-mono" "font-awesome"
      "xdg-utils" ;; <-- xdg-open
      "maim" "slop" ;; screen capture tools
      ;; doc
-     "mupdf" "evince"
-     "at-spi2-core" ;; <-- stops annoying org.a11y.Bus warnings in GTK apps
-     "graphviz"
+     "mupdf"
+     "evince"
+     "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
+     ;; "graphviz"
      ;; media
      "feh" "imv" "sxiv" "gnuplot"
      ;;"mpv"
      "ffmpeg" "sox"
-     "inkscape" ;; "solvespace"
-     "pulseaudio"
+     "pulseaudio" "mpv"
      ;; code
      "libqalculate"
      "cloc"
@@ -119,15 +118,16 @@
      "emacs-go-mode"
      "emacs-rec-mode"
      "emacs-protobuf-mode"
+     "emacs-gnuplot"
      ;; "emacs-geiser" "emacs-geiser-guile"
      ;; files / disk
      "rclone" "restic"
      "parted" "lsof"
      "sqlite"
-     "smartmontools"
+     ;; "smartmontools"
      ;; system
      "dstat" "htop"
-     "qemu" 
+     ;; "qemu"
      ;; evil
      "ungoogled-chromium"))))
 
