@@ -5,13 +5,17 @@
 	     (gnu packages ssh)
 	     (gnu packages linux)
 	     (gnu packages file)
+	     (gnu packages compression)
 	     (gnu packages pv)
 	     (gnu packages rsync)
+	     (gnu packages bittorrent)
 	     (gnu packages man)
 	     (gnu packages fonts)
 	     (gnu packages tmux)
+	     (gnu packages admin)
 	     (gnu packages version-control)
 	     (gnu packages curl)
+	     (gnu packages wget)
 	     (gnu packages radio)
              (gnu services pm)
              (gnu services desktop)
@@ -69,10 +73,17 @@ root ALL=(ALL) ALL
 "))
 
  (packages (cons*
+            ;; nice to haves
+            wget aria2
+            smartmontools
+            ;; must haves
 	    btrfs-progs
 	    file
 	    pv
 	    tmux
+            zstd
+            strace
+            tcpdump
 	    nss-certs
 	    curl
 	    git-minimal
@@ -95,6 +106,10 @@ root ALL=(ALL) ALL
                      (allowed-ips '("10.33.0.0/16"))
                      (endpoint "167.235.141.165:46537")
                      (keep-alive 25))
+                    (wireguard-peer
+                     (name "kth")
+                     (public-key "oo8AwzuqMOX5l0zv8Xs57k8+uv6jP7ErdVQ+W0S0d00=")
+                     (allowed-ips '("10.33.3.2/32")))
                     (wireguard-peer
                      (name "alf")
                      (public-key "kxPyVg5+Pw1/vdRxRhMFjAsbaZKGMKgCdh1frGYn3Tk=")
@@ -123,7 +138,7 @@ root ALL=(ALL) ALL
    (service cups-service-type
             (cups-configuration
              (web-interface? #t)
-             (extensions (list cups-filters hplip))))
+             (extensions (list cups-filters hplip-minimal))))
 
    (service openssh-service-type
 	    (openssh-configuration
@@ -183,7 +198,8 @@ root ALL=(ALL) ALL
                          (host"167.235.141.165" "karl")))
 
    (modify-services %base-services
-                    (delete mingetty-service-type))))
+                    (delete mingetty-service-type)
+                    (delete agetty-service-type))))
 
 
  (name-service-switch %mdns-host-lookup-nss)
