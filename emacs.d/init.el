@@ -180,7 +180,7 @@
 
 ;; (require 'multiple-curso-rs)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
 (global-set-key (kbd "C-M->") 'mc/unmark-next-like-this)
 (global-set-key (kbd "C-M-<") 'mc/mark-next-like-this-symbol) ;; or 'mc/unmark-previous-like-this
