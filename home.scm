@@ -57,7 +57,7 @@
      "tree"
      "man-db"
      ;; network
-     "netcat"
+     "netcat"            "socat"
      "curl"
      "iperf"
      "darkhttpd"
@@ -70,7 +70,7 @@
      "xclip"
      "redshift"
      ;; fonts
-     "font-inconsolata" "font-fira-mono" "font-awesome"
+     "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
      "xdg-utils" ;; <-- xdg-open
      "maim" "slop" ;; screen capture tools
      ;; doc
@@ -114,11 +114,13 @@
      "emacs-fish-mode"
      "emacs-web-mode"
      "emacs-json-mode"
+     "emacs-markdown-mode"
      "emacs-js2-mode"
      "emacs-go-mode"
      "emacs-rec-mode"
      "emacs-protobuf-mode"
      "emacs-gnuplot"
+     "emacs-opencl-mode"
      ;; "emacs-geiser" "emacs-geiser-guile"
      ;; files / disk
      "rclone" "restic"

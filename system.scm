@@ -147,7 +147,6 @@ root ALL=(ALL) ALL
 
    (udev-rules-service 'rtl-sdr rtl-sdr)
    (udev-rules-service 'avrdude
-                       ;; SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", ENV{ID_SOFTWARE_RADIO}="1", MODE="0660", GROUP="dialout"
                        (udev-rule "90-avrisp2.rules"
                                   (string-append  "SUBSYSTEM==\"usb\", "
                                                   "ATTRS{product}==\"AVRISP mkII\", "
@@ -155,11 +154,6 @@ root ALL=(ALL) ALL
                                                   "ATTRS{idVendor}==\"03eb\", "
                                                   "MODE=\"0660\", "
                                                   "GROUP=\"dialout\"")))
-
-   ;; (service gdm-service-type
-   ;;          (gdm-configuration
-   ;;           (auto-login-user "klm")
-   ;;           (auto-login-session "i3")))
 
    ;; (modify-services %desktop-services (delete gdm-service-type))
 
@@ -194,8 +188,7 @@ root ALL=(ALL) ALL
 
    (simple-service 'add-extra-hosts
                    hosts-service-type
-                   (list (host "172.105.68.197" "karl-den-andre")
-                         (host"167.235.141.165" "karl")))
+                   (list (host "167.235.141.165" "karl")))
 
    (modify-services %base-services
                     (delete mingetty-service-type)
