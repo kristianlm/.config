@@ -187,6 +187,7 @@ if [ \"$INSIDE_EMACS\" = 'vterm' ]
 end
 
 if [ (tty) = '/dev/tty2' ]
-  exec sx
+  echo 'Starting X in 4 seconds. C-c to abort ...'
+  sleep 4 && exec sx
 end
 "))))))))
