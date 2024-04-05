@@ -82,8 +82,9 @@
      ;; media
      "feh" "imv" "sxiv" "gnuplot"
      ;;"mpv"
-     "ffmpeg" "sox"
-     "pulseaudio" "mpv"
+     "ffmpeg" "sox" "graphicsmagick"
+     "pulseaudio" "pulsemixer"
+     "mpv"
      ;; code
      "libqalculate"
      "cloc"
@@ -122,6 +123,8 @@
      "emacs-protobuf-mode"
      "emacs-gnuplot"
      "emacs-opencl-mode"
+     "emacs-glsl-mode"
+     "emacs-scad-mode"
      ;; "emacs-geiser" "emacs-geiser-guile"
      ;; files / disk
      "rclone" "restic"
@@ -129,7 +132,7 @@
      "sqlite"
      ;; "smartmontools"
      ;; system
-     "dstat" "htop"
+     "dool" "htop"
      ;; "qemu"
      ;; evil
      "ungoogled-chromium"))))
