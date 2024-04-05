@@ -109,19 +109,18 @@ changed to ~a~%"
        `(("gcc" ,gcc)
          ,@(package-native-inputs xgcc))))))
 
-;;(make-avr-binutils)
-;;(make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-13))
-;;migrating: (make-avr-gcc/implementation #:xgcc gcc-13)
+;; (packages->manifest
+;;  (list
+;;   (make-avr-binutils)
+;;   (make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-13))
+;;   (make-avr-gcc/implementation #:xgcc gcc-13)))
 
 
+(packages->manifest
+ (list
+  (cross-gcc "avr"
+             #:xgcc gcc-12
+             #:libc (make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-12)))))
 
-
-(cross-gcc "avr"
-           #:xgcc gcc-13
-           ;;#:xbinutils (make-avr-binutils)
-           ;;#:libc (make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-13))
-           ;;(make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc))
-           )
-
-;;(make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-13))
+;; ;;(make-avr-libc/implementation #:xgcc (cross-gcc "avr" #:xgcc gcc-13))
 
