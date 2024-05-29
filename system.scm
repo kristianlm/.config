@@ -8,6 +8,7 @@
 	     (gnu packages compression)
 	     (gnu packages pv)
 	     (gnu packages rsync)
+	     (gnu packages file-systems)
 	     (gnu packages bittorrent)
 	     (gnu packages man)
 	     (gnu packages fonts)
@@ -125,6 +126,7 @@ root ALL=(ALL) ALL
              smartmontools
              ;; must haves
 	     btrfs-progs
+             bcachefs-tools
 	     file
 	     pv
 	     tmux
