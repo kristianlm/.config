@@ -131,7 +131,6 @@ root ALL=(ALL) ALL
              zstd
              strace
              tcpdump
-	     nss-certs
 	     curl
 	     git-minimal
              rsync
