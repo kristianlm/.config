@@ -84,6 +84,7 @@
          "blacklist=amdgpu,usbmouse,usbkbd"
          "rd.driver.blacklist=amdgpu"
          "radeon.runpm=0"
+         "intel_iommu=on"
          ;;%default-kernel-arguments
          ))
   (label (string-append "pal " (package-full-name (operating-system-kernel this-operating-system))))
