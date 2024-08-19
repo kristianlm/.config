@@ -37,15 +37,12 @@
 (installed 'avy)
 (installed 'imenu-anywhere)
 (installed 'iedit)
+(installed 'vertico)
 (installed 'orderless)
 (installed 'flycheck)
 (installed 'zerodark-theme)
 (installed 'all-the-icons-dired)
-;; (installed 'all-the-icons-completions)
-(installed 'selectrum)
 (installed 'ace-window)
-;; (installed 'smartparens)
-;; (package-install 'orderless)
 
 
 (setq mouse-yank-at-point t)
@@ -72,14 +69,35 @@
  version-control t)
 
 ;; ============================== completion ==============================
-(setq completion-styles '(orderless basic)
-      completion-category-overrides '((file (styles basic partial-completion))))
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
-(setq selectrum-refine-candidates-function #'orderless-filter)
-(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
-(selectrum-mode +1)
+
+(use-package vertico
+  :init
+  (vertico-mode)
+
+  ;; Different scroll margin
+  ;; (setq vertico-scroll-margin 0)
+
+  ;; Show more candidates
+  (setq vertico-count 30)
+
+  ;; Grow and shrink the Vertico minibuffer
+  ;; (setq vertico-resize t)
+
+  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+  ;; (setq vertico-cycle t)
+  )
+
+(use-package orderless
+  :init
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
+  ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
 
 (setq custom-file "/home/klm/.emacs.d/custom.el")
 (load custom-file)
@@ -95,8 +113,6 @@
 (global-paren-face-mode t)
 
 (setq geiser-scheme-implementation '(guile))
-
-(global-git-gutter-mode)
 
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
@@ -134,6 +150,7 @@
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
 (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+(add-hook 'clojurescript-mode-hook    (lambda () (paredit-mode +1)))
 
 ;; ==================== global keybindings ====================
 (require 'ace-window) ;; needed for non-Guix distros it seems
@@ -149,9 +166,9 @@
 
 ;; (ctrlf-mode +1)
 ;; (global-set-key (kbd "C-s") 'swiper)
- (global-set-key (kbd "C-s") 'phi-search)
- (global-set-key (kbd "C-r") 'phi-search-backward)
- (global-set-key (kbd "M-%") 'phi-replace-query)
+(global-set-key (kbd "C-S-s") 'phi-search)
+(global-set-key (kbd "C-S-r") 'phi-search-backward)
+(global-set-key (kbd "M-%") 'query-replace-regexp)
 
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (scroll-up -4)))
@@ -268,7 +285,7 @@
   (interactive)
   (inf-clojure "clojure -A:dev"))
 
-(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+;; (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 ;; (require 'iedit)
 
 ;; start server unless in a terminal
