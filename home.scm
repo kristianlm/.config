@@ -135,6 +135,7 @@ set -xU LESS_TERMCAP_ue (printf \"\\e[0m\")
 
 
 function chicken-guix-hack
+  set -gx CHICKEN_INSTALL_PREFIX     /home/klm/tmp/eggs
   set -gx CHICKEN_INSTALL_REPOSITORY /home/klm/tmp/eggs
   set -gx CHICKEN_REPOSITORY_PATH    /home/klm/tmp/eggs /home/klm/.guix-home/profile/var/lib/chicken/11
 end
