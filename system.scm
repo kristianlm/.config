@@ -12,6 +12,7 @@
 	     (gnu packages bittorrent)
 	     (gnu packages man)
 	     (gnu packages fonts)
+	     (gnu packages disk)
 	     (gnu packages tmux)
 	     (gnu packages admin)
              (gnu packages vulkan)
@@ -220,6 +221,12 @@ root ALL=(ALL) ALL
                                                    "ATTRS{idVendor}==\"03eb\", "
                                                    "MODE=\"0660\", "
                                                    "GROUP=\"dialout\"")))
+    (udev-rules-service
+     'hdparm ;; 240 + x = 30min * x
+     (udev-rule "69-hdparm.rules"
+                (string-append
+                 "ACTION==\"add|change\", KERNEL==\"sd[a-z]\", ATTRS{queue/rotational}==\"1\", RUN+=\""
+                 (file-append hdparm "/bin/hdparm") " -S 251 /dev/%k\"")))
 
     (service avahi-service-type)
     ;; (udisks-service)
