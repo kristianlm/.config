@@ -12,130 +12,106 @@
  (gnu home services xdg)
  (gnu home services shells))
 
-(define-public i3status-rust-no-kdeconnect
-  (package
-    (inherit i3status-rust)
-    (name "i3status-rust-no-kdeconnect")
-    (arguments
-     (substitute-keyword-arguments
-         (package-arguments i3status-rust)
-       ((#:phases old-phases)
-        #~(modify-phases #$old-phases
-            (replace 'wrap-i3status
-              (lambda* (#:key outputs inputs #:allow-other-keys)
-                (let ((out (assoc-ref outputs "out"))
-                      (paths (map
-                              (lambda (input)
-                                (string-append (assoc-ref inputs input) "/bin"))
-                              (list "alsa-utils" "coreutils" "curl" "dbus" "ibus"
-                                    "iproute" "lm-sensors" "pulseaudio" "openssl"
-                                    "setxkbmap" "speedtest-cli" "xdg-utils" "xrandr"
-                                    "zlib"))))
-                  (wrap-program (string-append out "/bin/i3status-rs")
-                    `("PATH" prefix ,paths)))))))))
-    (inputs (modify-inputs (package-inputs i3status-rust)
-              (delete "kdeconnect")))))
-
 (home-environment
-
  (packages
-  (cons*
-   i3status-rust-no-kdeconnect
-   (specifications->packages
-    (list
-     ;; basic
-     "file" "pv" "jq" "zstd"
-     "git-minimal" "tig" "tk"  ;; <-- needed by gitk
-     "bat"
-     "tmux"
-     "the-silver-searcher"
-     "recutils"
-     "rlwrap"
-     "atool" "unzip" "p7zip"
-     "watchexec"
-     "ncurses" ;; for tput
-     "tree"
-     "man-db"
-     ;; network
-     "netcat"            "socat"
-     "curl"
-     "iperf"
-     "darkhttpd"
-     "wireguard-tools"
-     ;; x
-     "sx" "xrandr" "libxft" "xrdb"
-     "setxkbmap" "xset"
-     "i3-wm" "dmenu" "i3status" "rofi" "rofi-calc"
-     "alacritty" ;; "lxterminal"
-     "xclip"
-     "redshift"
-     ;; fonts
-     "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
-     "font-openmoji"
-     "xdg-utils" ;; <-- xdg-open
-     "maim" "slop" ;; screen capture tools
-     ;; doc
-     "mupdf"
-     "evince"
-     "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
-     ;; "graphviz"
-     ;; media
-     "feh" "imv" "sxiv" "gnuplot"
-     ;;"mpv"
-     "ffmpeg" "sox" "graphicsmagick"
-     "pulseaudio" "pulsemixer"
-     "mpv"
-     ;; code
-     "libqalculate"
-     "cloc"
-     "zile"
-     "make"
-     "chicken"
-     ;; emacs
-     "emacs"
-     "emacs-zerodark-theme" "emacs-spacemacs-theme"
-     "emacs-paren-face"
-     "emacs-helm-ag"
-     "emacs-all-the-icons"
-     "emacs-all-the-icons-completion"
-     "emacs-all-the-icons-dired"
-     "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
-     "emacs-selectrum" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
-     "emacs-ctrlf" "emacs-swiper" ;; i-search alternative
-     "emacs-phi-search" ;; testing
-     ;; "emacs-git-gutter-fringe"
-     "emacs-highlight-symbol"
-     ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
-     "emacs-magit" "emacs-git-link"
-     "emacs-multiple-cursors"
-     "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
-     "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
-     "emacs-vterm"
-     ;; "emacs-tagedit"
-     "emacs-dumb-jump"
-     "emacs-fish-mode"
-     "emacs-web-mode"
-     "emacs-json-mode"
-     "emacs-markdown-mode"
-     "emacs-js2-mode"
-     "emacs-go-mode"
-     "emacs-rec-mode"
-     "emacs-protobuf-mode"
-     "emacs-gnuplot"
-     "emacs-opencl-mode"
-     "emacs-glsl-mode"
-     "emacs-scad-mode"
-     ;; "emacs-geiser" "emacs-geiser-guile"
-     ;; files / disk
-     "rclone" "restic"
-     "parted" "lsof"
-     "sqlite"
-     ;; "smartmontools"
-     ;; system
-     "dool" "htop"
-     ;; "qemu"
-     ;; evil
-     "ungoogled-chromium"))))
+  (specifications->packages
+   (list
+    ;; basic
+    "file" "pv" "jq" "zstd"
+    "git-minimal" "tig" "tk"  ;; <-- needed by gitk
+    "bat"
+    "tmux"
+    "the-silver-searcher"
+    "recutils"
+    "rlwrap"
+    "atool" "unzip" "p7zip"
+    "watchexec"
+    "ncurses" ;; for tput
+    "tree"
+    "man-db"
+    "man-pages" ;; <-- linux
+    "xxd"
+    ;; network
+    "netcat"            "socat"
+    "curl"
+    "iperf" "nmap"
+    "darkhttpd"
+    "wireguard-tools"
+    ;; x
+    "sx" "xrandr" "libxft" "xrdb"
+    "setxkbmap" "xset"
+    "i3-wm" "dmenu" "i3status" "i3status-rust" "rofi" "rofi-calc"
+    "alacritty" ;; "lxterminal"
+    "xclip"
+    "redshift"
+    ;; fonts
+    "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
+    "font-openmoji"
+    "xdg-utils" ;; <-- xdg-open
+    "maim" "slop" ;; screen capture tools
+    ;; doc
+    "mupdf"
+    "evince"
+    "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
+    ;; "graphviz"
+    ;; media
+    "feh" "imv" "sxiv" "gnuplot"
+    ;;"mpv"
+    "ffmpeg" "sox" "graphicsmagick"
+    "pulseaudio" "pulsemixer"
+    "mpv"
+    ;; code
+    "libqalculate"
+    "cloc"
+    "zile"
+    "make"
+    "chicken"
+    ;; emacs
+    "emacs"
+    "emacs-zerodark-theme" "emacs-spacemacs-theme"
+    "emacs-paren-face"
+    "emacs-helm-ag"
+    "emacs-all-the-icons"
+    "emacs-all-the-icons-completion"
+    "emacs-all-the-icons-dired"
+    "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
+    "emacs-vertico" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
+    "emacs-ctrlf" "emacs-swiper" ;; i-search alternative
+    "emacs-phi-search" ;; testing
+    ;; "emacs-git-gutter-fringe"
+    "emacs-highlight-symbol"
+    ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
+    "emacs-magit" "emacs-git-link"
+    "emacs-multiple-cursors"
+    "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
+    "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
+    "emacs-vterm"
+    ;; "emacs-tagedit"
+    "emacs-dumb-jump"
+    "emacs-fish-mode"
+    "emacs-web-mode"
+    "emacs-json-mode"
+    "emacs-markdown-mode"
+    "emacs-js2-mode"
+    "emacs-go-mode"
+    "emacs-rec-mode"
+    "emacs-protobuf-mode"
+    "emacs-gnuplot"
+    "emacs-opencl-mode"
+    "emacs-glsl-mode"
+    "emacs-scad-mode"
+    "emacs-clojure-mode" "emacs-cider" ;; "inf-clojure"
+    ;; "emacs-geiser" "emacs-geiser-guile"
+    ;; files / disk / block
+    "rclone" "restic"
+    "parted" "lsof"
+    "sqlite" "hdparm"
+    ;; "smartmontools"
+    ;; system
+    "dool" "htop"
+    "qemu"
+    ;; evil
+    "ungoogled-chromium")))
 
  (services
   (list
