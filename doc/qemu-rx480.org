@@ -1,0 +1,151 @@
+
+* PCI passthrough
+
+I eventually got PCI passthrough working on my RX480. That was _a lot_
+of effort 😢 [[https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF][This]] is a good documentation source. Maybe [[https://forum.level1techs.com/t/qemu-windows-10-amd-rx480-passthrough-code-43/159933/6][this]] too. A
+few points:
+
+- When I connect a monitor to the guest GPU, I immediately see the
+  UEFI boot-screen on it (you know, the archiso boot menu
+  install/memtest/uefi shell etc). This is useful to quickly check if
+  things are working.
+
+- The guest OS must have good and correct GPU drivers installed. I
+  couldn't get this working on Windows 10 (but didn't really try very
+  hard).
+
+- The duest can use the default QEMU vga/display settings. This makes
+  the guest more accessible since you have that window for keyboard
+  input etc. The passthrough GPU is just another VGA adapter.
+
+** Host setup
+
+#+begin_src sh
+  root@pal ~# lspci -knn -d 1002:
+  01:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] [1002:67df] (rev c7)
+  Subsystem: ASUSTeK Computer Inc. Device [1043:0501]
+  Kernel modules: amdgpu
+  01:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] [1002:aaf0]
+  Subsystem: ASUSTeK Computer Inc. Device [1043:aaf0]
+  Kernel driver in use: snd_hda_intel                                                 # <-- this is bad
+  Kernel modules: snd_hda_intel                                                       #  \ -
+  root@pal ~# modprobe vfio-pci                                                       #   \ -
+  root@pal ~# echo "0000:01:00.1" > /sys/bus/pci/devices/0000:01:00.1/driver/unbind   #    ` fixes this
+  root@pal ~# echo 1002 67df > /sys/bus/pci/drivers/vfio-pci/new_id                   # bind vfio-pci kernel driver to this device
+  root@pal ~# echo 1002 aaf0 > /sys/bus/pci/drivers/vfio-pci/new_id                   # bind vfio-pci kernel driver to this device
+  root@pal ~# lspci -knn -d 1002:
+  01:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] [1002:67df] (rev c7)
+  Subsystem: ASUSTeK Computer Inc. Device [1043:0501]
+  Kernel driver in use: vfio-pci                                              # good!
+  Kernel modules: amdgpu
+  01:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] [1002:aaf0]
+  Subsystem: ASUSTeK Computer Inc. Device [1043:aaf0]
+  Kernel driver in use: vfio-pci                                              # good!
+  Kernel modules: snd_hda_intel
+  # then, finally find the ovmf code and vars.
+  klm@pal ~ > cp /gnu/store/wriinv6lk6jz5gg1gfzjc4pmaclb1d8n-ovmf-202311/share/firmware/ovmf_vars_x64.bin /tmp/
+#+end_src
+
+** Guest setup
+
+
+#+begin_src sh
+  > sudo qemu-system-x86_64 \
+    -monitor stdio -M q35,accel=kvm,kernel-irqchip=on -m 16G \
+    -cpu host,+topoext,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_synic,hv_stimer,hv_vpindex,hv_vendor_id=MicroStarInc \
+    -drive if=pflash,format=raw,readonly=on,file=/gnu/store/wriinv6lk6jz5gg1gfzjc4pmaclb1d8n-ovmf-202311/share/firmware/ovmf_code_x64.bin \
+    -drive if=pflash,format=raw,file=/tmp/ovmf_vars_x64.bin \
+    -usb -device usb-tablet \
+    -device pcie-root-port,id=gpu,chassis=0,slot=0,bus=pcie.0 \
+    -device vfio-pci,host=01:00.0,bus=gpu,addr=00.0,multifunction=on \
+    -device vfio-pci,host=01:00.1,bus=gpu,addr=00.1 \
+    -nic user,hostfwd=tcp::5522-:22 \
+    -cdrom /raid/images/iso/archlinux-2024.06.01-x86_64.iso
+#+end_src
+
+The guest OS I've been testing on is a fresh archio with no
+disk/persistence. At the main window, run ~passwd~ and type in a root
+password twice so we can get ssh access. Then, from the host, do:
+
+#+begin_src bash
+  klm@pal ~ > ssh -o StrictHostKeyChecking=no root@localhost -p5522
+  Warning: Permanently added '[localhost]:522' (ED25519) to the list of known hosts.
+  root@localhost's password:
+  To install Arch Linux follow the installation guide:
+  https://wiki.archlinux.org/title/Installation_guide
+  …
+  root@archiso ~ # mount -o remount,size=4G /run/archiso/cowspace
+  root@archiso ~ # df -h
+  Filesystem      Size  Used Avail Use% Mounted on
+  airootfs        4.0G 1020K  4.0G   1% /
+  …
+  root@archiso ~ # pacman -Sy && pacman -S clpeak clinfo opencl-clover-mesa
+  …
+  root@archiso ~ # clpeak
+  Platform: Clover
+    Device: AMD Radeon RX 480 Graphics (radeonsi, polaris10, LLVM 17.0.6, DRM 3.57, 6.9.3-arch1-1)
+      Driver version  : 24.1.0-arch1.1 (Linux x64)
+      Compute units   : 36
+      Clock frequency : 1300 MHz
+
+      Global memory bandwidth (GBPS)
+        float   : 5.73
+        float2  : 5.73
+        float4  : 5.72
+        float8  : 5.41
+        float16 : 4.16
+
+      Single-precision compute (GFLOPS)
+        float   : 2793.69
+        float2  : 2755.77
+        float4  : 2705.93
+        float8  : 2687.69
+        float16 : 2660.24
+
+      No half precision support! Skipped
+
+      Double-precision compute (GFLOPS)
+        double   : 360.65
+        double2  : 361.20
+        double4  : 360.73
+        double8  : 359.23
+        double16 : 357.42
+
+      Integer compute (GIOPS)
+        int   : 1062.62
+        int2  : 1061.95
+        int4  : 1060.66
+        int8  : 1058.78
+        int16 : 1062.18
+
+      Integer compute Fast 24bit (GIOPS)
+        int   : 3886.04
+        int2  : 3473.80
+        int4  : 3483.91
+        int8  : 3365.79
+        int16 : 3279.12
+
+      Transfer bandwidth (GBPS)
+        enqueueWriteBuffer              : 13.59
+        enqueueReadBuffer               : 13.66
+        enqueueWriteBuffer non-blocking : 13.67
+        enqueueReadBuffer non-blocking  : 13.49
+        enqueueMapBuffer(for read)      : 6297.61
+          memcpy from mapped ptr        : 13.57
+        enqueueUnmap(after write)       : 6308.71
+          memcpy to mapped ptr          : 13.55
+
+      Kernel launch latency : 62.12 us
+
+  clpeak  7.04s user 1.11s system 9% cpu 1:23.59 total
+#+end_src
+
+** Troubleshoot
+
+*** qemu: vfio-pci: Cannot read device rom at 0000:01:00.0
+
+I sometimes see this error, sometimes not. I think it might happen
+when the GPU isn't properly "closed". Sometimes the error message
+disappears without host machine reboot. The initial BIOS vga boot menu
+doesn't show, but the system seems otherwise unaffected (~clpeak~
+still works).
