@@ -71,6 +71,7 @@
      "redshift"
      ;; fonts
      "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
+     "font-openmoji"
      "xdg-utils" ;; <-- xdg-open
      "maim" "slop" ;; screen capture tools
      ;; doc
@@ -81,8 +82,9 @@
      ;; media
      "feh" "imv" "sxiv" "gnuplot"
      ;;"mpv"
-     "ffmpeg" "sox"
-     "pulseaudio" "mpv"
+     "ffmpeg" "sox" "graphicsmagick"
+     "pulseaudio" "pulsemixer"
+     "mpv"
      ;; code
      "libqalculate"
      "cloc"
@@ -101,7 +103,7 @@
      "emacs-selectrum" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
      "emacs-ctrlf" "emacs-swiper" ;; i-search alternative
      "emacs-phi-search" ;; testing
-     "emacs-git-gutter-fringe"
+     ;; "emacs-git-gutter-fringe"
      "emacs-highlight-symbol"
      ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
      "emacs-magit" "emacs-git-link"
@@ -109,7 +111,7 @@
      "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
      "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
      "emacs-vterm"
-     "emacs-tagedit"
+     ;; "emacs-tagedit"
      "emacs-dumb-jump"
      "emacs-fish-mode"
      "emacs-web-mode"
@@ -121,6 +123,8 @@
      "emacs-protobuf-mode"
      "emacs-gnuplot"
      "emacs-opencl-mode"
+     "emacs-glsl-mode"
+     "emacs-scad-mode"
      ;; "emacs-geiser" "emacs-geiser-guile"
      ;; files / disk
      "rclone" "restic"
@@ -128,7 +132,7 @@
      "sqlite"
      ;; "smartmontools"
      ;; system
-     "dstat" "htop"
+     "dool" "htop"
      ;; "qemu"
      ;; evil
      "ungoogled-chromium"))))
@@ -152,6 +156,12 @@ set -xU LESS_TERMCAP_me (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_se (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_so (printf \"\\e[01;44;33m\")
 set -xU LESS_TERMCAP_ue (printf \"\\e[0m\")
+
+
+function chicken-guix-hack
+  set -gx CHICKEN_INSTALL_REPOSITORY /home/klm/tmp/eggs
+  set -gx CHICKEN_REPOSITORY_PATH    /home/klm/tmp/eggs /home/klm/.guix-home/profile/var/lib/chicken/11
+end
 
 function profile
   set -gx GUIX_PROFILE $argv[1]

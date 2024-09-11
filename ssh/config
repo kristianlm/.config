@@ -45,6 +45,10 @@ Host kar
   Hostname kar.local
   User root
 
+Host adell
+  Hostname 10.33.77.3
+  User klm
+
 # Host kon
 #   Hostname 10.33.11.1
 #   User klm
