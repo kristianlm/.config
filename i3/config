@@ -99,7 +99,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart # preserves layout
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+g exec "i3-msg border toggle"
+bindsym $mod+g border toggle
 
 # bindsym $mod+y exec "i3lock -e -c 101010 -t -i '/usr/share/wallpaper/lock.png'"
 bindsym $mod+y exec "sleep 1; xset dpms force off"
