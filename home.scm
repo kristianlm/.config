@@ -59,7 +59,6 @@
     ;;"mpv"
     "ffmpeg" "sox" "graphicsmagick"
     "pulseaudio" "pulsemixer"
-    "mpv"
     ;; code
     "libqalculate"
     "cloc"
@@ -175,6 +174,6 @@ end
 
 if [ (tty) = '/dev/tty2' ]
   echo 'Starting X in 4 seconds. C-c to abort ...'
-  sleep 4 && exec sx
+  sleep 4 && sx
 end
 "))))))))
