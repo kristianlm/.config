@@ -34,7 +34,7 @@
     ;; network
     "netcat"            "socat"
     "curl"
-    "iperf" "nmap"
+    "iperf" "nmap" "bind:utils"
     "darkhttpd"
     "wireguard-tools"
     ;; x
