@@ -36,6 +36,7 @@ Host karl
 
 Host kee
   Hostname 10.33.2.1
+  User root
 
 Host owar
   Hostname 192.168.1.111
@@ -49,6 +50,20 @@ Host adell
   Hostname 10.33.77.3
   User klm
 
-# Host kon
-#   Hostname 10.33.11.1
-#   User klm
+Host kon
+  Hostname 192.168.1.224
+#  Hostname 10.33.11.1
+  User klm
+  Port 8022
+
+Host ost
+  Hostname 192.168.1.114
+  User root
+
+Host rpi1b
+  Hostname 10.33.77.10
+  User root
+
+Host karl-nebula
+  Hostname 10.77.1.1
+  Port 2222

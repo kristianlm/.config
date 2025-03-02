@@ -1,4 +1,12 @@
-;;; to be used with guix system <action> system.scm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Kristian's GUIX workstation config
+;;; guix system <action> system.scm
+;;;
+;;; TODO :
+;;; fix klm@pal ~ > sudo mkdir -p $XDG_RUNTIME_DIR ; sudo chown klm:users -R /run/user/1000
+;;; fix annoying autologin getty mess
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-modules (gnu)
 	     (gnu packages shells)
 	     (gnu packages bash)
@@ -24,11 +32,13 @@
              (gnu services pm)
              (gnu services desktop)
 	     (gnu services avahi)
+             (gnu services shepherd)
 	     (gnu packages certs)
              ((gnu services cups) #:select (cups-service-type cups-configuration))
              (gnu packages cups)
              (gnu services sound)
              (gnu packages wm)
+             (gnu packages networking)
              (gnu services virtualization)
              (gnu services vpn)
              ((gnu packages gnustep) #:select (windowmaker))
@@ -138,22 +148,13 @@ root ALL=(ALL) ALL
 	     curl
 	     git-minimal
              rsync
+             lvm2
              man-db
              vulkan-loader vulkan-tools
    	     %base-packages))
 
   (services
    (cons*
-
-    ;; unbound variable mcron-service-type
-    ;; (simple-service 'my-cron-jobs
-    ;;                 mcron-service-type
-    ;;                 (list #~(job '(next-hour '(3))
-    ;;                              (lambda ()
-    ;;                                (execl (string-append #$libatasmart "/bin/skdump")
-    ;;                                       "updatedb"
-    ;;                                       "--prunepaths=/tmp /var/tmp /gnu/store"))
-    ;;                              "skdump")))
 
     (service wireguard-service-type
 	     (wireguard-configuration
@@ -184,6 +185,20 @@ root ALL=(ALL) ALL
                       (public-key "abl1S+L9adbzYzCpnhe7wW3x3u/aq4bnF86YA5nT2SY=")
                       (allowed-ips '("10.33.2.0/24")))))))
 
+    ;; goo'ol fashion manual configuration style
+    (simple-service
+     'nebula shepherd-root-service-type
+     (list (shepherd-service
+            (documentation "Run nebula on /etc/nebula/config.yml")
+            (provision '(nebula))
+            (requirement '(networking))
+            (start #~(make-forkexec-constructor
+                      (list #$(file-append nebula "/bin/nebula")
+                            "--config" "/etc/nebula/config.yml")
+                      #:log-file "/var/log/nebula.log"))
+            (stop #~(make-kill-destructor)))))
+
+
     (service xorg-server-service-type
 	     (xorg-configuration
               ;; (modules (list xf86-video-ati))
@@ -194,7 +209,36 @@ root ALL=(ALL) ALL
 	        %default-xorg-fonts))
 	      (keyboard-layout kl)))
 
-    (service dhcp-client-service-type)
+    (simple-service
+     'br0 shepherd-root-service-type
+     (let ((ip (file-append iproute "/sbin/ip")))
+       (list (shepherd-service
+              (documentation "Make a br0 bridge and attach enp0s31f6")
+              ;;(one-shot? #t)
+              (provision '(br0))
+              (requirement '(user-processes))
+              (start #~(lambda _
+                         (invoke/quiet #$ip "link" "add" "name" "br0" "type" "bridge")
+                         (invoke/quiet #$ip "link" "set" "br0" "up")
+                         (invoke/quiet #$ip "link" "set" "enp0s31f6" "master" "br0")
+                         (invoke/quiet #$ip "link" "set" "enp0s31f6" "up")))
+              ;; I THINK stop is ignored for one-shot ...
+              (stop #~(lambda _
+                        (display "RUNNNNIIIINNNNNGG\n")
+                        (system* #$ip "link" "del" "br0")
+                        #f))))))
+
+    ;; <start>:
+    ;; ip l add name br0 type bridge
+    ;; ip l set br0 up
+    ;; ip l set enp0s31f6 master br0
+    ;; <stop>:
+    ;; ip l del br0
+
+    (service dhcp-client-service-type
+             (dhcp-client-configuration
+              (interfaces '("br0"))
+              (shepherd-requirement '(br0))))
 
     (service cups-service-type
              (cups-configuration
@@ -223,10 +267,13 @@ root ALL=(ALL) ALL
                                                    "GROUP=\"dialout\"")))
     (udev-rules-service
      'hdparm ;; 240 + x = 30min * x
-     (udev-rule "69-hdparm.rules"
-                (string-append
-                 "ACTION==\"add|change\", KERNEL==\"sd[a-z]\", ATTRS{queue/rotational}==\"1\", RUN+=\""
-                 (file-append hdparm "/bin/hdparm") " -S 251 /dev/%k\"")))
+     (file->udev-rule
+      "69-hdparm.rules"
+      (mixed-text-file
+       "69-hdparm.rules"
+       "ACTION==\"add|change\", KERNEL==\"sd[a-z]\", ATTRS{queue/rotational}==\"1\", RUN+=\""
+       hdparm "/sbin/hdparm"
+       " -S 251 /dev/%k\"")))
 
     (service avahi-service-type)
     ;; (udisks-service)
@@ -255,11 +302,12 @@ root ALL=(ALL) ALL
     (service mingetty-service-type (mingetty-configuration (tty "tty7")))
     (service mingetty-service-type (mingetty-configuration (tty "tty8")))
     (service mingetty-service-type (mingetty-configuration (tty "tty9")))
-    (service mingetty-service-type (mingetty-configuration (tty "tty0")))
 
     (simple-service 'add-extra-hosts
                     hosts-service-type
-                    (list (host "167.235.141.165" "karl")))
+                    (list (host "167.235.141.165" "karl")
+                          (host "10.77.4.1" "mth")
+                          (host "10.77.3.22" "isa")))
 
     (modify-services %base-services
       (delete mingetty-service-type)
