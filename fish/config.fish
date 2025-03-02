@@ -13,6 +13,7 @@ set -xU LESS_TERMCAP_us (printf "\e[00;32m")
 set -xU HIGHLIGHT_OPTIONS '-s rootwater'
 
 if [ (tty) = '/dev/tty1' ]
-	exec startx
+  echo 'Starting X in 1 second. C-c to abort ...'
+  sleep 1 && sx
 end
 
