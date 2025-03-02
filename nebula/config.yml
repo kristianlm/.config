@@ -1,0 +1,48 @@
+pki:
+  ca: /etc/nebula/ca.crt
+  cert: /etc/nebula/pal.crt
+  key: /etc/nebula/pal.key
+
+static_host_map:
+ "10.77.1.1": ["167.235.141.165:4242"] # karl
+
+lighthouse:
+  am_lighthouse: false
+  hosts:
+    - "10.77.1.1"
+
+listen:
+  host: "[::]"
+  port: 4242
+
+punchy:
+  punch: true
+
+cipher: chachapoly
+
+tun:
+  disabled: false
+  dev: neb1
+  drop_local_broadcast: false
+  drop_multicast: false
+  tx_queue: 500
+  mtu: 1300
+  routes:
+    - mtu: 8800
+      route: 10.77.3.0/24
+
+firewall:
+  conntrack:
+    tcp_timeout: 12m
+    udp_timeout: 3m
+    default_timeout: 10m
+
+  outbound:
+    - port: any
+      proto: any
+      host: any
+
+  inbound:
+    - port: any
+      proto: any
+      host: any
