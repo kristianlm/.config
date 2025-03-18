@@ -13,24 +13,8 @@ Host csi
   Hostname 127.0.0.1
   Port 22022
 
-Host xz2
-     Port 8022
-     User u0_a12
-
-Host adellica.com
-  Port 24024
-
-Host minside.adellica.com
-  Port 24024
-
-Host smartcity.adellica.com
-  User root
-
-Host friskus.com
-  User socieqqz
-
 Host karl
-#  hostname 167.235.141.165
+  # Hostname 167.235.141.165
   User root
   Port 21725
 
@@ -40,10 +24,6 @@ Host kee
 
 Host owar
   Hostname 192.168.1.111
-  User root
-  
-Host kar
-  Hostname kar.local
   User root
 
 Host adell
@@ -67,3 +47,7 @@ Host rpi1b
 Host karl-nebula
   Hostname 10.77.1.1
   Port 2222
+
+Host klara
+  Hostname 127.0.0.1
+  Port 22000
