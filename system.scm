@@ -305,9 +305,12 @@ root ALL=(ALL) ALL
 
     (simple-service 'add-extra-hosts
                     hosts-service-type
-                    (list (host "167.235.141.165" "karl")
-                          (host "10.77.4.1" "mth")
-                          (host "10.77.3.22" "isa")))
+                    (list (host "192.168.1.111"   "owar")
+                          (host "167.235.141.165" "karl")
+                          (host "10.33.2.1"       "kee")
+                          (host "10.33.77.3"      "adell")
+                          (host "10.77.3.22"      "isa")
+                          (host "10.77.4.1"       "mth")))
 
     (modify-services %base-services
       (delete mingetty-service-type)
