@@ -16,5 +16,5 @@ function fish_prompt
     end
 
     printf "$USER@"(prompt_hostname)" "(prompt_pwd)" "
-        printf "➤ "(set_color normal)
+        printf "> "(set_color normal)
 end
