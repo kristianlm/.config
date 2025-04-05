@@ -18,7 +18,7 @@
    (list
     ;; basic
     "file" "pv" "jq" "zstd"
-    "git-minimal" "tig" "tk"  ;; <-- needed by gitk
+    "git-minimal" "tig" "tk" ;; <-- needed by gitk
     "bat"
     "tmux"
     "the-silver-searcher"
@@ -31,23 +31,22 @@
     "man-db"
     "man-pages" ;; <-- linux
     "xxd"
+    "fzf" ;; see below too
     ;; network
-    "netcat"            "socat"
-    "curl"
-    "iperf" "nmap" "bind:utils"
-    "darkhttpd"
-    "wireguard-tools"
+    "curl"      "netcat"          "socat"
+    "iperf"     "nmap"            "bind:utils"
+    "darkhttpd" "wireguard-tools" "mtr"
     ;; x
     "sx" "xrandr" "libxft" "xrdb"
     "setxkbmap" "xset"
     "i3-wm" "dmenu" "i3status" "i3status-rust" "rofi" "rofi-calc"
-    "alacritty" ;; "lxterminal"
+    "alacritty"
     "xclip"
     "redshift"
     ;; fonts
     "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
     "font-openmoji"
-    "xdg-utils" ;; <-- xdg-open
+    "xdg-utils"   ;; <-- xdg-open
     "maim" "slop" ;; screen capture tools
     ;; doc
     "mupdf"
@@ -55,8 +54,8 @@
     "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
     ;; "graphviz"
     ;; media
+    ;; "mpv" ;; <-- conflicting ffmpeg version (.... ?)
     "feh" "imv" "sxiv" "gnuplot"
-    ;;"mpv"
     "ffmpeg" "sox" "graphicsmagick"
     "pulseaudio" "pulsemixer"
     ;; code
@@ -75,8 +74,8 @@
     "emacs-all-the-icons-dired"
     "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
     "emacs-vertico" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
-    "emacs-ctrlf" "emacs-swiper" ;; i-search alternative
-    "emacs-phi-search" ;; testing
+    "emacs-ctrlf" "emacs-swiper"      ;; i-search alternative
+    "emacs-phi-search"                ;; testing
     ;; "emacs-git-gutter-fringe"
     "emacs-highlight-symbol"
     ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
@@ -100,6 +99,7 @@
     "emacs-glsl-mode"
     "emacs-scad-mode"
     "emacs-clojure-mode" "emacs-cider" ;; "inf-clojure"
+    "emacs-rust-mode"
     ;; "emacs-geiser" "emacs-geiser-guile"
     ;; files / disk / block
     "rclone" "restic"
@@ -176,4 +176,6 @@ if [ (tty) = '/dev/tty2' ]
   echo 'Starting X in 4 seconds. C-c to abort ...'
   sleep 4 && sx
 end
+
+fzf --fish | source
 "))))))))
