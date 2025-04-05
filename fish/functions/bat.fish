@@ -1,3 +1,3 @@
 function bat
-command bat -p $argv
+    command bat --italic-text=always -p $argv
 end
