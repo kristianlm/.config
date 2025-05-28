@@ -66,6 +66,7 @@ bindsym $mod+Shift+a focus child
 bindsym $mod+grave workspace number 0
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
+bindsym $mod+Alt+2 workspace 2a
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
@@ -79,6 +80,7 @@ bindsym $mod+0 workspace number 10
 bindsym $mod+Shift+grave move container to workspace number 0
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Alt+Shift+2 move container to workspace 2a
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
