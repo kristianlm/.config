@@ -290,3 +290,17 @@
 
 ;; start server unless in a terminal
 (if window-system (server-start))
+
+;; ==================== org-present ====================
+
+(add-hook 'org-present-mode-hook
+          (lambda ()
+            (org-present-big)
+            (org-present-hide-cursor)
+            (org-display-inline-images)))
+
+(add-hook 'org-present-mode-quit-hook
+          (lambda ()
+            (org-present-small)
+            (org-present-show-cursor)
+            (org-remove-inline-images)))
