@@ -43,6 +43,7 @@
     "alacritty"
     "xclip"
     "redshift"
+    "mesa-utils"
     ;; fonts
     "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
     "font-openmoji"
@@ -108,7 +109,7 @@
     ;; "smartmontools"
     ;; system
     "dool" "htop"
-    "qemu"
+    "qemu" "at-spi2-core" ;; <-- fix DBus error from QEMU?
     ;; evil
     "ungoogled-chromium")))
 
