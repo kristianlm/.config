@@ -108,7 +108,6 @@
 ;; (setq ivy-use-virtual-buffers t) ;; <-- switch-to-buffer with recentf entries
 
 (all-the-icons-dired-mode +1)
-(all-the-icons-completion-mode +1)
 
 (global-paren-face-mode t)
 
@@ -166,8 +165,6 @@
 
 ;; (ctrlf-mode +1)
 ;; (global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-S-s") 'phi-search)
-(global-set-key (kbd "C-S-r") 'phi-search-backward)
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (scroll-up  4)))
