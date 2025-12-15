@@ -67,7 +67,7 @@
     "chicken"
     ;; emacs
     "emacs"
-    "emacs-zerodark-theme" "emacs-spacemacs-theme"
+    "emacs-zerodark-theme" "emacs-spacemacs-theme" "emacs-zenburn-theme" "emacs-doom-themes"
     "emacs-paren-face"
     "emacs-helm-ag"
     "emacs-all-the-icons"
@@ -78,7 +78,7 @@
     "emacs-ctrlf" "emacs-swiper"      ;; i-search alternative
     "emacs-phi-search"                ;; testing
     ;; "emacs-git-gutter-fringe"
-    "emacs-highlight-symbol"
+    "emacs-highlight-symbol" "emacs-highlight-numbers" ;; "emacs-highlight-escape-sequences"
     ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
     "emacs-magit" "emacs-git-link"
     "emacs-multiple-cursors"
