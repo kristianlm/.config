@@ -58,19 +58,20 @@
 (operating-system
   (kernel-arguments
    (append
-      ;;"spectre_v2=eibrs,retpoline" ;; mitigate spectre v2 eBPF vulnerability
-         ;; https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs
-         ;;"intel_idle.max_cstate=1"  ;; CPU power states
-         ;;"i915.enable_dc=0"         ;; GPU power management
-         ;;"ahci.mobile_lpm_policy=1" ;; SATA power management
-         ;;"modprobe.blacklisk=amdgpu,usbmouse,usbkbd"
-         ;;"amdgpu.blacklist=1"
-         ;;"blacklist=amdgpu,usbmouse,usbkbd"
-         ;;"rd.driver.blacklist=amdgpu"
-         ;;"radeon.runpm=0"
-         ;;"intel_iommu=on"
-	;;	(error         %default-kernel-arguments)
-         ))
+    (list
+     ;;"spectre_v2=eibrs,retpoline" ;; mitigate spectre v2 eBPF vulnerability
+     ;; https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs
+     ;;"intel_idle.max_cstate=1"  ;; CPU power states
+     "i915.enable_dc=0") ;; GPU power management
+    ;;"ahci.mobile_lpm_policy=1" ;; SATA power management
+    ;;"modprobe.blacklisk=amdgpu,usbmouse,usbkbd"
+    ;;"amdgpu.blacklist=1"
+    ;;"blacklist=amdgpu,usbmouse,usbkbd"
+    ;;"rd.driver.blacklist=amdgpu"
+    ;;"radeon.runpm=0"
+    ;;"intel_iommu=on"
+    ;;	(error         %default-kernel-arguments)
+    ))
   (label (string-append "rex " (package-full-name (operating-system-kernel this-operating-system))))
   (locale "en_US.utf8")
   (timezone "Europe/Oslo")
