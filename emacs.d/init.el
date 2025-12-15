@@ -142,7 +142,7 @@
 ;; enable paredit
 
 (eval-after-load 'paredit
-  '(progn (define-key paredit-mode-map (kbd "\\") 'self-insert-command)))
+  '(progn (define-key paredit-mode-map (kbd "\\") 'nil)))
 
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
