@@ -261,6 +261,15 @@
 	  '(lambda ()
 	     (local-set-key (kbd "M-RET") 'scheme-send-buffer)))
 
+(defun scheme-clear-repl-buffer ()
+  (interactive)
+  (with-current-buffer "*scheme*"
+    (let ((inhibit-read-only t)) (erase-buffer))))
+
+(add-hook 'scheme-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-M-=") 'scheme-clear-repl-buffer)))
+
 ;; ==================== dedicated window toggle ====================
 ;; useful when I want to overlay an external window over my running
 ;; emacs. I create a dummy buffer and lay it out just underneath this
