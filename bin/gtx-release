@@ -1,0 +1,9 @@
+
+echo "0000:01:00.1" > /sys/bus/pci/devices/0000:01:00.1/driver/unbind
+echo "0000:01:00.0" > /sys/bus/pci/devices/0000:01:00.0/driver/unbind
+
+modprobe vfio-pci
+echo 10de 10f1 > /sys/bus/pci/drivers/vfio-pci/new_id
+echo 10de 1c02 > /sys/bus/pci/drivers/vfio-pci/new_id
+lspci -knn -d 10de:
+
