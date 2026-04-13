@@ -7,7 +7,7 @@ set $mod Mod4
 font pango:SourceCodePro 8
 #font pango:Terminus 9px
 
-bindsym $mod+Return exec alacritty # lxterminal
+bindsym $mod+Return exec xst # alacritty lxterminal
 bindsym $mod+Shift+Return exec lxterminal || xterm
 # bindsym $mod+Return exec xterm
 
