@@ -270,6 +270,16 @@
           '(lambda ()
              (local-set-key (kbd "C-M-=") 'scheme-clear-repl-buffer)))
 
+(require 'mmm-mode)
+(setq mmm-global-mode 't)
+(mmm-add-classes
+ '((markdown-scheme
+    :submode scheme-mode
+    :front "^```[ \t]*scheme[ \t]*\n"
+    :back  "^```[ \t]*$")))
+
+(mmm-add-mode-ext-class 'markdown-mode nil 'markdown-scheme)
+(add-hook 'markdown-mode-hook #'mmm-mode)
 ;; ==================== dedicated window toggle ====================
 ;; useful when I want to overlay an external window over my running
 ;; emacs. I create a dummy buffer and lay it out just underneath this
