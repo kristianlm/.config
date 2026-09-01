@@ -320,3 +320,15 @@
             (org-present-small)
             (org-present-show-cursor)
             (org-remove-inline-images)))
+
+
+;; paredit insists on inserting whitespace before (.
+;; it's annoying, specially with #u8() becoming #u8 ()
+(with-eval-after-load 'paredit
+  (defun paredit-open-round-without-space ()
+    (interactive)
+    (paredit-open-round)
+    (when (eq (char-before (- (point) 1)) ?\s)
+      (backward-delete-char 2)
+      (insert "(")))
+  (define-key paredit-mode-map "(" 'paredit-open-round-without-space))
