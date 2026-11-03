@@ -3,20 +3,11 @@
 
 xrdb -merge "$HOME/.Xresources"
 
-xset -b # no bell
-
-# keyboard
+xset -b
 xset r rate 200 60
-
-# sudo localectl --no-convert set-x11-keymap us "" mac ctrl:nocaps
-# setxkbmap us -variant mac -option ctrl:nocaps
-
-# screen
 xset s off
 xset dpms 5600 5600 5600
+setxkbmap us -variant mac -option ctrl:nocaps
 
-# xsetroot -cursor_name left_ptr # change mouse cursor
-
-2k
-
+xrandr --output DP-3 --auto --output HDMI-3 --auto --right-of DP-3 --output DP-1-1 --auto --right-of HDMI-3
 exec i3

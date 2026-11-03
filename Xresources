@@ -34,7 +34,7 @@ st.disableitalics:         0
 st.disableroman:         0
 
 ! Amount of lines scrolled
-st.scrollrate:  1
+st.scrollrate:  2
 
 ! Kerning / character bounding-box height multiplier
 st.chscale:           1.0
@@ -52,7 +52,7 @@ st.bellvolume:        100
 ! perfect alignment between cells (U2500 - U259F except dashes/diagonals).
 ! Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
 ! 0: disable (render all U25XX glyphs normally from the font).
-st.boxdraw: 0
+st.boxdraw: 1
 
 ! (0|1) boxdraw(bold) enable toggle
 st.boxdraw_bold: 0

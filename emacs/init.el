@@ -1,11 +1,14 @@
+;; -*- lexical-binding: t; -*-
 
-;; I don't need the tutorial anymore
 (setq inhibit-startup-message t)
 (setq visible-bell 1) ;; get rid of that annoying sound
 
+(setq custom-file "/home/klm/.config/emacs/custom.el")
+(load custom-file)
+
 ;; ==================== packages ====================
 ;;(require 'package)
-;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 ;;(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
 ;;(package-initialize)
 
@@ -29,7 +32,7 @@
 (installed 'markdown-mode)
 (installed 'clojure-mode)
 (installed 'inf-clojure)
-(installed 'helm-ag)
+;; (installed 'helm-ag)
 (installed 'fish-mode)
 (installed 'git-gutter)
 (installed 'ivy)
@@ -37,13 +40,12 @@
 (installed 'avy)
 (installed 'imenu-anywhere)
 (installed 'iedit)
-(installed 'vertico)
+;;(installed 'vertico)
 (installed 'orderless)
 (installed 'flycheck)
-(installed 'zerodark-theme)
+;; (installed 'zerodark-theme)
 (installed 'all-the-icons-dired)
 (installed 'ace-window)
-
 
 (setq mouse-yank-at-point t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -76,19 +78,7 @@
 (use-package vertico
   :init
   (vertico-mode)
-
-  ;; Different scroll margin
-  ;; (setq vertico-scroll-margin 0)
-
-  ;; Show more candidates
-  (setq vertico-count 30)
-
-  ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
-  )
+  (setq vertico-count 30))
 
 (use-package orderless
   :init
@@ -99,19 +89,13 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 
-(setq custom-file "/home/klm/.emacs.d/custom.el")
-(load custom-file)
 
-(zerodark-setup-modeline-format)
+;; (zerodark-setup-modeline-format)
 ;; (window-numbering-mode) ;; M-1...8
 ;; (ivy-mode)
 ;; (setq ivy-use-virtual-buffers t) ;; <-- switch-to-buffer with recentf entries
-
-(all-the-icons-dired-mode +1)
-
-(global-paren-face-mode t)
-
-(setq geiser-scheme-implementation '(guile))
+;; (all-the-icons-dired-mode +1)
+;; (global-paren-face-mode t)
 
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
@@ -121,7 +105,8 @@
     (ansi-color-apply-on-region compilation-filter-start (point-max))))
 (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer)
 
-(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+;;(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+;;(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 ;;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
  
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
@@ -138,6 +123,8 @@
 ;; (global-set-key (kbd "C-c \"") (lambda () (interactive) (sp-wrap-with-pair "\"")))
 
 (global-set-key (kbd "C-c i") 'aggressive-indent-mode)
+
+;; (add-hook 'prog-mode-hook '(lambda () (highlight-regexp "[\\][[:alpha:]]" 'my-face)))
 
 ;; enable paredit
 
@@ -180,12 +167,12 @@
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;; turn off these default magit bindings because I'm using them for
-;; something else.
-(define-key magit-mode-map (kbd "M-1") nil)
-(define-key magit-mode-map (kbd "M-2") nil)
-(define-key magit-mode-map (kbd "M-3") nil)
-(define-key magit-mode-map (kbd "M-4") nil)
+;; ;; turn off these default magit bindings because I'm using them for
+;; ;; something else.
+;; (define-key magit-mode-map (kbd "M-1") nil)
+;; (define-key magit-mode-map (kbd "M-2") nil)
+;; (define-key magit-mode-map (kbd "M-3") nil)
+;; (define-key magit-mode-map (kbd "M-4") nil)
 
 (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 ;;(setq magit-display-buffer-function 'magit-display-buffer-traditional)
@@ -270,16 +257,18 @@
           '(lambda ()
              (local-set-key (kbd "C-M-=") 'scheme-clear-repl-buffer)))
 
-(require 'mmm-mode)
-(setq mmm-global-mode 't)
-(mmm-add-classes
- '((markdown-scheme
-    :submode scheme-mode
-    :front "^```[ \t]*scheme[ \t]*\n"
-    :back  "^```[ \t]*$")))
+;; (require 'mmm-mode)
+;; (setq mmm-global-mode 't)
+;; (mmm-add-classes
+;;  '((markdown-scheme
+;;     :submode scheme-mode
+;;     :front "^```[ \t]*scheme[ \t]*\n"
+;;     :back  "^```[ \t]*$")))
 
-(mmm-add-mode-ext-class 'markdown-mode nil 'markdown-scheme)
-(add-hook 'markdown-mode-hook #'mmm-mode)
+;;(mmm-add-mode-ext-class 'markdown-mode nil 'markdown-scheme)
+;;(add-hook 'markdown-mode-hook #'mmm-mode)
+
+
 ;; ==================== dedicated window toggle ====================
 ;; useful when I want to overlay an external window over my running
 ;; emacs. I create a dummy buffer and lay it out just underneath this
@@ -322,13 +311,13 @@
             (org-remove-inline-images)))
 
 
-;; paredit insists on inserting whitespace before (.
-;; it's annoying, specially with #u8() becoming #u8 ()
-(with-eval-after-load 'paredit
-  (defun paredit-open-round-without-space ()
-    (interactive)
-    (paredit-open-round)
-    (when (eq (char-before (- (point) 1)) ?\s)
-      (backward-delete-char 2)
-      (insert "(")))
-  (define-key paredit-mode-map "(" 'paredit-open-round-without-space))
+;; ;; paredit insists on inserting whitespace before (.
+;; ;; it's annoying, specially with #u8() becoming #u8 ()
+;; (with-eval-after-load 'paredit
+;;   (defun paredit-open-round-without-space ()
+;;     (interactive)
+;;     (paredit-open-round)
+;;     (when (eq (char-before (- (point) 1)) ?\s)
+;;       (backward-delete-char 2)
+;;       (insert "(")))
+;;   (define-key paredit-mode-map "(" 'paredit-open-round-without-space))
