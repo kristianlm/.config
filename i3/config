@@ -7,7 +7,7 @@ set $mod Mod4
 font pango:SourceCodePro 8
 #font pango:Terminus 9px
 
-bindsym $mod+Return exec xst # alacritty lxterminal
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec lxterminal || xterm
 # bindsym $mod+Return exec xterm
 
@@ -154,20 +154,23 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
+bindsym $mod+r exec --no-startup-id "xdotool key F5"
+
 
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 10, OpenMoji 10
     position top
-    status_command i3status-rs
+    status_command i3status
     colors {
          background #222222
     }
 }
 
 # screenshot
-bindsym $mod+x exec "maim -u -s | xclip -selection clipboard -t image/png 2>>/tmp/err ; xclip -o -selection clipboard -t image/png > /tmp/ss.png && cp && /tmp/ss.png ss-$(date +%F_%T).png"
-bindsym $mod+z exec "xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
+bindsym $mod+x exec "mkdir -p /tmp/ss ; maim -m 10 -n 1 -u -s | tee /tmp/ss/ss.png | xclip -selection clipboard -t image/png 2>>/tmp/ss/err ; cp /tmp/ss/ss.png /tmp/ss/ss-$(date +%F_%T).png"
+bindsym $mod+Shift+x exec "mkdir -p /tmp/ss ; maim -m 10 -u -g $(slop -n 1 ; sleep 1) | tee /tmp/ss/ss.png | xclip -selection clipboard -t image/png 2>>/tmp/ss/err ; cp /tmp/ss/ss.png /tmp/ss/ss-$(date +%F_%T).png"
+# bindsym $mod+z exec "xclip -o -selection clipboard -t image/png > /tmp/ss-$(date +%F_%T).png"
 
 # volume
 set $volcmd pulsemixer --change-volume
