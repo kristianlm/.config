@@ -23,7 +23,6 @@
 (installed 'web-mode)
 (installed 'js2-mode)
 (installed 'git-link)
-(installed 'paren-face)
 (installed 'base16-theme)
 (installed 'multiple-cursors)
 (installed 'window-numbering)
@@ -95,7 +94,21 @@
 ;; (ivy-mode)
 ;; (setq ivy-use-virtual-buffers t) ;; <-- switch-to-buffer with recentf entries
 ;; (all-the-icons-dired-mode +1)
-;; (global-paren-face-mode t)
+
+;; replaces paren-face
+(defface face-dimmer
+  '((((class color) (background dark))  (:foreground "grey50"))
+    (((class color) (background light)) (:foreground "grey0")))
+  "Dimmer face for less noise.")
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'face-dimmer)))))
+
+;; Re-highlight buffers already open
+(font-lock-flush)
 
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
@@ -167,12 +180,14 @@
 ;; ==================== magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;; ;; turn off these default magit bindings because I'm using them for
-;; ;; something else.
-;; (define-key magit-mode-map (kbd "M-1") nil)
-;; (define-key magit-mode-map (kbd "M-2") nil)
-;; (define-key magit-mode-map (kbd "M-3") nil)
-;; (define-key magit-mode-map (kbd "M-4") nil)
+;; turn off these default magit bindings because I'm using them for
+;; something else.
+(require 'magit)
+(progn
+  (define-key magit-mode-map (kbd "M-1") nil)
+  (define-key magit-mode-map (kbd "M-2") nil)
+  (define-key magit-mode-map (kbd "M-3") nil)
+  (define-key magit-mode-map (kbd "M-4") nil))
 
 (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 ;;(setq magit-display-buffer-function 'magit-display-buffer-traditional)
