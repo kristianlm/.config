@@ -70,69 +70,73 @@ produces portable and efficient C, supports almost all of the R5RS Scheme
 language standard, and includes many enhancements and extensions.")
     (license license:bsd-3)))
 
-(define-public chicken-git-tcc
-  (let ((commit "2f8933f7b110e33a966876938407e594773239ad")
-        (version "6.0.0")
-        (revision "0"))
+(define-public chicken-git
+  (let ((commit "3c94817513d9f511802f84decbcb5ee796bc6c19")
+        (version "6.0.1")
+        (revision "3"))
     (package
-     (name "chicken6git-tcc")
-     (version (git-version version revision commit))
-     (source (origin
-              (method git-fetch)
-              (uri (git-reference
-                    (url "git://code.call-cc.org/chicken-core")
-                    (commit commit)))
-              (file-name (git-file-name name version))
-              (sha256
-               (base32
-                "04jq8gjyla43jhgq2lpvq262wigkll80fpza1z75di26b0zvqmhc"))))
-     (build-system gnu-build-system)
-     (arguments
-      `(#:modules ((guix build gnu-build-system)
-                   (guix build utils)
-                   (srfi srfi-1))
+      (name "chicken6git")
+      (version (git-version version revision commit))
+      (source (origin
+                (method git-fetch)
+                (uri (git-reference
+                       (url "git://code.call-cc.org/chicken-core")
+                       (commit commit)))
+                (file-name (git-file-name name version))
+                (sha256
+                 (base32
+                  "0d1skm1v4kz1wksv9fgqi7k2lgz5kvckwq4jh6prszfx7fjlld7q"))))
+      (build-system gnu-build-system)
+      (arguments
+       `(#:modules ((guix build gnu-build-system)
+                    (guix build utils)
+                    (srfi srfi-1))
 
-        ;; No `configure' script; run "make check" after "make install" as
-        ;; prescribed by README.
-        #:phases
-        (modify-phases %standard-phases
-                       (replace 'configure
-                                (lambda* (#:key inputs outputs #:allow-other-keys)
-                                         (let ((out   (assoc-ref outputs "out"))
-                                               (chicken    (assoc-ref inputs "chicken6pre3"))
-                                               (tcc (assoc-ref inputs "tcc")))
-                                           (invoke "./configure"
-                                                   (string-append "--c-compiler=" tcc "/bin/tcc")
-                                                   (string-append "--chicken=" chicken "/bin/chicken6")
-                                                   (string-append "--prefix=" out)
-                                                   (string-append "--vardir=" out "/var/lib")
-                                                   (string-append "--program-suffix=6git")))))
-                       (delete 'check)
-                       (delete 'validate-runpath) ;; TODO why is this failing with TCC?
-                       ;; (add-after 'install 'check
-                       ;;   (assoc-ref %standard-phases 'check))
-                       )))
+         ;; No `configure' script; run "make check" after "make install" as
+         ;; prescribed by README.
+         #:phases
+         (modify-phases %standard-phases
+           (replace 'configure
+             (lambda* (#:key inputs outputs #:allow-other-keys)
+               (let ((out   (assoc-ref outputs "out"))
+                     (chicken    (assoc-ref inputs "chicken6"))
+                     ;;(tcc (assoc-ref inputs "tcc"))
+                     )
+                 (invoke "./configure"
+                         ;; (string-append "--c-compiler=" tcc "/bin/tcc")
+                         (string-append "--chicken=" chicken "/bin/chicken6")
+                         (string-append "--prefix=" out)
+                         (string-append "--vardir=" out "/var/lib")
+                         (string-append "--program-suffix=6git")))))
+           (delete 'check)
+           (delete 'validate-runpath) ;; TODO why is this failing with TCC?
+           ;; (add-after 'install 'check
+           ;;   (assoc-ref %standard-phases 'check))
+           )
 
-     ;; (native-search-paths
-     ;;  (list (search-path-specification
-     ;;          (variable "CHICKEN_REPOSITORY_PATH")
-     ;;          ;; TODO extract binary version into a module level definition.
-     ;;          (files (list "var/lib/chicken/12")))))
+         #:make-flags (let ((out (assoc-ref %outputs "out")))
+                        (list (string-append "DESTDIR=/")))))
 
-     ;; Reference gcc-toolchain lazily to avoid circular module dependency
-     ;; problems.
-     (propagated-inputs (list ;; (module-ref (resolve-interface
-                         ;;              '(gnu packages c))
-                         ;;             'tcc)
-                         chicken-6.0.0pre3
-                         tcc ))
-     (home-page "https://www.call-cc.org/")
-     (synopsis "R7RS Scheme implementation that compiles native code via C")
-     (description
-      "CHICKEN is a compiler for the Scheme programming language.  CHICKEN
+      ;; (native-search-paths
+      ;;  (list (search-path-specification
+      ;;          (variable "CHICKEN_REPOSITORY_PATH")
+      ;;          ;; TODO extract binary version into a module level definition.
+      ;;          (files (list "var/lib/chicken/12")))))
+
+      ;; Reference gcc-toolchain lazily to avoid circular module dependency
+      ;; problems.
+
+      ;; TODO: turn into native-inputs so we don't clobber env with
+      ;; build dependencies. note th
+      (native-inputs (list
+                      chicken-6.0.0))
+      (home-page "https://www.call-cc.org/")
+      (synopsis "R7RS Scheme implementation that compiles native code via C")
+      (description
+       "CHICKEN is a compiler for the Scheme programming language.  CHICKEN
 produces portable and efficient C, supports almost all of the R5RS Scheme
 language standard, and includes many enhancements and extensions.")
-     (license license:bsd-3))))
+      (license license:bsd-3))))
 
 
 ;; ================================================================================
@@ -146,7 +150,7 @@ language standard, and includes many enhancements and extensions.")
 
 (define (default-chicken)
   ;; Lazily resolve the binding to avoid a circular dependency.
-  chicken-6.0.0pre3)
+  chicken-6.0.0)
 
 (define* (lower name
                 #:key source inputs native-inputs outputs system target
@@ -267,3 +271,4 @@ source code and load it into the running process.")
     (license license:bsd-3)))
 
 chicken-6.0.0
+chicken-git

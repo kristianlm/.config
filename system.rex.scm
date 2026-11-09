@@ -41,7 +41,7 @@
              (gnu packages networking)
              (gnu services virtualization)
              (gnu services vpn)
-             ;;((gnu packages xorg) #:select (xf86-video-nouveau))
+             ((gnu packages xorg) #:select (xf86-video-dummy))
              ((gnu packages gnustep) #:select (windowmaker))
 	     ;; ((gnu packages rust-apps) #:select (i3status-rust))
              (guix)
@@ -62,6 +62,10 @@
      ;;"spectre_v2=eibrs,retpoline" ;; mitigate spectre v2 eBPF vulnerability
      ;; https://wiki.archlinux.org/title/Intel_graphics#Crash/freeze_on_low_power_Intel_CPUs
      ;;"intel_idle.max_cstate=1"  ;; CPU power states
+
+     ;; vet ikke om jeg burde legge til landlock. får tips om at den ønsker i dmesg.
+     ;; "lsm=yama,loadpin,safesetid,integrity,apparmor,selinux,smack,tomoyo,landlock"
+
      "i915.enable_dc=0") ;; GPU power management
     ;;"ahci.mobile_lpm_policy=1" ;; SATA power management
     ;;"modprobe.blacklisk=amdgpu,usbmouse,usbkbd"
@@ -69,7 +73,7 @@
     ;;"blacklist=amdgpu,usbmouse,usbkbd"
     ;;"rd.driver.blacklist=amdgpu"
     ;;"radeon.runpm=0"
-    ;;"intel_iommu=on"
+    (list "intel_iommu=on")
     ;;	(error         %default-kernel-arguments)
     ))
   (label (string-append "rex " (package-full-name (operating-system-kernel this-operating-system))))
@@ -174,7 +178,7 @@ root ALL=(ALL) ALL
 
     (service xorg-server-service-type
 	     (xorg-configuration
-              ;; (modules (list xf86-video-nouveau))
+              ;; (modules (list xf86-video-dummy))
 	      (fonts
 	       (cons*
 	        font-gnu-unifont
@@ -286,9 +290,12 @@ root ALL=(ALL) ALL
                           (host "192.168.1.12"    "karri")
                           (host "10.33.2.1"       "kee")
                           (host "10.33.77.3"      "adell")
+
                           (host "10.77.3.22"      "isa")
+                          (host "10.77.11.1"      "generalf")
                           (host "10.77.4.1"       "mth")
-			  (host "10.77.7.1"       "kth")))
+			  (host "10.77.7.1"       "kth")
+                          (host "10.77.7.2"       "mak")))
 
     (modify-services %base-services
                      ;; install current, not some older snapshot (?)

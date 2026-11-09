@@ -6,143 +6,157 @@
  (gnu home)
  (gnu packages)
  (gnu packages rust-apps)
+ (gnu packages base)
  (gnu services)
  (gnu services desktop)
+ (gnu services shepherd)
+ (gnu home services shepherd)
  (gnu home services ssh)
  (gnu home services xdg)
- (gnu home services shells))
+ (gnu home services shells)
+ (shepherd service timer))
 
 (home-environment
- (packages
-  (specifications->packages
+  (packages
+   (specifications->packages
+    (list
+     ;; basic
+     "file" "pv" "jq" "zstd"
+     "git-minimal" "tig" "tk" ;; <-- needed by gitk
+     "bat"
+     "tmux"
+     "the-silver-searcher"
+     "recutils"
+     "rlwrap"
+     "atool" "unzip" "p7zip"
+     "watchexec"
+     "ncurses" ;; for tput
+     "tree"
+     "man-db"
+     "man-pages" ;; <-- linux
+     "xxd"
+     "fzf" ;; see below too
+     ;; network
+     "curl"      "netcat"          "socat"
+     "iperf"     "nmap"            "bind:utils"
+     "darkhttpd" "wireguard-tools" "mtr"
+     ;; x
+     "sx" "xrandr" "libxft" "xrdb"
+     "setxkbmap" "xset"
+     "i3-wm" "dmenu" "i3status" "i3status-rust" "rofi" "rofi-calc"
+     "alacritty"
+     "xclip"
+     "redshift"
+     "mesa-utils"
+     ;; fonts
+     "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
+     "font-openmoji"
+     "xdg-utils"   ;; <-- xdg-open
+     "maim" "slop" ;; screen capture tools
+     ;; doc
+     "mupdf"
+     "evince"
+     "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
+     ;; "graphviz"
+     ;; media
+     ;; "mpv" ;; <-- conflicting ffmpeg version (.... ?)
+     "feh" "imv" "sxiv" "gnuplot"
+     "ffmpeg" "sox" "graphicsmagick"
+     "pulseaudio" "pulsemixer"
+     ;; code
+     "libqalculate"
+     "cloc"
+     "zile"
+     "make"
+     ;; "chicken"
+     ;; emacs
+     "emacs"
+     "emacs-zerodark-theme" "emacs-spacemacs-theme" "emacs-zenburn-theme" "emacs-doom-themes"
+     "emacs-paren-face"
+     "emacs-helm-ag"
+     "emacs-all-the-icons"
+     "emacs-all-the-icons-completion"
+     "emacs-all-the-icons-dired"
+     "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
+     "emacs-vertico" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
+     "emacs-ctrlf" "emacs-swiper"      ;; i-search alternative
+     "emacs-phi-search"                ;; testing
+     "emacs-mmm-mode"
+     ;; "emacs-git-gutter-fringe"
+     "emacs-highlight-symbol" "emacs-highlight-numbers" ;; "emacs-highlight-escape-sequences"
+     ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
+     "emacs-magit" "emacs-git-link"
+     "emacs-multiple-cursors"
+     "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
+     "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
+     "emacs-vterm"
+     ;; "emacs-tagedit"
+     "emacs-dumb-jump"
+     "emacs-fish-mode"
+     "emacs-web-mode"
+     "emacs-json-mode"
+     "emacs-markdown-mode"
+     "emacs-js2-mode"
+     "emacs-go-mode"
+     "emacs-rec-mode"
+     "emacs-protobuf-mode"
+     "emacs-gnuplot"
+     "emacs-opencl-mode"
+     "emacs-glsl-mode"
+     "emacs-scad-mode"
+     "emacs-clojure-mode" "emacs-cider" ;; "inf-clojure"
+     "emacs-rust-mode" ;; "emacs-typst-ts-mode"
+     ;; "emacs-geiser" "emacs-geiser-guile"
+     ;; files / disk / block
+     "rclone" "restic"
+     "parted" "lsof"
+     "sqlite" "hdparm"
+     ;; "smartmontools"
+     ;; system
+     "dool" "htop"
+     "qemu" "at-spi2-core" ;; <-- fix DBus error from QEMU?
+     ;; evil
+     "ungoogled-chromium")))
+
+  (services
    (list
-    ;; basic
-    "file" "pv" "jq" "zstd"
-    "git-minimal" "tig" "tk" ;; <-- needed by gitk
-    "bat"
-    "tmux"
-    "the-silver-searcher"
-    "recutils"
-    "rlwrap"
-    "atool" "unzip" "p7zip"
-    "watchexec"
-    "ncurses" ;; for tput
-    "tree"
-    "man-db"
-    "man-pages" ;; <-- linux
-    "xxd"
-    "fzf" ;; see below too
-    ;; network
-    "curl"      "netcat"          "socat"
-    "iperf"     "nmap"            "bind:utils"
-    "darkhttpd" "wireguard-tools" "mtr"
-    ;; x
-    "sx" "xrandr" "libxft" "xrdb"
-    "setxkbmap" "xset"
-    "i3-wm" "dmenu" "i3status" "i3status-rust" "rofi" "rofi-calc"
-    "alacritty"
-    "xclip"
-    "redshift"
-    "mesa-utils"
-    ;; fonts
-    "font-inconsolata" "font-fira-mono" "font-fira-code" "font-awesome"
-    "font-openmoji"
-    "xdg-utils"   ;; <-- xdg-open
-    "maim" "slop" ;; screen capture tools
-    ;; doc
-    "mupdf"
-    "evince"
-    "font-liberation" ;; <-- YEY! fixes rendering for missing embedded fonts!
-    ;; "graphviz"
-    ;; media
-    ;; "mpv" ;; <-- conflicting ffmpeg version (.... ?)
-    "feh" "imv" "sxiv" "gnuplot"
-    "ffmpeg" "sox" "graphicsmagick"
-    "pulseaudio" "pulsemixer"
-    ;; code
-    "libqalculate"
-    "cloc"
-    "zile"
-    "make"
-    "chicken"
-    ;; emacs
-    "emacs"
-    "emacs-zerodark-theme" "emacs-spacemacs-theme" "emacs-zenburn-theme" "emacs-doom-themes"
-    "emacs-paren-face"
-    "emacs-helm-ag"
-    "emacs-all-the-icons"
-    "emacs-all-the-icons-completion"
-    "emacs-all-the-icons-dired"
-    "emacs-spaceline-all-the-icons" "emacs-powerline" "emacs-doom-modeline"
-    "emacs-vertico" "emacs-orderless" ;; "emacs-helm" "emacs-ivy"
-    "emacs-ctrlf" "emacs-swiper"      ;; i-search alternative
-    "emacs-phi-search"                ;; testing
-    ;; "emacs-git-gutter-fringe"
-    "emacs-highlight-symbol" "emacs-highlight-numbers" ;; "emacs-highlight-escape-sequences"
-    ;; "emacs-idle-highlight" ;; switched to highlight-symbol-mode
-    "emacs-magit" "emacs-git-link"
-    "emacs-multiple-cursors"
-    "emacs-ace-window" "emacs-switch-window" "emacs-frames-only-mode" "emacs-window-purpose"
-    "emacs-paredit" ;; "emacs-smartparens" "emacs-aggressive-indent"
-    "emacs-vterm"
-    ;; "emacs-tagedit"
-    "emacs-dumb-jump"
-    "emacs-fish-mode"
-    "emacs-web-mode"
-    "emacs-json-mode"
-    "emacs-markdown-mode"
-    "emacs-js2-mode"
-    "emacs-go-mode"
-    "emacs-rec-mode"
-    "emacs-protobuf-mode"
-    "emacs-gnuplot"
-    "emacs-opencl-mode"
-    "emacs-glsl-mode"
-    "emacs-scad-mode"
-    "emacs-clojure-mode" "emacs-cider" ;; "inf-clojure"
-    "emacs-rust-mode"
-    ;; "emacs-geiser" "emacs-geiser-guile"
-    ;; files / disk / block
-    "rclone" "restic"
-    "parted" "lsof"
-    "sqlite" "hdparm"
-    ;; "smartmontools"
-    ;; system
-    "dool" "htop"
-    "qemu" "at-spi2-core" ;; <-- fix DBus error from QEMU?
-    ;; evil
-    "ungoogled-chromium")))
 
- (services
-  (list
+    (simple-service
+     'timers home-shepherd-service-type
+     (list
+      (shepherd-timer '(nrk-ricky-zoom)
+                      #~(calendar-event #:hours '(09) #:minutes '(0) #:days-of-week '(sunday))
+                      '("/home/klm/media/ricky-zoom/dl.sh")
+                      #:documentation "Last ned eventuelle nye episoder fra NRK sånn at BLM har dem!"
+                      #:requirement '())
 
-   ;; (service home-redshift-service-type
-   ;;          (home-redshift-configuration
-   ;;           (location-provider 'manual)
-   ;;           (latitude 60)
-   ;;           (longitude 10)))
+      (shepherd-timer '(nrk-dinogården)
+                      #~(calendar-event #:hours '(18) #:minutes '(0) #:days-of-week '(saturday))
+                      '("/home/klm/media/dinogaarden/dl.sh")
+                      #:documentation "Last ned eventuelle nye episoder fra NRK sånn at BLM har dem!"
+                      #:requirement '())))
 
-   (service home-bash-service-type (home-bash-configuration))
-   (service home-fish-service-type (home-fish-configuration
-                                    (config (list (mixed-text-file
-                                                   "fish-config.inc.fish"
-                                                   "
+    ;; (service home-redshift-service-type
+    ;;          (home-redshift-configuration
+    ;;           (location-provider 'manual)
+    ;;           (latitude 60)
+    ;;           (longitude 10)))
+
+    (service home-xdg-base-directories-service-type)
+    (service home-bash-service-type (home-bash-configuration))
+    (service home-fish-service-type (home-fish-configuration
+                                      (config (list (mixed-text-file
+                                                     "fish-config.inc.fish"
+                                                     "
 set -xU LESS_TERMCAP_md (printf \"\\e[00;33m\")
 set -xU LESS_TERMCAP_me (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_se (printf \"\\e[0m\")
 set -xU LESS_TERMCAP_so (printf \"\\e[01;44;33m\")
 set -xU LESS_TERMCAP_ue (printf \"\\e[0m\")
 
-
-function chicken-guix-hack
-  set -gx CHICKEN_INSTALL_PREFIX     /home/klm/tmp/eggs
-  set -gx CHICKEN_INSTALL_REPOSITORY /home/klm/tmp/eggs
-  set -gx CHICKEN_REPOSITORY_PATH    /home/klm/tmp/eggs /home/klm/.guix-home/profile/var/lib/chicken/11
-end
-
 function profile
   set -gx GUIX_PROFILE $argv[1]
-  set --prepend fish_function_path /gnu/store/jiql3i7m69kw6mj5x4xay949l0ndzqna-fish-foreign-env-0.20190116/share/fish/functions
+  set --prepend fish_function_path /gnu/store/svhxygm7mxyvsayj57svl1y7i0r3khgs-fish-foreign-env-0.20230823/share/fish/functions
   fenv source $GUIX_PROFILE/etc/profile
   set -e fish_function_path[1]
 end
@@ -178,5 +192,24 @@ if [ (tty) = '/dev/tty2' ]
   sleep 4 && sx
 end
 
+set -gx TERM st-direct
+
 fzf --fish | source
 "))))))))
+
+
+
+;; (define updatedb
+;;   (service
+;;     '(updatedb)
+;;     #:start (make-timer-constructor
+;;               ;; Fire at midnight and noon everyday.
+;;               (calendar-event #:hours '(0 12) #:minutes '(0))
+;;               (command '("/usr/bin/updatedb"
+;;                          "--prunepaths=/tmp")))
+;;     #:stop (make-timer-destructor)
+;;     #:actions (list timer-trigger-action)))
+
+;; ;;(register-services (list updatedb))
+;; ;;(start-in-the-background '(updatedb))
+
