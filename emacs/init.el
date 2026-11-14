@@ -7,7 +7,7 @@
 (load custom-file)
 
 ;; ==================== packages ====================
-;;(require 'package)
+(require 'package)
 ;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 ;;(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
 ;;(package-initialize)
@@ -36,13 +36,11 @@
 (installed 'git-gutter)
 (installed 'ivy)
 (installed 'dockerfile-mode)
-(installed 'avy)
 (installed 'imenu-anywhere)
 (installed 'iedit)
-;;(installed 'vertico)
 (installed 'orderless)
+(installed 'vertico)
 (installed 'flycheck)
-;; (installed 'zerodark-theme)
 (installed 'all-the-icons-dired)
 (installed 'ace-window)
 
@@ -107,9 +105,6 @@
              nil
              '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'face-dimmer)))))
 
-;; Re-highlight buffers already open
-(font-lock-flush)
-
 ;; color compilation buffer too
 ;; http://stackoverflow.com/questions/3072648
 (require 'ansi-color)
@@ -120,7 +115,7 @@
 
 ;;(add-hook 'prog-mode-hook 'highlight-symbol-mode)
 ;;(add-hook 'prog-mode-hook 'highlight-numbers-mode)
-;;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
+(idle-highlight-global-mode)
  
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
@@ -211,8 +206,6 @@
 (global-set-key (kbd "C-M-&")
                 (lambda () (interactive)
 		  (async-shell-command "gitk --all" nil nil)))
-
-(global-set-key (kbd "C-'") 'avy-goto-char-2)
 
 (global-set-key (kbd "C-S-i") 'imenu-anywhere)
 
