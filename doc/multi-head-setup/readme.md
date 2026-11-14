@@ -60,3 +60,23 @@ dårlige drivere.
 Så nå er jeg tilbake på GTX 1060 på alle 3 skjermene og full-blown
 Mesa llvm pipe software rendering på alt. Har kjøpt GT 310 med 1 stk
 DisplayPort, kanskje det er løsningen...
+
+
+Update: NVI 310 sliter også med 0.5-sekunds pauser i ny og ne! Græla
+kjipt. Hvis jeg f.eks. holder inne piltast ned så ser jeg at kursoren
+beveger seg ryddig nedover. Men hvis jeg skrur på 1 eller 2 skjermer
+fra NVI 310'en så får jeg samme problemet. Dette gjør maskinen er helt
+ubrukelig. Hmm... hvordan kan jeg få tilbake NVIDIA 1060'en min?
+
+Update nov 2026: jeg har nå gitt opp guix (egentlig linux-libre). Jeg
+får bare ikke 3 skjermer til å funke. Jeg har nå kjøpt meg ca 6 gamle
+grafikkkort i håp om at ett av dem kunne funke. Det nærmeste jeg kan
+vår en GTX 310 som _nesten_ funket ut av boksen i Guix. Men den ga
+lag. En eller annen veldig rar bug. Den dukker opp i xrandr og jeg får
+kjørt 1440p. Men mellom hvert 1s-2s så henger hele skjermen
+seg. Mystisk. Og så kræsjet X11 innimellom. Så når det var noe galt
+med X11 configen min (i system.scm antageligvis), så ga jeg opp og
+satt inn archlinux isoen istedet. Guix har vært et skikkelig gøy
+eventyr og jeg satte pris på alle årene jeg fikk kjøre helt
+"proprietary-free" programvare, inkludert uten noen firmware
+blobs. Kanskje vi sees igjen, GNU Guix!
