@@ -1,0 +1,980 @@
+[    13.880] 
+X.Org X Server 1.21.1.21
+X Protocol Version 11, Revision 0
+[    13.880] Current Operating System: Linux rex 6.17.12-gnu #1 SMP PREEMPT_DYNAMIC 1 x86_64
+[    13.880] Kernel command line: BOOT_IMAGE=/gnu/store/p2jwmaw4rnfld6hf1v72dj6h340d6d3y-linux-libre-6.17.12/bzImage root=f146ee52-6d9f-40a4-8f37-f682ade64a8a gnu.system=/gnu/store/37fnfwgawa1qr4xnih1r4p1ysc51spkb-system gnu.load=/gnu/store/37fnfwgawa1qr4xnih1r4p1ysc51spkb-system/boot i915.enable_dc=0 intel_iommu=on
+[    13.880]  
+[    13.880] Current version of pixman: 0.46.4
+[    13.880] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[    13.880] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[    13.880] (==) Log file: "/home/klm/.local/share/xorg/Xorg.2.log", Time: Sat Apr 11 13:58:57 2026
+[    13.881] (++) Using config file: "/gnu/store/sdy787gvlkm8n3ndpjl7acrawpffdykh-xserver.conf"
+[    13.881] (++) Using config directory: "/gnu/store/y0l2wd62diqvypc5hfvc8jsrbxgsal4n-xorg.conf.d"
+[    13.881] (==) Using system config directory "/gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/share/X11/xorg.conf.d"
+[    13.881] (==) No Layout section.  Using the first Screen section.
+[    13.881] (==) No screen section available. Using defaults.
+[    13.881] (**) |-->Screen "Default Screen Section" (0)
+[    13.881] (**) |   |-->Monitor "<default monitor>"
+[    13.881] (==) No monitor specified for screen "Default Screen Section".
+	Using a default monitor configuration.
+[    13.882] (**) Option "AllowMouseOpenFail" "on"
+[    13.882] (**) Allowing byte-swapped clients
+[    13.882] (==) Automatically adding devices
+[    13.882] (==) Automatically enabling devices
+[    13.882] (==) Automatically adding GPU devices
+[    13.882] (==) Automatically binding GPU devices
+[    13.882] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[    13.882] (WW) `fonts.dir' not found (or not valid) in "/gnu/store/apgplc23kh60xl2ga3flgl4k9lj10bva-font-gnu-unifont-16.0.02".
+[    13.882] 	Entry deleted from font path.
+[    13.882] 	(Run 'mkfontdir' on "/gnu/store/apgplc23kh60xl2ga3flgl4k9lj10bva-font-gnu-unifont-16.0.02").
+[    13.882] (WW) `fonts.dir' not found (or not valid) in "/gnu/store/i5nyvvzqn02rmjpw2z7dkhzqir4qgp69-font-terminus-4.49.1".
+[    13.882] 	Entry deleted from font path.
+[    13.882] 	(Run 'mkfontdir' on "/gnu/store/i5nyvvzqn02rmjpw2z7dkhzqir4qgp69-font-terminus-4.49.1").
+[    13.883] (**) FontPath set to:
+	/gnu/store/xp0ksknh7ry3671cfj0i0j410s3p0zcy-font-alias-1.0.5/share/fonts/X11/75dpi,
+	/gnu/store/xp0ksknh7ry3671cfj0i0j410s3p0zcy-font-alias-1.0.5/share/fonts/X11/100dpi,
+	/gnu/store/xp0ksknh7ry3671cfj0i0j410s3p0zcy-font-alias-1.0.5/share/fonts/X11/misc,
+	/gnu/store/xp0ksknh7ry3671cfj0i0j410s3p0zcy-font-alias-1.0.5/share/fonts/X11/cyrillic,
+	/gnu/store/spbq1596118zpz610x2szvr0xgjwzl18-font-misc-misc-1.1.3/share/fonts/X11/misc,
+	/gnu/store/f9xnlmzm29p5mg4qdw2xpammw7sl4d68-font-adobe75dpi-1.0.4/share/fonts/X11/75dpi
+[    13.883] (**) ModulePath set to "/gnu/store/c5d3aj67agm79d116bw3jwi4ys5allw0-xf86-video-vesa-2.6.0/lib/xorg/modules/drivers,/gnu/store/ys1k50qfj2bb5xw0cxpr6j255xjb5py9-xf86-video-fbdev-0.5.1/lib/xorg/modules/drivers,/gnu/store/dbzhr14mzjskq5rbyy9wi4ay8bi9n9dd-xf86-video-amdgpu-23.0.0/lib/xorg/modules/drivers,/gnu/store/8bm7hfrwp5lgzsdsljyvygpycinz9rfc-xf86-video-ati-19.1.0-1.5eba006/lib/xorg/modules/drivers,/gnu/store/3sqx6amd4hh2bx20vxa12ldga10vxr2q-xf86-video-cirrus-1.6.0/lib/xorg/modules/drivers,/gnu/store/2vhbsjgnrv4z557asp897kq5yzwfdga5-xf86-video-intel-2.99.917-18.31486f4/lib/xorg/modules/drivers,/gnu/store/v2khk32hwxsm1n8p71b230r6awraidlh-xf86-video-mach64-6.10.0/lib/xorg/modules/drivers,/gnu/store/aadk8xn0mn2fm72cy5zsyn793xbczgys-xf86-video-nouveau-1.0.18/lib/xorg/modules/drivers,/gnu/store/gv1f4a98f55yy9n3k5bjwzk0n658g92l-xf86-video-nv-2.1.23/lib/xorg/modules/drivers,/gnu/store/7r0pfgw1q0pl6gy3yv23k3ws411cbgnh-xf86-video-sis-0.12.0/lib/xorg/modules/drivers,/gnu/store/a64wn1rgqn163dmf8s2asi9169pazbmc-xf86-in
+[    13.883] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[    13.883] (II) Loader magic: 0x647dc0
+[    13.883] (II) Module ABI versions:
+[    13.883] 	X.Org ANSI C Emulation: 0.4
+[    13.883] 	X.Org Video Driver: 25.2
+[    13.883] 	X.Org XInput driver : 24.4
+[    13.883] 	X.Org Server Extension : 10.0
+[    13.883] (++) using VT number 2
+
+[    13.883] (EE) systemd-logind: failed to get session: The name org.freedesktop.login1 was not provided by any .service files
+[    13.884] (II) xfree86: Adding drm device (/dev/dri/card1)
+[    13.884] (II) Platform probe for /sys/devices/pci0000:00/0000:00:02.0/drm/card1
+[    13.900] (II) xfree86: Adding drm device (/dev/dri/card0)
+[    13.900] (II) Platform probe for /sys/devices/pci0000:00/0000:00:1c.4/0000:06:00.0/drm/card0
+[    13.901] (--) PCI:*(0@0:2:0) 8086:a780:1043:8882 rev 4, Mem @ 0x6014000000/16777216, 0x4000000000/268435456, I/O @ 0x00006000/64, BIOS @ 0x????????/131072
+[    13.901] (--) PCI: (6@0:0:0) 10de:0a65:3842:1311 rev 162, Mem @ 0x84000000/16777216, 0x6000000000/268435456, 0x6010000000/33554432, I/O @ 0x00004000/128, BIOS @ 0x????????/524288
+[    13.901] (WW) Open ACPI failed (/var/run/acpid.socket) (No such file or directory)
+[    13.901] (II) LoadModule: "glx"
+[    13.903] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/extensions/libglx.so
+[    13.978] (II) Module glx: vendor="X.Org Foundation"
+[    13.978] 	compiled for 1.21.1.21, module version = 1.0.0
+[    13.978] 	ABI class: X.Org Server Extension, version 10.0
+[    13.978] (==) Matched nouveau as autoconfigured driver 0
+[    13.978] (==) Matched nv as autoconfigured driver 1
+[    13.978] (==) Matched modesetting as autoconfigured driver 2
+[    13.978] (==) Matched fbdev as autoconfigured driver 3
+[    13.978] (==) Matched vesa as autoconfigured driver 4
+[    13.978] (==) Assigned the driver to the xf86ConfigLayout
+[    13.978] (II) LoadModule: "nouveau"
+[    13.978] (II) Loading /gnu/store/aadk8xn0mn2fm72cy5zsyn793xbczgys-xf86-video-nouveau-1.0.18/lib/xorg/modules/drivers/nouveau_drv.so
+[    13.979] (II) Module nouveau: vendor="X.Org Foundation"
+[    13.979] 	compiled for 1.21.1.21, module version = 1.0.18
+[    13.979] 	Module class: X.Org Video Driver
+[    13.979] 	ABI class: X.Org Video Driver, version 25.2
+[    13.979] (II) LoadModule: "nv"
+[    13.979] (II) Loading /gnu/store/gv1f4a98f55yy9n3k5bjwzk0n658g92l-xf86-video-nv-2.1.23/lib/xorg/modules/drivers/nv_drv.so
+[    13.979] (II) Module nv: vendor="X.Org Foundation"
+[    13.979] 	compiled for 1.21.1.21, module version = 2.1.23
+[    13.979] 	Module class: X.Org Video Driver
+[    13.979] 	ABI class: X.Org Video Driver, version 25.2
+[    13.979] (II) LoadModule: "modesetting"
+[    13.980] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/drivers/modesetting_drv.so
+[    13.980] (II) Module modesetting: vendor="X.Org Foundation"
+[    13.980] 	compiled for 1.21.1.21, module version = 1.21.1
+[    13.980] 	Module class: X.Org Video Driver
+[    13.980] 	ABI class: X.Org Video Driver, version 25.2
+[    13.980] (II) LoadModule: "fbdev"
+[    13.980] (II) Loading /gnu/store/ys1k50qfj2bb5xw0cxpr6j255xjb5py9-xf86-video-fbdev-0.5.1/lib/xorg/modules/drivers/fbdev_drv.so
+[    13.980] (II) Module fbdev: vendor="X.Org Foundation"
+[    13.980] 	compiled for 1.21.1.21, module version = 0.5.1
+[    13.980] 	Module class: X.Org Video Driver
+[    13.980] 	ABI class: X.Org Video Driver, version 25.2
+[    13.980] (II) LoadModule: "vesa"
+[    13.980] (II) Loading /gnu/store/c5d3aj67agm79d116bw3jwi4ys5allw0-xf86-video-vesa-2.6.0/lib/xorg/modules/drivers/vesa_drv.so
+[    13.980] (II) Module vesa: vendor="X.Org Foundation"
+[    13.980] 	compiled for 1.21.1.21, module version = 2.6.0
+[    13.980] 	Module class: X.Org Video Driver
+[    13.980] 	ABI class: X.Org Video Driver, version 25.2
+[    13.980] (II) NOUVEAU driver 
+[    13.980] (II) NOUVEAU driver for NVIDIA chipset families :
+[    13.980] 	RIVA TNT            (NV04)
+[    13.980] 	RIVA TNT2           (NV05)
+[    13.980] 	GeForce 256         (NV10)
+[    13.980] 	GeForce 2           (NV11, NV15)
+[    13.980] 	GeForce 4MX         (NV17, NV18)
+[    13.980] 	GeForce 3           (NV20)
+[    13.980] 	GeForce 4Ti         (NV25, NV28)
+[    13.980] 	GeForce FX          (NV3x)
+[    13.980] 	GeForce 6           (NV4x)
+[    13.980] 	GeForce 7           (G7x)
+[    13.980] 	GeForce 8           (G8x)
+[    13.980] 	GeForce 9           (G9x)
+[    13.980] 	GeForce GTX 2xx/3xx (GT2xx)
+[    13.980] 	GeForce GTX 4xx/5xx (GFxxx)
+[    13.980] 	GeForce GTX 6xx/7xx (GKxxx)
+[    13.980] 	GeForce GTX 9xx     (GMxxx)
+[    13.980] 	GeForce GTX 10xx    (GPxxx)
+[    13.981] (II) NOUVEAU driver 
+[    13.981] (II) NOUVEAU driver for NVIDIA chipset families :
+[    13.981] 	RIVA TNT            (NV04)
+[    13.981] 	RIVA TNT2           (NV05)
+[    13.981] 	GeForce 256         (NV10)
+[    13.981] 	GeForce 2           (NV11, NV15)
+[    13.981] 	GeForce 4MX         (NV17, NV18)
+[    13.981] 	GeForce 3           (NV20)
+[    13.981] 	GeForce 4Ti         (NV25, NV28)
+[    13.981] 	GeForce FX          (NV3x)
+[    13.981] 	GeForce 6           (NV4x)
+[    13.981] 	GeForce 7           (G7x)
+[    13.981] 	GeForce 8           (G8x)
+[    13.981] 	GeForce 9           (G9x)
+[    13.981] 	GeForce GTX 2xx/3xx (GT2xx)
+[    13.981] 	GeForce GTX 4xx/5xx (GFxxx)
+[    13.981] 	GeForce GTX 6xx/7xx (GKxxx)
+[    13.981] 	GeForce GTX 9xx     (GMxxx)
+[    13.981] 	GeForce GTX 10xx    (GPxxx)
+[    13.981] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[    13.981] (II) FBDEV: driver for framebuffer: fbdev
+[    13.981] (II) VESA: driver for VESA chipsets: vesa
+[    13.991] xf86EnableIO: failed to enable I/O ports 0000-03ff (Operation not permitted)
+[    14.006] (II) modeset(0): using drv /dev/dri/card1
+[    14.006] (WW) Falling back to old probe method for fbdev
+[    14.006] (II) Loading sub module "fbdevhw"
+[    14.006] (II) LoadModule: "fbdevhw"
+[    14.006] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/libfbdevhw.so
+[    14.007] (II) Module fbdevhw: vendor="X.Org Foundation"
+[    14.007] 	compiled for 1.21.1.21, module version = 0.0.2
+[    14.007] 	ABI class: X.Org Video Driver, version 25.2
+[    14.007] (II) [drm] nouveau interface version: 1.4.0
+[    14.007] (WW) VGA arbiter: cannot open kernel arbiter, no multi-card support
+[    14.007] (II) modeset(0): Creating default Display subsection in Screen section
+	"Default Screen Section" for depth/fbbpp 24/32
+[    14.007] (==) modeset(0): Depth 24, (==) framebuffer bpp 32
+[    14.007] (==) modeset(0): RGB weight 888
+[    14.007] (==) modeset(0): Default visual is TrueColor
+[    14.007] (II) Loading sub module "glamoregl"
+[    14.007] (II) LoadModule: "glamoregl"
+[    14.007] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/libglamoregl.so
+[    14.010] (II) Module glamoregl: vendor="X.Org Foundation"
+[    14.010] 	compiled for 1.21.1.21, module version = 1.0.1
+[    14.010] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[    14.023] (II) modeset(0): glamor: Using OpenGL 4.6 context.
+[    14.023] (II) modeset(0): glamor X acceleration enabled on Mesa Intel(R) Graphics (RPL-S)
+[    14.023] (II) modeset(0): glamor initialized
+[    14.023] (==) modeset(0): VariableRefresh: disabled
+[    14.023] (==) modeset(0): AsyncFlipSecondaries: disabled
+[    14.057] (II) modeset(0): Output HDMI-1 has no monitor section
+[    14.072] (II) modeset(0): Output DP-1 has no monitor section
+[    14.075] (II) modeset(0): Output HDMI-2 has no monitor section
+[    14.108] (II) modeset(0): EDID for output HDMI-1
+[    14.108] (II) modeset(0): Manufacturer: ACI  Model: 27a3  Serial#: 171730
+[    14.108] (II) modeset(0): Year: 2014  Week: 14
+[    14.108] (II) modeset(0): EDID Version: 1.3
+[    14.108] (II) modeset(0): Digital Display Input
+[    14.108] (II) modeset(0): Max Image Size [cm]: horiz.: 60  vert.: 34
+[    14.108] (II) modeset(0): Gamma: 2.20
+[    14.108] (II) modeset(0): DPMS capabilities: Off
+[    14.108] (II) modeset(0): Supported color encodings: RGB 4:4:4 YCrCb 4:4:4 
+[    14.108] (II) modeset(0): First detailed timing is preferred mode
+[    14.108] (II) modeset(0): redX: 0.666 redY: 0.330   greenX: 0.310 greenY: 0.630
+[    14.108] (II) modeset(0): blueX: 0.150 blueY: 0.040   whiteX: 0.313 whiteY: 0.329
+[    14.108] (II) modeset(0): Supported established timings:
+[    14.108] (II) modeset(0): 720x400@70Hz
+[    14.108] (II) modeset(0): 640x480@60Hz
+[    14.108] (II) modeset(0): 640x480@67Hz
+[    14.108] (II) modeset(0): 640x480@75Hz
+[    14.108] (II) modeset(0): 800x600@56Hz
+[    14.108] (II) modeset(0): 800x600@60Hz
+[    14.108] (II) modeset(0): 800x600@72Hz
+[    14.108] (II) modeset(0): 800x600@75Hz
+[    14.108] (II) modeset(0): 832x624@75Hz
+[    14.108] (II) modeset(0): 1024x768@60Hz
+[    14.108] (II) modeset(0): 1024x768@70Hz
+[    14.108] (II) modeset(0): 1024x768@75Hz
+[    14.108] (II) modeset(0): 1280x1024@75Hz
+[    14.108] (II) modeset(0): Manufacturer's mask: 0
+[    14.108] (II) modeset(0): Supported standard timings:
+[    14.108] (II) modeset(0): #0: hsize: 1920  vsize 1080  refresh: 60  vid: 49361
+[    14.108] (II) modeset(0): #1: hsize: 1680  vsize 1050  refresh: 60  vid: 179
+[    14.108] (II) modeset(0): #2: hsize: 1440  vsize 900  refresh: 60  vid: 149
+[    14.108] (II) modeset(0): #3: hsize: 1280  vsize 1024  refresh: 60  vid: 32897
+[    14.108] (II) modeset(0): #4: hsize: 1280  vsize 960  refresh: 60  vid: 16513
+[    14.108] (II) modeset(0): #5: hsize: 1280  vsize 800  refresh: 60  vid: 129
+[    14.108] (II) modeset(0): #6: hsize: 1280  vsize 720  refresh: 60  vid: 49281
+[    14.108] (II) modeset(0): #7: hsize: 1152  vsize 864  refresh: 75  vid: 20337
+[    14.108] (II) modeset(0): Supported detailed timing:
+[    14.108] (II) modeset(0): clock: 241.5 MHz   Image Size:  597 x 336 mm
+[    14.108] (II) modeset(0): h_active: 2560  h_sync: 2608  h_sync_end 2640 h_blank_end 2720 h_border: 0
+[    14.108] (II) modeset(0): v_active: 1440  v_sync: 1443  v_sync_end 1448 v_blanking: 1481 v_border: 0
+[    14.108] (II) modeset(0): Serial No: E3LMTF171730
+[    14.108] (II) modeset(0): Ranges: V min: 24 V max: 76 Hz, H min: 24 H max: 99 kHz, PixClock max 335 MHz
+[    14.108] (II) modeset(0): Monitor name: ASUS PB278
+[    14.108] (II) modeset(0): Supported detailed timing:
+[    14.108] (II) modeset(0): clock: 27.0 MHz   Image Size:  597 x 336 mm
+[    14.108] (II) modeset(0): h_active: 720  h_sync: 736  h_sync_end 798 h_blank_end 858 h_border: 0
+[    14.108] (II) modeset(0): v_active: 480  v_sync: 489  v_sync_end 495 v_blanking: 525 v_border: 0
+[    14.108] (II) modeset(0): Supported detailed timing:
+[    14.108] (II) modeset(0): clock: 74.2 MHz   Image Size:  597 x 336 mm
+[    14.108] (II) modeset(0): h_active: 1280  h_sync: 1390  h_sync_end 1430 h_blank_end 1650 h_border: 0
+[    14.108] (II) modeset(0): v_active: 720  v_sync: 725  v_sync_end 730 v_blanking: 750 v_border: 0
+[    14.108] (II) modeset(0): Supported detailed timing:
+[    14.108] (II) modeset(0): clock: 74.2 MHz   Image Size:  597 x 336 mm
+[    14.108] (II) modeset(0): h_active: 1280  h_sync: 1720  h_sync_end 1760 h_blank_end 1980 h_border: 0
+[    14.108] (II) modeset(0): v_active: 720  v_sync: 725  v_sync_end 730 v_blanking: 750 v_border: 0
+[    14.108] (II) modeset(0): Supported detailed timing:
+[    14.108] (II) modeset(0): clock: 27.0 MHz   Image Size:  597 x 336 mm
+[    14.108] (II) modeset(0): h_active: 720  h_sync: 732  h_sync_end 796 h_blank_end 864 h_border: 0
+[    14.108] (II) modeset(0): v_active: 576  v_sync: 581  v_sync_end 586 v_blanking: 625 v_border: 0
+[    14.108] (II) modeset(0): Number of EDID sections to follow: 1
+[    14.108] (II) modeset(0): EDID (in hex):
+[    14.108] (II) modeset(0): 	00ffffffffffff000469a327d29e0200
+[    14.108] (II) modeset(0): 	0e180103803c22782aa595aa544fa126
+[    14.108] (II) modeset(0): 	0a5054b7ef00d1c0b300950081808140
+[    14.108] (II) modeset(0): 	810081c0714f565e00a0a0a029503020
+[    14.108] (II) modeset(0): 	350055502100001a000000ff0045334c
+[    14.108] (II) modeset(0): 	4d54463137313733300a000000fd0018
+[    14.108] (II) modeset(0): 	4c186321000a202020202020000000fc
+[    14.108] (II) modeset(0): 	00415355532050423237380a202001fe
+[    14.108] (II) modeset(0): 	02032571520102031112130414050e0f
+[    14.108] (II) modeset(0): 	1d1e1f90202122230917078301000065
+[    14.108] (II) modeset(0): 	030c0010008c0ad08a20e02d10103e96
+[    14.108] (II) modeset(0): 	00555021000018011d007251d01e206e
+[    14.108] (II) modeset(0): 	28550055502100001e011d00bc52d01e
+[    14.108] (II) modeset(0): 	20b828554055502100001e8c0ad09020
+[    14.108] (II) modeset(0): 	4031200c405500555021000018000000
+[    14.108] (II) modeset(0): 	00000000000000000000000000000098
+[    14.108] (II) modeset(0): Printing probed modes for output HDMI-1
+[    14.108] (II) modeset(0): Modeline "2560x1440"x60.0  241.50  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync (88.8 kHz eP)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x60.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 -hsync -vsync (67.5 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x60.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.5 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x50.0  148.50  1920 2448 2492 2640  1080 1084 1089 1125 +hsync +vsync (56.2 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x59.9  148.35  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.4 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x30.0   74.25  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (33.8 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x25.0   74.25  1920 2448 2492 2640  1080 1084 1089 1125 +hsync +vsync (28.1 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x24.0   74.25  1920 2558 2602 2750  1080 1084 1089 1125 +hsync +vsync (27.0 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x30.0   74.18  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (33.7 kHz e)
+[    14.108] (II) modeset(0): Modeline "1920x1080"x24.0   74.18  1920 2558 2602 2750  1080 1084 1089 1125 +hsync +vsync (27.0 kHz e)
+[    14.108] (II) modeset(0): Modeline "1680x1050"x59.9  119.00  1680 1728 1760 1840  1050 1053 1059 1080 +hsync -vsync (64.7 kHz e)
+[    14.108] (II) modeset(0): Modeline "1280x1024"x75.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1440x900"x59.9   88.75  1440 1488 1520 1600  900 903 909 926 +hsync -vsync (55.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x960"x60.0  108.00  1280 1376 1488 1800  960 961 964 1000 +hsync +vsync (60.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x800"x59.9   71.00  1280 1328 1360 1440  800 803 809 823 +hsync -vsync (49.3 kHz e)
+[    14.109] (II) modeset(0): Modeline "1152x864"x75.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x720"x50.0   74.25  1280 1720 1760 1980  720 725 730 750 +hsync +vsync (37.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "1280x720"x59.9   74.18  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1440x576"x50.0   54.00  1440 1464 1592 1728  576 581 586 625 -hsync -vsync (31.2 kHz e)
+[    14.109] (II) modeset(0): Modeline "1024x768"x75.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "1024x768"x70.1   75.00  1024 1048 1184 1328  768 771 777 806 -hsync -vsync (56.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    14.109] (II) modeset(0): Modeline "1440x480"x60.0   54.05  1440 1472 1596 1716  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "1440x480"x59.9   54.00  1440 1472 1596 1716  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "832x624"x74.6   57.28  832 864 928 1152  624 625 628 667 -hsync -vsync (49.7 kHz e)
+[    14.109] (II) modeset(0): Modeline "800x600"x72.2   50.00  800 856 976 1040  600 637 643 666 +hsync +vsync (48.1 kHz e)
+[    14.109] (II) modeset(0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    14.109] (II) modeset(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    14.109] (II) modeset(0): Modeline "800x600"x56.2   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz e)
+[    14.109] (II) modeset(0): Modeline "720x576"x50.0   27.00  720 732 796 864  576 581 586 625 -hsync -vsync (31.2 kHz e)
+[    14.109] (II) modeset(0): Modeline "720x480"x60.0   27.03  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "720x480"x59.9   27.00  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "640x480"x66.7   30.24  640 704 768 864  480 483 486 525 -hsync -vsync (35.0 kHz e)
+[    14.109] (II) modeset(0): Modeline "640x480"x60.0   25.20  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.109] (II) modeset(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    14.123] (II) modeset(0): EDID for output DP-1
+[    14.123] (II) modeset(0): Manufacturer: DEL  Model: 40ea  Serial#: 1093678668
+[    14.123] (II) modeset(0): Year: 2018  Week: 30
+[    14.123] (II) modeset(0): EDID Version: 1.4
+[    14.123] (II) modeset(0): Digital Display Input
+[    14.123] (II) modeset(0): 8 bits per channel
+[    14.123] (II) modeset(0): Digital interface is DisplayPort
+[    14.123] (II) modeset(0): Max Image Size [cm]: horiz.: 60  vert.: 34
+[    14.123] (II) modeset(0): Gamma: 2.20
+[    14.123] (II) modeset(0): DPMS capabilities: Off
+[    14.123] (II) modeset(0): Supported color encodings: RGB 4:4:4 YCrCb 4:4:4 YCrCb 4:2:2
+[    14.123] (II) modeset(0): First detailed timing is preferred mode
+[    14.123] (II) modeset(0): Preferred mode is native pixel format and refresh rate
+[    14.123] (II) modeset(0): redX: 0.640 redY: 0.330   greenX: 0.300 greenY: 0.600
+[    14.123] (II) modeset(0): blueX: 0.150 blueY: 0.060   whiteX: 0.313 whiteY: 0.329
+[    14.123] (II) modeset(0): Supported established timings:
+[    14.123] (II) modeset(0): 720x400@70Hz
+[    14.123] (II) modeset(0): 640x480@60Hz
+[    14.123] (II) modeset(0): 640x480@75Hz
+[    14.123] (II) modeset(0): 800x600@60Hz
+[    14.123] (II) modeset(0): 800x600@75Hz
+[    14.123] (II) modeset(0): 1024x768@60Hz
+[    14.123] (II) modeset(0): 1024x768@75Hz
+[    14.123] (II) modeset(0): 1280x1024@75Hz
+[    14.123] (II) modeset(0): Manufacturer's mask: 0
+[    14.123] (II) modeset(0): Supported standard timings:
+[    14.123] (II) modeset(0): #0: hsize: 1152  vsize 864  refresh: 75  vid: 20337
+[    14.123] (II) modeset(0): #1: hsize: 1600  vsize 1200  refresh: 60  vid: 16553
+[    14.123] (II) modeset(0): #2: hsize: 1280  vsize 1024  refresh: 60  vid: 32897
+[    14.123] (II) modeset(0): #3: hsize: 1920  vsize 1080  refresh: 60  vid: 49361
+[    14.123] (II) modeset(0): Supported detailed timing:
+[    14.123] (II) modeset(0): clock: 241.5 MHz   Image Size:  597 x 336 mm
+[    14.123] (II) modeset(0): h_active: 2560  h_sync: 2608  h_sync_end 2640 h_blank_end 2720 h_border: 0
+[    14.123] (II) modeset(0): v_active: 1440  v_sync: 1443  v_sync_end 1448 v_blanking: 1481 v_border: 0
+[    14.123] (II) modeset(0): Serial No: J0XYN87SA06L
+[    14.123] (II) modeset(0): Monitor name: DELL U2717D
+[    14.123] (II) modeset(0): Ranges: V min: 50 V max: 75 Hz, H min: 30 H max: 88 kHz, PixClock max 255 MHz
+[    14.123] (II) modeset(0): Supported detailed timing:
+[    14.123] (II) modeset(0): clock: 148.5 MHz   Image Size:  597 x 336 mm
+[    14.123] (II) modeset(0): h_active: 1920  h_sync: 2008  h_sync_end 2052 h_blank_end 2200 h_border: 0
+[    14.123] (II) modeset(0): v_active: 1080  v_sync: 1084  v_sync_end 1089 v_blanking: 1125 v_border: 0
+[    14.123] (II) modeset(0): Supported detailed timing:
+[    14.123] (II) modeset(0): clock: 147.2 MHz   Image Size:  597 x 336 mm
+[    14.123] (II) modeset(0): h_active: 2048  h_sync: 2096  h_sync_end 2128 h_blank_end 2208 h_border: 0
+[    14.123] (II) modeset(0): v_active: 1080  v_sync: 1083  v_sync_end 1093 v_blanking: 1111 v_border: 0
+[    14.123] (II) modeset(0): Supported detailed timing:
+[    14.123] (II) modeset(0): clock: 74.2 MHz   Image Size:  597 x 336 mm
+[    14.123] (II) modeset(0): h_active: 1280  h_sync: 1390  h_sync_end 1430 h_blank_end 1650 h_border: 0
+[    14.123] (II) modeset(0): v_active: 720  v_sync: 725  v_sync_end 730 v_blanking: 750 v_border: 0
+[    14.123] (II) modeset(0): Supported detailed timing:
+[    14.123] (II) modeset(0): clock: 58.2 MHz   Image Size:  597 x 336 mm
+[    14.123] (II) modeset(0): h_active: 2048  h_sync: 2096  h_sync_end 2128 h_blank_end 2208 h_border: 0
+[    14.123] (II) modeset(0): v_active: 1080  v_sync: 1083  v_sync_end 1093 v_blanking: 1099 v_border: 0
+[    14.123] (II) modeset(0): Number of EDID sections to follow: 1
+[    14.123] (II) modeset(0): EDID (in hex):
+[    14.123] (II) modeset(0): 	00ffffffffffff0010acea404c363041
+[    14.123] (II) modeset(0): 	1e1c0104a53c22783aee95a3544c9926
+[    14.123] (II) modeset(0): 	0f5054a54b00714fa9408180d1c00101
+[    14.123] (II) modeset(0): 	010101010101565e00a0a0a029503020
+[    14.123] (II) modeset(0): 	350055502100001a000000ff004a3058
+[    14.123] (II) modeset(0): 	594e3837534130364c0a000000fc0044
+[    14.123] (II) modeset(0): 	454c4c205532373137440a20000000fd
+[    14.123] (II) modeset(0): 	00324b1e5819010a202020202020017f
+[    14.123] (II) modeset(0): 	02031cf14f9005040302071601061112
+[    14.123] (II) modeset(0): 	1513141f23091f0783010000023a8018
+[    14.123] (II) modeset(0): 	71382d40582c450055502100001e7e39
+[    14.123] (II) modeset(0): 	00a080381f4030203a0055502100001a
+[    14.123] (II) modeset(0): 	011d007251d01e206e28550055502100
+[    14.123] (II) modeset(0): 	001ebf1600a08038134030203a005550
+[    14.123] (II) modeset(0): 	2100001a000000000000000000000000
+[    14.123] (II) modeset(0): 	00000000000000000000000000000072
+[    14.123] (II) modeset(0): Printing probed modes for output DP-1
+[    14.123] (II) modeset(0): Modeline "2560x1440"x60.0  241.50  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync (88.8 kHz eP)
+[    14.123] (II) modeset(0): Modeline "2048x1080"x60.0  147.18  2048 2096 2128 2208  1080 1083 1093 1111 +hsync -vsync (66.7 kHz e)
+[    14.123] (II) modeset(0): Modeline "2048x1080"x24.0   58.23  2048 2096 2128 2208  1080 1083 1093 1099 +hsync -vsync (26.4 kHz e)
+[    14.123] (II) modeset(0): Modeline "1920x1080"x60.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "1920x1080"x50.0  148.50  1920 2448 2492 2640  1080 1084 1089 1125 +hsync +vsync (56.2 kHz e)
+[    14.123] (II) modeset(0): Modeline "1920x1080"x59.9  148.35  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.4 kHz e)
+[    14.123] (II) modeset(0): Modeline "1600x1200"x60.0  162.00  1600 1664 1856 2160  1200 1201 1204 1250 +hsync +vsync (75.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1280x1024"x75.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1152x864"x75.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1280x720"x50.0   74.25  1280 1720 1760 1980  720 725 730 750 +hsync +vsync (37.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "1280x720"x59.9   74.18  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1024x768"x75.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    14.123] (II) modeset(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    14.123] (II) modeset(0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    14.123] (II) modeset(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    14.123] (II) modeset(0): Modeline "720x576"x50.0   27.00  720 732 796 864  576 581 586 625 -hsync -vsync (31.2 kHz e)
+[    14.123] (II) modeset(0): Modeline "720x480"x60.0   27.03  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "720x480"x59.9   27.00  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "640x480"x60.0   25.20  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.123] (II) modeset(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    14.126] (II) modeset(0): EDID for output HDMI-2
+[    14.126] (II) modeset(0): Output HDMI-1 connected
+[    14.126] (II) modeset(0): Output DP-1 connected
+[    14.126] (II) modeset(0): Output HDMI-2 disconnected
+[    14.126] (II) modeset(0): Using spanning desktop for initial modes
+[    14.126] (II) modeset(0): Output HDMI-1 using initial mode 2560x1440 +0+0
+[    14.126] (II) modeset(0): Output DP-1 using initial mode 2560x1440 +2560+0
+[    14.126] (==) modeset(0): Using gamma correction (1.0, 1.0, 1.0)
+[    14.126] (==) modeset(0): DPI set to (96, 96)
+[    14.126] (II) Loading sub module "fb"
+[    14.126] (II) LoadModule: "fb"
+[    14.126] (II) Module "fb" already built-in
+[    14.126] (II) Loading sub module "dri2"
+[    14.126] (II) LoadModule: "dri2"
+[    14.126] (II) Module "dri2" already built-in
+[    14.126] (--) NOUVEAU(G0): Chipset: "NVIDIA NVA8"
+[    14.126] (==) NOUVEAU(G0): Depth 24, (--) framebuffer bpp 32
+[    14.126] (==) NOUVEAU(G0): RGB weight 888
+[    14.126] (==) NOUVEAU(G0): Default visual is TrueColor
+[    14.126] (==) NOUVEAU(G0): Using HW cursor
+[    14.126] (==) NOUVEAU(G0): Allowed maximum DRI level 2.
+[    14.126] (==) NOUVEAU(G0): GLX sync to VBlank enabled.
+[    14.126] (==) NOUVEAU(G0): Page flipping enabled
+[    14.126] (==) NOUVEAU(G0): Swap limit set to 1 [Max allowed 2]
+[    14.126] (==) NOUVEAU(G0): Page flipping synced to vblank by kernel.
+[    14.126] (II) NOUVEAU(G0): Initializing outputs ...
+[    14.136] (II) NOUVEAU(G0): Output DVI-I-1-1 has no monitor section
+[    14.216] (II) NOUVEAU(G0): Output HDMI-1-3 has no monitor section
+[    14.227] (II) NOUVEAU(G0): Output VGA-1-1 has no monitor section
+[    14.227] (II) NOUVEAU(G0): 3 crtcs needed for screen.
+[    14.229] (II) NOUVEAU(G0): Allocated crtc nr. 0 to this screen.
+[    14.229] (II) NOUVEAU(G0): Allocated crtc nr. 1 to this screen.
+[    14.238] (II) NOUVEAU(G0): EDID for output DVI-I-1-1
+[    14.319] (II) NOUVEAU(G0): EDID for output HDMI-1-3
+[    14.319] (II) NOUVEAU(G0): Manufacturer: DEL  Model: 40eb  Serial#: 1093686092
+[    14.319] (II) NOUVEAU(G0): Year: 2018  Week: 30
+[    14.319] (II) NOUVEAU(G0): EDID Version: 1.3
+[    14.319] (II) NOUVEAU(G0): Digital Display Input
+[    14.319] (II) NOUVEAU(G0): Max Image Size [cm]: horiz.: 60  vert.: 34
+[    14.319] (II) NOUVEAU(G0): Gamma: 2.20
+[    14.319] (II) NOUVEAU(G0): DPMS capabilities: Off
+[    14.319] (II) NOUVEAU(G0): Supported color encodings: RGB 4:4:4 YCrCb 4:4:4 
+[    14.319] (II) NOUVEAU(G0): First detailed timing is preferred mode
+[    14.319] (II) NOUVEAU(G0): redX: 0.640 redY: 0.330   greenX: 0.300 greenY: 0.600
+[    14.319] (II) NOUVEAU(G0): blueX: 0.150 blueY: 0.060   whiteX: 0.313 whiteY: 0.329
+[    14.319] (II) NOUVEAU(G0): Supported established timings:
+[    14.319] (II) NOUVEAU(G0): 720x400@70Hz
+[    14.319] (II) NOUVEAU(G0): 640x480@60Hz
+[    14.319] (II) NOUVEAU(G0): 640x480@75Hz
+[    14.319] (II) NOUVEAU(G0): 800x600@60Hz
+[    14.319] (II) NOUVEAU(G0): 800x600@75Hz
+[    14.319] (II) NOUVEAU(G0): 1024x768@60Hz
+[    14.319] (II) NOUVEAU(G0): 1024x768@75Hz
+[    14.319] (II) NOUVEAU(G0): 1280x1024@75Hz
+[    14.319] (II) NOUVEAU(G0): Manufacturer's mask: 0
+[    14.319] (II) NOUVEAU(G0): Supported standard timings:
+[    14.319] (II) NOUVEAU(G0): #0: hsize: 1152  vsize 864  refresh: 75  vid: 20337
+[    14.319] (II) NOUVEAU(G0): #1: hsize: 1600  vsize 1200  refresh: 60  vid: 16553
+[    14.319] (II) NOUVEAU(G0): #2: hsize: 1280  vsize 1024  refresh: 60  vid: 32897
+[    14.319] (II) NOUVEAU(G0): #3: hsize: 1920  vsize 1080  refresh: 60  vid: 49361
+[    14.319] (II) NOUVEAU(G0): Supported detailed timing:
+[    14.319] (II) NOUVEAU(G0): clock: 241.5 MHz   Image Size:  597 x 336 mm
+[    14.319] (II) NOUVEAU(G0): h_active: 2560  h_sync: 2608  h_sync_end 2640 h_blank_end 2720 h_border: 0
+[    14.319] (II) NOUVEAU(G0): v_active: 1440  v_sync: 1443  v_sync_end 1448 v_blanking: 1481 v_border: 0
+[    14.319] (II) NOUVEAU(G0): Serial No: J0XYN87SA0SL
+[    14.319] (II) NOUVEAU(G0): Monitor name: DELL U2717D
+[    14.319] (II) NOUVEAU(G0): Ranges: V min: 50 V max: 75 Hz, H min: 30 H max: 88 kHz, PixClock max 255 MHz
+[    14.319] (II) NOUVEAU(G0): Supported detailed timing:
+[    14.319] (II) NOUVEAU(G0): clock: 148.5 MHz   Image Size:  597 x 336 mm
+[    14.319] (II) NOUVEAU(G0): h_active: 1920  h_sync: 2008  h_sync_end 2052 h_blank_end 2200 h_border: 0
+[    14.319] (II) NOUVEAU(G0): v_active: 1080  v_sync: 1084  v_sync_end 1089 v_blanking: 1125 v_border: 0
+[    14.319] (II) NOUVEAU(G0): Supported detailed timing:
+[    14.319] (II) NOUVEAU(G0): clock: 147.2 MHz   Image Size:  597 x 336 mm
+[    14.319] (II) NOUVEAU(G0): h_active: 2048  h_sync: 2096  h_sync_end 2128 h_blank_end 2208 h_border: 0
+[    14.319] (II) NOUVEAU(G0): v_active: 1080  v_sync: 1083  v_sync_end 1093 v_blanking: 1111 v_border: 0
+[    14.319] (II) NOUVEAU(G0): Supported detailed timing:
+[    14.319] (II) NOUVEAU(G0): clock: 74.2 MHz   Image Size:  597 x 336 mm
+[    14.319] (II) NOUVEAU(G0): h_active: 1280  h_sync: 1390  h_sync_end 1430 h_blank_end 1650 h_border: 0
+[    14.319] (II) NOUVEAU(G0): v_active: 720  v_sync: 725  v_sync_end 730 v_blanking: 750 v_border: 0
+[    14.319] (II) NOUVEAU(G0): Supported detailed timing:
+[    14.319] (II) NOUVEAU(G0): clock: 58.2 MHz   Image Size:  597 x 336 mm
+[    14.319] (II) NOUVEAU(G0): h_active: 2048  h_sync: 2096  h_sync_end 2128 h_blank_end 2208 h_border: 0
+[    14.319] (II) NOUVEAU(G0): v_active: 1080  v_sync: 1083  v_sync_end 1093 v_blanking: 1099 v_border: 0
+[    14.319] (II) NOUVEAU(G0): Number of EDID sections to follow: 1
+[    14.319] (II) NOUVEAU(G0): EDID (in hex):
+[    14.319] (II) NOUVEAU(G0): 	00ffffffffffff0010aceb404c533041
+[    14.319] (II) NOUVEAU(G0): 	1e1c0103803c22782aee95a3544c9926
+[    14.319] (II) NOUVEAU(G0): 	0f5054a54b00714fa9408180d1c00101
+[    14.319] (II) NOUVEAU(G0): 	010101010101565e00a0a0a029503020
+[    14.319] (II) NOUVEAU(G0): 	350055502100001a000000ff004a3058
+[    14.319] (II) NOUVEAU(G0): 	594e3837534130534c0a000000fc0044
+[    14.319] (II) NOUVEAU(G0): 	454c4c205532373137440a20000000fd
+[    14.319] (II) NOUVEAU(G0): 	00324b1e5819000a202020202020017b
+[    14.319] (II) NOUVEAU(G0): 	020324f14f9005040302071601061112
+[    14.319] (II) NOUVEAU(G0): 	1513141f23091f078301000067030c00
+[    14.319] (II) NOUVEAU(G0): 	10000032023a801871382d40582c4500
+[    14.319] (II) NOUVEAU(G0): 	55502100001e7e3900a080381f403020
+[    14.319] (II) NOUVEAU(G0): 	3a0055502100001a011d007251d01e20
+[    14.319] (II) NOUVEAU(G0): 	6e28550055502100001ebf1600a08038
+[    14.319] (II) NOUVEAU(G0): 	134030203a0055502100001a00000000
+[    14.319] (II) NOUVEAU(G0): 	000000000000000000000000000000b2
+[    14.319] (--) NOUVEAU(G0): HDMI max TMDS frequency 250000KHz
+[    14.319] (II) NOUVEAU(G0): Printing probed modes for output HDMI-1-3
+[    14.319] (II) NOUVEAU(G0): Modeline "2048x1080"x60.0  147.18  2048 2096 2128 2208  1080 1083 1093 1111 +hsync -vsync (66.7 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "2048x1080"x24.0   58.23  2048 2096 2128 2208  1080 1083 1093 1099 +hsync -vsync (26.4 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080"x60.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080"x50.0  148.50  1920 2448 2492 2640  1080 1084 1089 1125 +hsync +vsync (56.2 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080"x59.9  148.35  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.4 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080i"x60.0   74.25  1920 2008 2052 2200  1080 1084 1094 1125 interlace +hsync +vsync (33.8 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080i"x50.0   74.25  1920 2448 2492 2640  1080 1084 1094 1125 interlace +hsync +vsync (28.1 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1920x1080i"x59.9   74.18  1920 2008 2052 2200  1080 1084 1094 1125 interlace +hsync +vsync (33.7 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1600x1200"x60.0  162.00  1600 1664 1856 2160  1200 1201 1204 1250 +hsync +vsync (75.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1280x1024"x75.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1152x864"x75.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1280x720"x50.0   74.25  1280 1720 1760 1980  720 725 730 750 +hsync +vsync (37.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1280x720"x59.9   74.18  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1024x768"x75.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "720x576"x50.0   27.00  720 732 796 864  576 581 586 625 -hsync -vsync (31.2 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "720x480"x60.0   27.03  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "720x480"x59.9   27.00  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "640x480"x60.0   25.20  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    14.319] (II) NOUVEAU(G0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    14.329] (II) NOUVEAU(G0): EDID for output VGA-1-1
+[    14.329] (==) NOUVEAU(G0): Using gamma correction (1.0, 1.0, 1.0)
+[    14.329] (II) NOUVEAU(G0): Virtual size is 1024x768 (pitch 0)
+[    14.329] (**) NOUVEAU(G0):  Mode "5120x1440": 624.5 MHz (scaled from 0.0 MHz), 89.5 kHz, 60.0 Hz
+[    14.329] (II) NOUVEAU(G0): Modeline "5120x1440"x60.0  624.50  5120 5496 6048 6976  1440 1443 1453 1493 -hsync +vsync (89.5 kHz)
+[    14.329] (==) NOUVEAU(G0): DPI set to (96, 96)
+[    14.329] (II) Loading sub module "fb"
+[    14.329] (II) LoadModule: "fb"
+[    14.330] (II) Module "fb" already built-in
+[    14.330] (II) Loading sub module "shadowfb"
+[    14.330] (II) LoadModule: "shadowfb"
+[    14.336] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/libshadowfb.so
+[    14.337] (II) Module shadowfb: vendor="X.Org Foundation"
+[    14.337] 	compiled for 1.21.1.21, module version = 1.0.0
+[    14.337] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[    14.337] (II) UnloadModule: "nv"
+[    14.337] (II) Unloading nv
+[    14.337] (II) UnloadModule: "fbdev"
+[    14.337] (II) Unloading fbdev
+[    14.337] (II) UnloadSubModule: "fbdevhw"
+[    14.337] (II) Unloading fbdevhw
+[    14.337] (II) UnloadModule: "vesa"
+[    14.337] (II) Unloading vesa
+[    14.359] (==) modeset(0): Backing store enabled
+[    14.359] (==) modeset(0): Silken mouse enabled
+[    14.574] (II) modeset(0): Initializing kms color map for depth 24, 8 bpc.
+[    14.574] (==) modeset(0): DPMS enabled
+[    14.574] (II) modeset(0): [DRI2] Setup complete
+[    14.574] (II) modeset(0): [DRI2]   DRI driver: iris
+[    14.574] (II) modeset(0): [DRI2]   VDPAU driver: va_gl
+[    14.576] (II) NOUVEAU(G0): Channel setup complete.
+[    14.577] (II) NOUVEAU(G0): [COPY] async initialised.
+[    14.577] (II) NOUVEAU(G0): Hardware support for Present enabled
+[    14.577] (II) NOUVEAU(G0): [DRI2] Setup complete
+[    14.577] (II) NOUVEAU(G0): [DRI2]   DRI driver: nouveau
+[    14.577] (II) NOUVEAU(G0): [DRI2]   VDPAU driver: nouveau
+[    14.577] (II) Loading sub module "exa"
+[    14.577] (II) LoadModule: "exa"
+[    14.578] (II) Loading /gnu/store/a54zw2n52ic20sdrqa7hyf8n7z0ni6vj-xorg-server-21.1.21/lib/xorg/modules/libexa.so
+[    14.585] (II) Module exa: vendor="X.Org Foundation"
+[    14.585] 	compiled for 1.21.1.21, module version = 2.6.0
+[    14.585] 	ABI class: X.Org Video Driver, version 25.2
+[    14.585] (II) EXA(256): Driver allocated offscreen pixmaps
+[    14.585] (II) EXA(256): Driver registered support for the following operations:
+[    14.585] (II)         Solid
+[    14.585] (II)         Copy
+[    14.585] (II)         Composite (RENDER acceleration)
+[    14.585] (II)         UploadToScreen
+[    14.585] (II)         DownloadFromScreen
+[    14.585] (==) NOUVEAU(G0): Backing store enabled
+[    14.585] (==) NOUVEAU(G0): Silken mouse enabled
+[    14.586] (II) NOUVEAU(G0): [XvMC] Associated with Nouveau GeForce 8/9 Textured Video.
+[    14.586] (II) NOUVEAU(G0): [XvMC] Extension initialized.
+[    14.586] (==) NOUVEAU(G0): DPMS enabled
+[    14.586] (II) Initializing extension Generic Event Extension
+[    14.586] (II) Initializing extension SHAPE
+[    14.586] (II) Initializing extension MIT-SHM
+[    14.586] (II) Initializing extension XInputExtension
+[    14.587] (II) Initializing extension XTEST
+[    14.587] (II) Initializing extension BIG-REQUESTS
+[    14.587] (II) Initializing extension SYNC
+[    14.587] (II) Initializing extension XKEYBOARD
+[    14.588] (II) Initializing extension XC-MISC
+[    14.588] (II) Initializing extension SECURITY
+[    14.588] (II) Initializing extension XFIXES
+[    14.588] (II) Initializing extension RENDER
+[    14.588] (II) Initializing extension RANDR
+[    14.589] (II) Initializing extension COMPOSITE
+[    14.589] (II) Initializing extension DAMAGE
+[    14.589] (II) Initializing extension MIT-SCREEN-SAVER
+[    14.589] (II) Initializing extension DOUBLE-BUFFER
+[    14.589] (II) Initializing extension RECORD
+[    14.590] (II) Initializing extension DPMS
+[    14.590] (II) Initializing extension Present
+[    14.590] (II) Initializing extension DRI3
+[    14.590] (II) Initializing extension X-Resource
+[    14.590] (II) Initializing extension XVideo
+[    14.590] (II) Initializing extension XVideo-MotionCompensation
+[    14.591] (II) Initializing extension GLX
+[    14.603] (II) AIGLX: Loaded and initialized iris
+[    14.603] (II) GLX: Initialized DRI2 GL provider for screen 0
+[    14.603] (II) Initializing extension XFree86-VidModeExtension
+[    14.603] (II) Initializing extension XFree86-DGA
+[    14.603] (II) Initializing extension XFree86-DRI
+[    14.603] (II) Initializing extension DRI2
+[    14.608] (II) NOUVEAU(G0): NVEnterVT is called.
+[    14.631] (II) modeset(0): Damage tracking initialized
+[    14.631] (II) modeset(0): Setting screen physical size to 1354 x 381
+[    14.655] (II) config/udev: Adding input device Power Button (/dev/input/event2)
+[    14.655] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    14.655] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[    14.655] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    14.655] (II) LoadModule: "evdev"
+[    14.655] (II) Loading /gnu/store/6w1kw3aw2n45dgrdi9gylnxc0lpgjl4s-xf86-input-evdev-2.11.0/lib/xorg/modules/input/evdev_drv.so
+[    14.656] (II) Module evdev: vendor="X.Org Foundation"
+[    14.656] 	compiled for 1.21.1.21, module version = 2.11.0
+[    14.656] 	Module class: X.Org XInput Driver
+[    14.656] 	ABI class: X.Org XInput driver, version 24.4
+[    14.656] (II) Using input driver 'evdev' for 'Power Button'
+[    14.656] (**) Power Button: always reports core events
+[    14.656] (**) evdev: Power Button: Device: "/dev/input/event2"
+[    14.656] (--) evdev: Power Button: Vendor 0 Product 0x1
+[    14.656] (--) evdev: Power Button: Found keys
+[    14.656] (II) evdev: Power Button: Configuring as keyboard
+[    14.656] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXPWRBN:00/input/input2/event2"
+[    14.656] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[    14.656] (**) Option "xkb_rules" "evdev"
+[    14.656] (**) Option "xkb_layout" "us"
+[    14.656] (**) Option "xkb_variant" "mac"
+[    14.656] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.667] (II) config/udev: Adding input device Video Bus (/dev/input/event9)
+[    14.667] (**) Video Bus: Applying InputClass "evdev keyboard catchall"
+[    14.667] (**) Video Bus: Applying InputClass "libinput keyboard catchall"
+[    14.667] (**) Video Bus: Applying InputClass "evdev keyboard catchall"
+[    14.667] (II) Using input driver 'evdev' for 'Video Bus'
+[    14.667] (**) Video Bus: always reports core events
+[    14.667] (**) evdev: Video Bus: Device: "/dev/input/event9"
+[    14.667] (--) evdev: Video Bus: Vendor 0 Product 0x6
+[    14.667] (--) evdev: Video Bus: Found keys
+[    14.667] (II) evdev: Video Bus: Configuring as keyboard
+[    14.667] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input9/event9"
+[    14.667] (II) XINPUT: Adding extended input device "Video Bus" (type: KEYBOARD, id 7)
+[    14.667] (**) Option "xkb_rules" "evdev"
+[    14.667] (**) Option "xkb_layout" "us"
+[    14.667] (**) Option "xkb_variant" "mac"
+[    14.667] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.667] (II) config/udev: Adding input device Power Button (/dev/input/event1)
+[    14.667] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    14.667] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[    14.667] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    14.667] (II) Using input driver 'evdev' for 'Power Button'
+[    14.667] (**) Power Button: always reports core events
+[    14.667] (**) evdev: Power Button: Device: "/dev/input/event1"
+[    14.667] (--) evdev: Power Button: Vendor 0 Product 0x1
+[    14.667] (--) evdev: Power Button: Found keys
+[    14.667] (II) evdev: Power Button: Configuring as keyboard
+[    14.667] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input1/event1"
+[    14.667] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 8)
+[    14.667] (**) Option "xkb_rules" "evdev"
+[    14.667] (**) Option "xkb_layout" "us"
+[    14.667] (**) Option "xkb_variant" "mac"
+[    14.667] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.667] (II) config/udev: Adding input device Sleep Button (/dev/input/event0)
+[    14.667] (**) Sleep Button: Applying InputClass "evdev keyboard catchall"
+[    14.667] (**) Sleep Button: Applying InputClass "libinput keyboard catchall"
+[    14.667] (**) Sleep Button: Applying InputClass "evdev keyboard catchall"
+[    14.667] (II) Using input driver 'evdev' for 'Sleep Button'
+[    14.667] (**) Sleep Button: always reports core events
+[    14.667] (**) evdev: Sleep Button: Device: "/dev/input/event0"
+[    14.667] (--) evdev: Sleep Button: Vendor 0 Product 0x3
+[    14.667] (--) evdev: Sleep Button: Found keys
+[    14.667] (II) evdev: Sleep Button: Configuring as keyboard
+[    14.667] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input0/event0"
+[    14.667] (II) XINPUT: Adding extended input device "Sleep Button" (type: KEYBOARD, id 9)
+[    14.667] (**) Option "xkb_rules" "evdev"
+[    14.667] (**) Option "xkb_layout" "us"
+[    14.667] (**) Option "xkb_variant" "mac"
+[    14.667] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.667] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event10)
+[    14.667] (**) Logitech USB Receiver: Applying InputClass "evdev keyboard catchall"
+[    14.667] (**) Logitech USB Receiver: Applying InputClass "libinput keyboard catchall"
+[    14.667] (**) Logitech USB Receiver: Applying InputClass "evdev keyboard catchall"
+[    14.667] (II) Using input driver 'evdev' for 'Logitech USB Receiver'
+[    14.667] (**) Logitech USB Receiver: always reports core events
+[    14.667] (**) evdev: Logitech USB Receiver: Device: "/dev/input/event10"
+[    14.667] (--) evdev: Logitech USB Receiver: Vendor 0x46d Product 0xc548
+[    14.667] (--) evdev: Logitech USB Receiver: Found keys
+[    14.667] (II) evdev: Logitech USB Receiver: Configuring as keyboard
+[    14.667] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.2/1-10.3.2:1.0/0003:046D:C548.0003/input/input10/event10"
+[    14.667] (II) XINPUT: Adding extended input device "Logitech USB Receiver" (type: KEYBOARD, id 10)
+[    14.667] (**) Option "xkb_rules" "evdev"
+[    14.667] (**) Option "xkb_layout" "us"
+[    14.667] (**) Option "xkb_variant" "mac"
+[    14.667] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.667] (II) config/udev: Adding input device Logitech USB Receiver Mouse (/dev/input/event11)
+[    14.667] (**) Logitech USB Receiver Mouse: Applying InputClass "evdev pointer catchall"
+[    14.667] (**) Logitech USB Receiver Mouse: Applying InputClass "libinput pointer catchall"
+[    14.667] (II) LoadModule: "libinput"
+[    14.667] (II) Loading /gnu/store/a64wn1rgqn163dmf8s2asi9169pazbmc-xf86-input-libinput-1.5.0/lib/xorg/modules/input/libinput_drv.so
+[    14.668] (II) Module libinput: vendor="X.Org Foundation"
+[    14.668] 	compiled for 1.21.1.21, module version = 1.5.0
+[    14.668] 	Module class: X.Org XInput Driver
+[    14.668] 	ABI class: X.Org XInput driver, version 24.4
+[    14.668] (II) Using input driver 'libinput' for 'Logitech USB Receiver Mouse'
+[    14.668] (**) Logitech USB Receiver Mouse: always reports core events
+[    14.668] (**) Option "Device" "/dev/input/event11"
+[    14.671] (II) event11 - Logitech USB Receiver Mouse: is tagged by udev as: Mouse
+[    14.671] (II) event11 - Logitech USB Receiver Mouse: device is a pointer
+[    14.671] (II) event11 - Logitech USB Receiver Mouse: device removed
+[    14.744] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.744] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.744] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.744] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.2/1-10.3.2:1.1/0003:046D:C548.0004/input/input11/event11"
+[    14.744] (II) XINPUT: Adding extended input device "Logitech USB Receiver Mouse" (type: MOUSE, id 11)
+[    14.744] (**) Option "AccelerationScheme" "none"
+[    14.744] (**) Logitech USB Receiver Mouse: (accel) selected scheme none/0
+[    14.744] (**) Logitech USB Receiver Mouse: (accel) acceleration factor: 2.000
+[    14.744] (**) Logitech USB Receiver Mouse: (accel) acceleration threshold: 4
+[    14.745] (II) event11 - Logitech USB Receiver Mouse: is tagged by udev as: Mouse
+[    14.745] (II) event11 - Logitech USB Receiver Mouse: device is a pointer
+[    14.746] (II) config/udev: Adding input device Logitech USB Receiver Mouse (/dev/input/mouse0)
+[    14.746] (II) No input driver specified, ignoring this device.
+[    14.746] (II) This device may have been added with another device file.
+[    14.746] (II) config/udev: Adding input device Logitech USB Receiver Consumer Control (/dev/input/event12)
+[    14.746] (**) Logitech USB Receiver Consumer Control: Applying InputClass "evdev keyboard catchall"
+[    14.746] (**) Logitech USB Receiver Consumer Control: Applying InputClass "libinput keyboard catchall"
+[    14.746] (**) Logitech USB Receiver Consumer Control: Applying InputClass "evdev keyboard catchall"
+[    14.746] (II) Using input driver 'evdev' for 'Logitech USB Receiver Consumer Control'
+[    14.746] (**) Logitech USB Receiver Consumer Control: always reports core events
+[    14.747] (**) evdev: Logitech USB Receiver Consumer Control: Device: "/dev/input/event12"
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Vendor 0x46d Product 0xc548
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Found 1 mouse buttons
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Found scroll wheel(s)
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Found relative axes
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: Forcing relative x/y axes to exist.
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Found absolute axes
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: Forcing absolute x/y axes to exist.
+[    14.747] (--) evdev: Logitech USB Receiver Consumer Control: Found keys
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: Configuring as mouse
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: Configuring as keyboard
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: Adding scrollwheel support
+[    14.747] (**) evdev: Logitech USB Receiver Consumer Control: YAxisMapping: buttons 4 and 5
+[    14.747] (**) evdev: Logitech USB Receiver Consumer Control: EmulateWheelButton: 4, EmulateWheelInertia: 10, EmulateWheelTimeout: 200
+[    14.747] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.2/1-10.3.2:1.1/0003:046D:C548.0004/input/input12/event12"
+[    14.747] (II) XINPUT: Adding extended input device "Logitech USB Receiver Consumer Control" (type: KEYBOARD, id 12)
+[    14.747] (**) Option "xkb_rules" "evdev"
+[    14.747] (**) Option "xkb_layout" "us"
+[    14.747] (**) Option "xkb_variant" "mac"
+[    14.747] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.747] (II) evdev: Logitech USB Receiver Consumer Control: initialized for relative axes.
+[    14.747] (WW) evdev: Logitech USB Receiver Consumer Control: ignoring absolute axes.
+[    14.747] (**) Logitech USB Receiver Consumer Control: (accel) keeping acceleration scheme 1
+[    14.747] (**) Logitech USB Receiver Consumer Control: (accel) acceleration profile 0
+[    14.747] (**) Logitech USB Receiver Consumer Control: (accel) acceleration factor: 2.000
+[    14.747] (**) Logitech USB Receiver Consumer Control: (accel) acceleration threshold: 4
+[    14.748] (II) config/udev: Adding input device Logitech USB Receiver System Control (/dev/input/event13)
+[    14.748] (**) Logitech USB Receiver System Control: Applying InputClass "evdev keyboard catchall"
+[    14.748] (**) Logitech USB Receiver System Control: Applying InputClass "libinput keyboard catchall"
+[    14.748] (**) Logitech USB Receiver System Control: Applying InputClass "evdev keyboard catchall"
+[    14.748] (II) Using input driver 'evdev' for 'Logitech USB Receiver System Control'
+[    14.748] (**) Logitech USB Receiver System Control: always reports core events
+[    14.748] (**) evdev: Logitech USB Receiver System Control: Device: "/dev/input/event13"
+[    14.748] (--) evdev: Logitech USB Receiver System Control: Vendor 0x46d Product 0xc548
+[    14.748] (--) evdev: Logitech USB Receiver System Control: Found keys
+[    14.748] (II) evdev: Logitech USB Receiver System Control: Configuring as keyboard
+[    14.748] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.2/1-10.3.2:1.1/0003:046D:C548.0004/input/input13/event13"
+[    14.748] (II) XINPUT: Adding extended input device "Logitech USB Receiver System Control" (type: KEYBOARD, id 13)
+[    14.748] (**) Option "xkb_rules" "evdev"
+[    14.748] (**) Option "xkb_layout" "us"
+[    14.748] (**) Option "xkb_variant" "mac"
+[    14.748] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.749] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event14)
+[    14.749] (II) No input driver specified, ignoring this device.
+[    14.749] (II) This device may have been added with another device file.
+[    14.749] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event15)
+[    14.749] (**) Logitech USB Receiver: Applying InputClass "evdev touchpad catchall"
+[    14.749] (**) Logitech USB Receiver: Applying InputClass "libinput touchpad catchall"
+[    14.749] (II) Using input driver 'libinput' for 'Logitech USB Receiver'
+[    14.749] (**) Logitech USB Receiver: always reports core events
+[    14.749] (**) Option "Device" "/dev/input/event15"
+[    14.805] (II) event15 - Logitech USB Receiver: is tagged by udev as: Touchpad
+[    14.807] (II) event15 - Logitech USB Receiver: device is a touchpad
+[    14.808] (II) event15 - Logitech USB Receiver: device removed
+[    14.856] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.856] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.856] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.856] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.2/1-10.3.2:1.3/0003:046D:C548.0006/input/input26/event15"
+[    14.857] (II) XINPUT: Adding extended input device "Logitech USB Receiver" (type: TOUCHPAD, id 14)
+[    14.859] (**) Option "AccelerationScheme" "none"
+[    14.859] (**) Logitech USB Receiver: (accel) selected scheme none/0
+[    14.859] (**) Logitech USB Receiver: (accel) acceleration factor: 2.000
+[    14.859] (**) Logitech USB Receiver: (accel) acceleration threshold: 4
+[    14.913] (II) event15 - Logitech USB Receiver: is tagged by udev as: Touchpad
+[    14.915] (II) event15 - Logitech USB Receiver: device is a touchpad
+[    14.916] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/mouse1)
+[    14.916] (II) No input driver specified, ignoring this device.
+[    14.916] (II) This device may have been added with another device file.
+[    14.917] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event16)
+[    14.917] (**) Logitech USB Receiver: Applying InputClass "evdev keyboard catchall"
+[    14.917] (**) Logitech USB Receiver: Applying InputClass "libinput keyboard catchall"
+[    14.917] (**) Logitech USB Receiver: Applying InputClass "evdev keyboard catchall"
+[    14.917] (II) Using input driver 'evdev' for 'Logitech USB Receiver'
+[    14.917] (**) Logitech USB Receiver: always reports core events
+[    14.917] (**) evdev: Logitech USB Receiver: Device: "/dev/input/event16"
+[    14.917] (--) evdev: Logitech USB Receiver: Vendor 0x46d Product 0xc548
+[    14.917] (--) evdev: Logitech USB Receiver: Found keys
+[    14.917] (II) evdev: Logitech USB Receiver: Configuring as keyboard
+[    14.917] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.3/1-10.3.3:1.0/0003:046D:C548.0007/input/input16/event16"
+[    14.917] (II) XINPUT: Adding extended input device "Logitech USB Receiver" (type: KEYBOARD, id 15)
+[    14.917] (**) Option "xkb_rules" "evdev"
+[    14.917] (**) Option "xkb_layout" "us"
+[    14.917] (**) Option "xkb_variant" "mac"
+[    14.917] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.918] (II) config/udev: Adding input device Logitech USB Receiver Mouse (/dev/input/event17)
+[    14.918] (**) Logitech USB Receiver Mouse: Applying InputClass "evdev pointer catchall"
+[    14.918] (**) Logitech USB Receiver Mouse: Applying InputClass "libinput pointer catchall"
+[    14.918] (II) Using input driver 'libinput' for 'Logitech USB Receiver Mouse'
+[    14.918] (**) Logitech USB Receiver Mouse: always reports core events
+[    14.918] (**) Option "Device" "/dev/input/event17"
+[    14.919] (II) event17 - Logitech USB Receiver Mouse: is tagged by udev as: Mouse
+[    14.919] (II) event17 - Logitech USB Receiver Mouse: device is a pointer
+[    14.919] (II) event17 - Logitech USB Receiver Mouse: device removed
+[    14.976] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.976] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.976] (II) libinput: Logitech USB Receiver Mouse: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    14.976] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.3/1-10.3.3:1.1/0003:046D:C548.0008/input/input17/event17"
+[    14.976] (II) XINPUT: Adding extended input device "Logitech USB Receiver Mouse" (type: MOUSE, id 16)
+[    14.976] (**) Option "AccelerationScheme" "none"
+[    14.976] (**) Logitech USB Receiver Mouse: (accel) selected scheme none/0
+[    14.976] (**) Logitech USB Receiver Mouse: (accel) acceleration factor: 2.000
+[    14.976] (**) Logitech USB Receiver Mouse: (accel) acceleration threshold: 4
+[    14.977] (II) event17 - Logitech USB Receiver Mouse: is tagged by udev as: Mouse
+[    14.978] (II) event17 - Logitech USB Receiver Mouse: device is a pointer
+[    14.978] (II) config/udev: Adding input device Logitech USB Receiver Mouse (/dev/input/mouse2)
+[    14.978] (II) No input driver specified, ignoring this device.
+[    14.978] (II) This device may have been added with another device file.
+[    14.979] (II) config/udev: Adding input device Logitech USB Receiver Consumer Control (/dev/input/event18)
+[    14.979] (**) Logitech USB Receiver Consumer Control: Applying InputClass "evdev keyboard catchall"
+[    14.979] (**) Logitech USB Receiver Consumer Control: Applying InputClass "libinput keyboard catchall"
+[    14.979] (**) Logitech USB Receiver Consumer Control: Applying InputClass "evdev keyboard catchall"
+[    14.979] (II) Using input driver 'evdev' for 'Logitech USB Receiver Consumer Control'
+[    14.979] (**) Logitech USB Receiver Consumer Control: always reports core events
+[    14.979] (**) evdev: Logitech USB Receiver Consumer Control: Device: "/dev/input/event18"
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Vendor 0x46d Product 0xc548
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Found 1 mouse buttons
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Found scroll wheel(s)
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Found relative axes
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: Forcing relative x/y axes to exist.
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Found absolute axes
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: Forcing absolute x/y axes to exist.
+[    14.979] (--) evdev: Logitech USB Receiver Consumer Control: Found keys
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: Configuring as mouse
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: Configuring as keyboard
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: Adding scrollwheel support
+[    14.979] (**) evdev: Logitech USB Receiver Consumer Control: YAxisMapping: buttons 4 and 5
+[    14.979] (**) evdev: Logitech USB Receiver Consumer Control: EmulateWheelButton: 4, EmulateWheelInertia: 10, EmulateWheelTimeout: 200
+[    14.979] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.3/1-10.3.3:1.1/0003:046D:C548.0008/input/input18/event18"
+[    14.979] (II) XINPUT: Adding extended input device "Logitech USB Receiver Consumer Control" (type: KEYBOARD, id 17)
+[    14.979] (**) Option "xkb_rules" "evdev"
+[    14.979] (**) Option "xkb_layout" "us"
+[    14.979] (**) Option "xkb_variant" "mac"
+[    14.979] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.979] (II) evdev: Logitech USB Receiver Consumer Control: initialized for relative axes.
+[    14.979] (WW) evdev: Logitech USB Receiver Consumer Control: ignoring absolute axes.
+[    14.980] (**) Logitech USB Receiver Consumer Control: (accel) keeping acceleration scheme 1
+[    14.980] (**) Logitech USB Receiver Consumer Control: (accel) acceleration profile 0
+[    14.980] (**) Logitech USB Receiver Consumer Control: (accel) acceleration factor: 2.000
+[    14.980] (**) Logitech USB Receiver Consumer Control: (accel) acceleration threshold: 4
+[    14.980] (II) config/udev: Adding input device Logitech USB Receiver System Control (/dev/input/event19)
+[    14.980] (**) Logitech USB Receiver System Control: Applying InputClass "evdev keyboard catchall"
+[    14.980] (**) Logitech USB Receiver System Control: Applying InputClass "libinput keyboard catchall"
+[    14.980] (**) Logitech USB Receiver System Control: Applying InputClass "evdev keyboard catchall"
+[    14.980] (II) Using input driver 'evdev' for 'Logitech USB Receiver System Control'
+[    14.980] (**) Logitech USB Receiver System Control: always reports core events
+[    14.980] (**) evdev: Logitech USB Receiver System Control: Device: "/dev/input/event19"
+[    14.980] (--) evdev: Logitech USB Receiver System Control: Vendor 0x46d Product 0xc548
+[    14.980] (--) evdev: Logitech USB Receiver System Control: Found keys
+[    14.980] (II) evdev: Logitech USB Receiver System Control: Configuring as keyboard
+[    14.980] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.3/1-10.3.3:1.1/0003:046D:C548.0008/input/input19/event19"
+[    14.980] (II) XINPUT: Adding extended input device "Logitech USB Receiver System Control" (type: KEYBOARD, id 18)
+[    14.980] (**) Option "xkb_rules" "evdev"
+[    14.980] (**) Option "xkb_layout" "us"
+[    14.980] (**) Option "xkb_variant" "mac"
+[    14.980] (**) Option "xkb_options" "ctrl:nocaps"
+[    14.981] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event20)
+[    14.981] (II) No input driver specified, ignoring this device.
+[    14.981] (II) This device may have been added with another device file.
+[    14.981] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/event21)
+[    14.981] (**) Logitech USB Receiver: Applying InputClass "evdev touchpad catchall"
+[    14.981] (**) Logitech USB Receiver: Applying InputClass "libinput touchpad catchall"
+[    14.981] (II) Using input driver 'libinput' for 'Logitech USB Receiver'
+[    14.981] (**) Logitech USB Receiver: always reports core events
+[    14.981] (**) Option "Device" "/dev/input/event21"
+[    15.037] (II) event21 - Logitech USB Receiver: is tagged by udev as: Touchpad
+[    15.039] (II) event21 - Logitech USB Receiver: device is a touchpad
+[    15.039] (II) event21 - Logitech USB Receiver: device removed
+[    15.084] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    15.084] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    15.084] (II) libinput: Logitech USB Receiver: Step value 0 was provided, libinput Fallback acceleration function is used.
+[    15.084] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:14.0/usb1/1-10/1-10.3/1-10.3.3/1-10.3.3:1.3/0003:046D:C548.000A/input/input27/event21"
+[    15.084] (II) XINPUT: Adding extended input device "Logitech USB Receiver" (type: TOUCHPAD, id 19)
+[    15.087] (**) Option "AccelerationScheme" "none"
+[    15.087] (**) Logitech USB Receiver: (accel) selected scheme none/0
+[    15.087] (**) Logitech USB Receiver: (accel) acceleration factor: 2.000
+[    15.087] (**) Logitech USB Receiver: (accel) acceleration threshold: 4
+[    15.141] (II) event21 - Logitech USB Receiver: is tagged by udev as: Touchpad
+[    15.143] (II) event21 - Logitech USB Receiver: device is a touchpad
+[    15.144] (II) config/udev: Adding input device Logitech USB Receiver (/dev/input/mouse3)
+[    15.144] (II) No input driver specified, ignoring this device.
+[    15.144] (II) This device may have been added with another device file.
+[    15.144] (II) config/udev: Adding input device HDA NVidia HDMI/DP,pcm=3 (/dev/input/event5)
+[    15.144] (II) No input driver specified, ignoring this device.
+[    15.144] (II) This device may have been added with another device file.
+[    15.145] (II) config/udev: Adding input device HDA NVidia HDMI/DP,pcm=7 (/dev/input/event6)
+[    15.145] (II) No input driver specified, ignoring this device.
+[    15.145] (II) This device may have been added with another device file.
+[    15.145] (II) config/udev: Adding input device HDA NVidia HDMI/DP,pcm=8 (/dev/input/event7)
+[    15.145] (II) No input driver specified, ignoring this device.
+[    15.145] (II) This device may have been added with another device file.
+[    15.145] (II) config/udev: Adding input device HDA NVidia HDMI/DP,pcm=9 (/dev/input/event8)
+[    15.145] (II) No input driver specified, ignoring this device.
+[    15.145] (II) This device may have been added with another device file.
+[    15.145] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=3 (/dev/input/event22)
+[    15.145] (II) No input driver specified, ignoring this device.
+[    15.145] (II) This device may have been added with another device file.
+[    15.145] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=7 (/dev/input/event23)
+[    15.146] (II) No input driver specified, ignoring this device.
+[    15.146] (II) This device may have been added with another device file.
+[    15.146] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=8 (/dev/input/event24)
+[    15.146] (II) No input driver specified, ignoring this device.
+[    15.146] (II) This device may have been added with another device file.
+[    15.146] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=9 (/dev/input/event25)
+[    15.146] (II) No input driver specified, ignoring this device.
+[    15.146] (II) This device may have been added with another device file.
+[    15.146] (II) config/udev: Adding input device Asus WMI hotkeys (/dev/input/event4)
+[    15.146] (**) Asus WMI hotkeys: Applying InputClass "evdev keyboard catchall"
+[    15.146] (**) Asus WMI hotkeys: Applying InputClass "libinput keyboard catchall"
+[    15.146] (**) Asus WMI hotkeys: Applying InputClass "evdev keyboard catchall"
+[    15.146] (II) Using input driver 'evdev' for 'Asus WMI hotkeys'
+[    15.146] (**) Asus WMI hotkeys: always reports core events
+[    15.146] (**) evdev: Asus WMI hotkeys: Device: "/dev/input/event4"
+[    15.146] (--) evdev: Asus WMI hotkeys: Vendor 0 Product 0
+[    15.146] (--) evdev: Asus WMI hotkeys: Found keys
+[    15.146] (II) evdev: Asus WMI hotkeys: Configuring as keyboard
+[    15.146] (**) Option "config_info" "udev:/sys/devices/platform/asus-nb-wmi/input/input4/event4"
+[    15.146] (II) XINPUT: Adding extended input device "Asus WMI hotkeys" (type: KEYBOARD, id 20)
+[    15.146] (**) Option "xkb_rules" "evdev"
+[    15.146] (**) Option "xkb_layout" "us"
+[    15.146] (**) Option "xkb_variant" "mac"
+[    15.146] (**) Option "xkb_options" "ctrl:nocaps"
+[    15.147] (II) config/udev: Adding input device PC Speaker (/dev/input/event3)
+[    15.147] (II) No input driver specified, ignoring this device.
+[    15.147] (II) This device may have been added with another device file.
+[    15.608] (II) event11 - Logitech USB Receiver Mouse: device removed
+[    15.772] (II) event15 - Logitech USB Receiver: device removed
+[    15.888] (II) event17 - Logitech USB Receiver Mouse: device removed
+[    16.032] (II) event21 - Logitech USB Receiver: device removed
+[    16.142] (II) evdev: Asus WMI hotkeys: Close
+[    16.142] (II) UnloadModule: "evdev"
+[    16.142] (II) UnloadModule: "libinput"
+[    16.142] (II) evdev: Logitech USB Receiver System Control: Close
+[    16.142] (II) UnloadModule: "evdev"
+[    16.142] (II) evdev: Logitech USB Receiver Consumer Control: Close
+[    16.143] (II) UnloadModule: "evdev"
+[    16.143] (II) UnloadModule: "libinput"
+[    16.143] (II) evdev: Logitech USB Receiver: Close
+[    16.143] (II) UnloadModule: "evdev"
+[    16.143] (II) UnloadModule: "libinput"
+[    16.143] (II) evdev: Logitech USB Receiver System Control: Close
+[    16.143] (II) UnloadModule: "evdev"
+[    16.143] (II) evdev: Logitech USB Receiver Consumer Control: Close
+[    16.143] (II) UnloadModule: "evdev"
+[    16.144] (II) UnloadModule: "libinput"
+[    16.144] (II) evdev: Logitech USB Receiver: Close
+[    16.144] (II) UnloadModule: "evdev"
+[    16.144] (II) evdev: Sleep Button: Close
+[    16.144] (II) UnloadModule: "evdev"
+[    16.144] (II) evdev: Power Button: Close
+[    16.144] (II) UnloadModule: "evdev"
+[    16.144] (II) evdev: Video Bus: Close
+[    16.144] (II) UnloadModule: "evdev"
+[    16.144] (II) evdev: Power Button: Close
+[    16.144] (II) UnloadModule: "evdev"
+[    16.180] (II) NOUVEAU(G0): NVLeaveVT is called.
+[    16.288] (II) Server terminated successfully (0). Closing log file.
