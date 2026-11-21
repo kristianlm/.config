@@ -21,4 +21,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "#ff88ff"))))
+ '(show-paren-match ((t (:foreground "#f8f" :weight ultra-heavy))))
  '(vertical-border ((t (:foreground "#848")))))
